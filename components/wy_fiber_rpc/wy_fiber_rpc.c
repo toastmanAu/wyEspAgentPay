@@ -1,325 +1,368 @@
-/*
- * wy_fiber_rpc.c — Fiber fnn JSON-RPC 2.0 client
- * ================================================
- * Implements wy_fiber_rpc.h against the real fnn API.
- * RPC signatures verified against fnn v0.7.1 on testnet.
- *
- * send_payment  params: { invoice: "fibt1..." }
- *               result: { payment_hash: "0x...", ... }
- *
- * get_payment   params: { payment_hash: "0x..." }
- *               result: { status: "Success"|"Inflight"|"Failed",
- *                         preimage: "0x..." (on Success) }
- *
- * new_invoice   params: { amount: <shannons>, description: "..." }
- *               result: { invoice_address: "fibt1...",
- *                         payment_hash: "0x..." }
- *
- * node_info     params: []
- *               result: { node_id: "0x...", ... }
+/**
+ * wy_fiber_rpc.c — Fiber Network JSON-RPC client implementation
+ * =============================================================
+ * All RPC calls tested against fnn v0.7.0.
+ * Uses esp_http_client + cJSON. No task/thread creation.
  */
-#include "wy_fiber_rpc.h"
 
-#include <string.h>
-#include <stdlib.h>
+#include "wy_fiber_rpc.h"
 #include "esp_http_client.h"
 #include "esp_log.h"
 #include "cJSON.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+#include <string.h>
+#include <stdlib.h>
 
 static const char *TAG = "wy_fiber_rpc";
 
-#define RPC_BUF_SIZE    2048
-#define POLL_INTERVAL   500   /* ms between get_payment polls */
+#define DEFAULT_PAYMENT_TIMEOUT_MS  30000
+#define PAYMENT_POLL_INTERVAL_MS    1000
+#define HTTP_TIMEOUT_MS             10000
+#define RPC_RESP_BUF                4096
 
-/* ── Internal HTTP POST helper ────────────────────────────────── */
+/* ── Internal HTTP helper ──────────────────────────────────────── */
 
 typedef struct {
     char   *buf;
-    int     len;
-    int     cap;
-} _resp_buf_t;
+    size_t  len;
+    size_t  cap;
+} rpc_resp_t;
 
 static esp_err_t _http_event(esp_http_client_event_t *evt)
 {
-    _resp_buf_t *rb = (_resp_buf_t *)evt->user_data;
-    if (evt->event_id == HTTP_EVENT_ON_DATA && rb) {
-        int to_copy = evt->data_len;
-        if (rb->len + to_copy >= rb->cap - 1) {
-            to_copy = rb->cap - rb->len - 1;
+    rpc_resp_t *r = (rpc_resp_t *)evt->user_data;
+    if (!r) return ESP_OK;
+
+    switch (evt->event_id) {
+    case HTTP_EVENT_ON_DATA:
+        if (r->len + evt->data_len < r->cap) {
+            memcpy(r->buf + r->len, evt->data, evt->data_len);
+            r->len += evt->data_len;
+            r->buf[r->len] = '\0';
         }
-        if (to_copy > 0) {
-            memcpy(rb->buf + rb->len, evt->data, to_copy);
-            rb->len += to_copy;
-            rb->buf[rb->len] = '\0';
-        }
+        break;
+    default:
+        break;
     }
     return ESP_OK;
 }
 
-static esp_err_t _rpc_post(const char *url, const char *body,
-                            char *resp_buf, size_t resp_cap)
+/**
+ * Post a JSON-RPC body to rpc_url, return parsed cJSON response.
+ * Caller must cJSON_Delete() the result.
+ * Returns NULL on transport or parse error.
+ */
+static cJSON *_rpc_call(const char *rpc_url, const char *body)
 {
-    _resp_buf_t rb = { .buf = resp_buf, .len = 0, .cap = (int)resp_cap };
-    resp_buf[0] = '\0';
+    char resp_buf[RPC_RESP_BUF] = {0};
+    rpc_resp_t resp = { .buf = resp_buf, .len = 0, .cap = RPC_RESP_BUF - 1 };
 
     esp_http_client_config_t cfg = {
-        .url            = url,
-        .method         = HTTP_METHOD_POST,
-        .timeout_ms     = 10000,
-        .event_handler  = _http_event,
-        .user_data      = &rb,
+        .url         = rpc_url,
+        .method      = HTTP_METHOD_POST,
+        .timeout_ms  = HTTP_TIMEOUT_MS,
+        .event_handler = _http_event,
+        .user_data   = &resp,
     };
     esp_http_client_handle_t client = esp_http_client_init(&cfg);
-    if (!client) return ESP_ERR_NO_MEM;
+    if (!client) return NULL;
 
     esp_http_client_set_header(client, "Content-Type", "application/json");
-    esp_http_client_set_post_field(client, body, (int)strlen(body));
+    esp_http_client_set_post_field(client, body, strlen(body));
 
     esp_err_t err = esp_http_client_perform(client);
-    if (err == ESP_OK) {
-        int status = esp_http_client_get_status_code(client);
-        if (status != 200) {
-            ESP_LOGE(TAG, "HTTP %d from %s", status, url);
-            err = ESP_FAIL;
-        }
-    } else {
-        ESP_LOGE(TAG, "HTTP perform failed: %s", esp_err_to_name(err));
+    esp_http_client_cleanup(client);
+
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "HTTP POST failed: %s", esp_err_to_name(err));
+        return NULL;
     }
 
-    esp_http_client_cleanup(client);
-    return err;
+    cJSON *json = cJSON_Parse(resp_buf);
+    if (!json) {
+        ESP_LOGE(TAG, "JSON parse failed: %.120s", resp_buf);
+    }
+    return json;
 }
 
-/* ── send_payment ─────────────────────────────────────────────── */
-
-esp_err_t wy_fiber_send_payment(const char *rpc_url,
-                                const char *invoice,
-                                char       *payment_hash,
-                                size_t      hash_len)
+/* Check for fnn error object; log and return WY_FIBER_ERR_RPC_ERROR if present */
+static esp_err_t _check_rpc_error(cJSON *root)
 {
-    char body[640];
-    snprintf(body, sizeof(body),
-        "{\"jsonrpc\":\"2.0\",\"method\":\"send_payment\","
-        "\"params\":[{\"invoice\":\"%s\"}],\"id\":1}", invoice);
-
-    char resp[RPC_BUF_SIZE];
-    esp_err_t err = _rpc_post(rpc_url, body, resp, sizeof(resp));
-    if (err != ESP_OK) return err;
-
-    cJSON *root = cJSON_Parse(resp);
-    if (!root) return ESP_FAIL;
-
-    /* Check for RPC error */
-    cJSON *error = cJSON_GetObjectItem(root, "error");
-    if (error) {
-        cJSON *msg = cJSON_GetObjectItem(error, "message");
-        ESP_LOGE(TAG, "send_payment RPC error: %s",
-                 cJSON_IsString(msg) ? msg->valuestring : "unknown");
-        cJSON_Delete(root);
-        return ESP_FAIL;
+    cJSON *err = cJSON_GetObjectItem(root, "error");
+    if (err) {
+        cJSON *msg = cJSON_GetObjectItem(err, "message");
+        ESP_LOGE(TAG, "RPC error: %s", msg ? msg->valuestring : "(no message)");
+        return WY_FIBER_ERR_RPC_ERROR;
     }
+    return ESP_OK;
+}
+
+/* ── node_info ─────────────────────────────────────────────────── */
+
+esp_err_t wy_fiber_node_info(const char *rpc_url, wy_node_info_t *out)
+{
+    const char *body = "{\"jsonrpc\":\"2.0\",\"method\":\"node_info\",\"params\":[],\"id\":1}";
+    cJSON *root = _rpc_call(rpc_url, body);
+    if (!root) return WY_FIBER_ERR_RPC_FAIL;
+
+    esp_err_t ret = _check_rpc_error(root);
+    if (ret != ESP_OK) goto done;
 
     cJSON *result = cJSON_GetObjectItem(root, "result");
-    cJSON *hash   = cJSON_GetObjectItem(result, "payment_hash");
-    if (!cJSON_IsString(hash)) {
-        ESP_LOGE(TAG, "send_payment: no payment_hash in result");
-        cJSON_Delete(root);
-        return ESP_FAIL;
+    if (!result) { ret = WY_FIBER_ERR_PARSE; goto done; }
+
+    if (out) {
+        cJSON *nid = cJSON_GetObjectItem(result, "node_id");
+        cJSON *ver = cJSON_GetObjectItem(result, "version");
+        cJSON *chans = cJSON_GetObjectItem(result, "channels");
+
+        if (nid && cJSON_IsString(nid))
+            strncpy(out->node_id, nid->valuestring, sizeof(out->node_id) - 1);
+        if (ver && cJSON_IsString(ver))
+            strncpy(out->version, ver->valuestring, sizeof(out->version) - 1);
+        out->channel_count = chans ? (uint32_t)cJSON_GetArraySize(chans) : 0;
     }
 
-    strncpy(payment_hash, hash->valuestring, hash_len - 1);
-    payment_hash[hash_len - 1] = '\0';
-
+done:
     cJSON_Delete(root);
-    ESP_LOGI(TAG, "Payment inflight: %s", payment_hash);
-    return ESP_OK;
+    return ret;
 }
 
-/* ── get_payment ──────────────────────────────────────────────── */
+/* ── send_payment ──────────────────────────────────────────────── */
 
-esp_err_t wy_fiber_get_payment(const char          *rpc_url,
-                               const char          *payment_hash,
-                               wy_payment_status_t *status_out,
-                               char                *preimage_out,
-                               size_t               preimage_len)
+esp_err_t wy_fiber_send_payment(const char          *rpc_url,
+                                const char          *invoice,
+                                uint32_t             timeout_ms,
+                                wy_payment_result_t *result)
 {
-    char body[256];
-    snprintf(body, sizeof(body),
-        "{\"jsonrpc\":\"2.0\",\"method\":\"get_payment\","
-        "\"params\":[{\"payment_hash\":\"%s\"}],\"id\":1}", payment_hash);
+    if (timeout_ms == 0) timeout_ms = DEFAULT_PAYMENT_TIMEOUT_MS;
 
-    char resp[RPC_BUF_SIZE];
-    esp_err_t err = _rpc_post(rpc_url, body, resp, sizeof(resp));
-    if (err != ESP_OK) return err;
+    /* Build: {"jsonrpc":"2.0","method":"send_payment","params":[{"invoice":"..."}],"id":1} */
+    cJSON *req   = cJSON_CreateObject();
+    cJSON *params = cJSON_CreateArray();
+    cJSON *p0    = cJSON_CreateObject();
+    cJSON_AddStringToObject(req, "jsonrpc", "2.0");
+    cJSON_AddStringToObject(req, "method",  "send_payment");
+    cJSON_AddStringToObject(p0,  "invoice", invoice);
+    cJSON_AddItemToArray(params, p0);
+    cJSON_AddItemToObject(req, "params", params);
+    cJSON_AddNumberToObject(req, "id", 1);
 
-    cJSON *root = cJSON_Parse(resp);
-    if (!root) return ESP_FAIL;
+    char *body = cJSON_PrintUnformatted(req);
+    cJSON_Delete(req);
+    if (!body) return ESP_ERR_NO_MEM;
 
-    cJSON *error = cJSON_GetObjectItem(root, "error");
-    if (error) {
-        cJSON_Delete(root);
-        *status_out = WY_PAYMENT_UNKNOWN;
-        return ESP_FAIL;
-    }
+    cJSON *root = _rpc_call(rpc_url, body);
+    cJSON_free(body);
+    if (!root) return WY_FIBER_ERR_RPC_FAIL;
 
-    cJSON *result  = cJSON_GetObjectItem(root, "result");
-    cJSON *status  = cJSON_GetObjectItem(result, "status");
+    esp_err_t ret = _check_rpc_error(root);
+    if (ret != ESP_OK) goto done;
 
-    if (!cJSON_IsString(status)) {
-        cJSON_Delete(root);
-        *status_out = WY_PAYMENT_UNKNOWN;
-        return ESP_FAIL;
-    }
+    /* fnn returns payment_hash immediately; payment may still be in-flight */
+    cJSON *res = cJSON_GetObjectItem(root, "result");
+    if (!res) { ret = WY_FIBER_ERR_PARSE; goto done; }
 
-    const char *s = status->valuestring;
-    if (strcmp(s, "Success") == 0) {
-        *status_out = WY_PAYMENT_SUCCESS;
-        /* Extract preimage if buffer provided */
-        if (preimage_out && preimage_len > 0) {
-            cJSON *pre = cJSON_GetObjectItem(result, "preimage");
-            if (cJSON_IsString(pre)) {
-                strncpy(preimage_out, pre->valuestring, preimage_len - 1);
-                preimage_out[preimage_len - 1] = '\0';
-            } else {
-                preimage_out[0] = '\0';
-            }
-        }
-    } else if (strcmp(s, "Inflight") == 0) {
-        *status_out = WY_PAYMENT_INFLIGHT;
-    } else {
-        *status_out = WY_PAYMENT_FAILED;
-        ESP_LOGW(TAG, "Payment failed: %s", payment_hash);
-    }
+    char payment_hash[66] = {0};
+    cJSON *ph = cJSON_GetObjectItem(res, "payment_hash");
+    if (!ph || !cJSON_IsString(ph)) { ret = WY_FIBER_ERR_PARSE; goto done; }
+    strncpy(payment_hash, ph->valuestring, sizeof(payment_hash) - 1);
 
     cJSON_Delete(root);
-    return ESP_OK;
-}
+    root = NULL;
 
-/* ── pay_and_wait ─────────────────────────────────────────────── */
-
-esp_err_t wy_fiber_pay_and_wait(const char *rpc_url,
-                                const char *invoice,
-                                char       *preimage_out,
-                                size_t      preimage_len,
-                                uint32_t    timeout_ms)
-{
-    char payment_hash[70] = {0};
-
-    esp_err_t err = wy_fiber_send_payment(rpc_url, invoice,
-                                          payment_hash, sizeof(payment_hash));
-    if (err != ESP_OK) return err;
-
+    /* Poll for settlement */
     uint32_t elapsed = 0;
     while (elapsed < timeout_ms) {
-        vTaskDelay(pdMS_TO_TICKS(POLL_INTERVAL));
-        elapsed += POLL_INTERVAL;
+        vTaskDelay(pdMS_TO_TICKS(PAYMENT_POLL_INTERVAL_MS));
+        elapsed += PAYMENT_POLL_INTERVAL_MS;
 
+        char preimage_buf[66] = {0};
         wy_payment_status_t status;
-        char preimage[70] = {0};
-
-        err = wy_fiber_get_payment(rpc_url, payment_hash,
-                                   &status, preimage, sizeof(preimage));
-        if (err != ESP_OK) continue;  /* transient RPC error — keep polling */
+        ret = wy_fiber_get_payment_status(rpc_url, payment_hash,
+                                          &status, preimage_buf, sizeof(preimage_buf));
+        if (ret != ESP_OK) continue;
 
         if (status == WY_PAYMENT_SUCCESS) {
-            ESP_LOGI(TAG, "Payment settled in %ums", (unsigned)elapsed);
-            if (preimage_out && preimage_len > 0) {
-                strncpy(preimage_out, preimage, preimage_len - 1);
-                preimage_out[preimage_len - 1] = '\0';
+            if (result) {
+                strncpy(result->payment_hash, payment_hash, sizeof(result->payment_hash) - 1);
+                strncpy(result->preimage,     preimage_buf,  sizeof(result->preimage) - 1);
+                result->status = WY_PAYMENT_SUCCESS;
             }
             return ESP_OK;
         }
         if (status == WY_PAYMENT_FAILED) {
-            ESP_LOGE(TAG, "Payment failed after %ums", (unsigned)elapsed);
-            return ESP_FAIL;
+            if (result) result->status = WY_PAYMENT_FAILED;
+            return WY_FIBER_ERR_REJECTED;
         }
-        /* WY_PAYMENT_INFLIGHT — keep polling */
     }
 
-    ESP_LOGE(TAG, "Payment timed out after %ums", (unsigned)timeout_ms);
-    return ESP_ERR_TIMEOUT;
+    if (result) result->status = WY_PAYMENT_UNKNOWN;
+    return WY_FIBER_ERR_TIMEOUT;
+
+done:
+    if (root) cJSON_Delete(root);
+    return ret;
 }
 
-/* ── new_invoice ──────────────────────────────────────────────── */
+/* ── get_payment_status ────────────────────────────────────────── */
 
-esp_err_t wy_fiber_new_invoice(const char *rpc_url,
-                               uint64_t    amount_shannons,
-                               const char *description,
-                               char       *invoice_out,
-                               size_t      invoice_len,
-                               char       *payment_hash_out,
-                               size_t      hash_len)
+esp_err_t wy_fiber_get_payment_status(const char          *rpc_url,
+                                      const char          *payment_hash,
+                                      wy_payment_status_t *status_out,
+                                      char                *preimage_out,
+                                      size_t               preimage_len)
 {
-    char body[512];
-    snprintf(body, sizeof(body),
-        "{\"jsonrpc\":\"2.0\",\"method\":\"new_invoice\","
-        "\"params\":[{\"amount\":%llu,\"description\":\"%s\"}],\"id\":1}",
-        (unsigned long long)amount_shannons, description);
+    cJSON *req    = cJSON_CreateObject();
+    cJSON *params = cJSON_CreateArray();
+    cJSON *p0     = cJSON_CreateObject();
+    cJSON_AddStringToObject(req, "jsonrpc", "2.0");
+    cJSON_AddStringToObject(req, "method",  "get_payment");
+    cJSON_AddStringToObject(p0,  "payment_hash", payment_hash);
+    cJSON_AddItemToArray(params, p0);
+    cJSON_AddItemToObject(req, "params", params);
+    cJSON_AddNumberToObject(req, "id", 1);
 
-    char resp[RPC_BUF_SIZE];
-    esp_err_t err = _rpc_post(rpc_url, body, resp, sizeof(resp));
-    if (err != ESP_OK) return err;
+    char *body = cJSON_PrintUnformatted(req);
+    cJSON_Delete(req);
+    if (!body) return ESP_ERR_NO_MEM;
 
-    cJSON *root = cJSON_Parse(resp);
-    if (!root) return ESP_FAIL;
+    cJSON *root = _rpc_call(rpc_url, body);
+    cJSON_free(body);
+    if (!root) return WY_FIBER_ERR_RPC_FAIL;
 
-    cJSON *error = cJSON_GetObjectItem(root, "error");
-    if (error) {
-        cJSON *msg = cJSON_GetObjectItem(error, "message");
-        ESP_LOGE(TAG, "new_invoice error: %s",
-                 cJSON_IsString(msg) ? msg->valuestring : "unknown");
-        cJSON_Delete(root);
-        return ESP_FAIL;
+    esp_err_t ret = _check_rpc_error(root);
+    if (ret != ESP_OK) goto done;
+
+    cJSON *res = cJSON_GetObjectItem(root, "result");
+    if (!res) { ret = WY_FIBER_ERR_PARSE; goto done; }
+
+    /* fnn status field: "Created"|"InFlight"|"Success"|"Failed" */
+    cJSON *status_j = cJSON_GetObjectItem(res, "status");
+    if (status_j && cJSON_IsString(status_j)) {
+        const char *s = status_j->valuestring;
+        if      (strcmp(s, "Success") == 0) *status_out = WY_PAYMENT_SUCCESS;
+        else if (strcmp(s, "Failed")  == 0) *status_out = WY_PAYMENT_FAILED;
+        else                                *status_out = WY_PAYMENT_PENDING;
+    } else {
+        *status_out = WY_PAYMENT_UNKNOWN;
     }
 
-    cJSON *result  = cJSON_GetObjectItem(root, "result");
-    cJSON *invoice = cJSON_GetObjectItem(result, "invoice_address");
-    cJSON *hash    = cJSON_GetObjectItem(result, "payment_hash");
-
-    if (!cJSON_IsString(invoice)) {
-        cJSON_Delete(root);
-        return ESP_FAIL;
+    if (*status_out == WY_PAYMENT_SUCCESS && preimage_out) {
+        cJSON *pre = cJSON_GetObjectItem(res, "preimage");
+        if (pre && cJSON_IsString(pre)) {
+            strncpy(preimage_out, pre->valuestring, preimage_len - 1);
+            preimage_out[preimage_len - 1] = '\0';
+        }
     }
 
-    strncpy(invoice_out, invoice->valuestring, invoice_len - 1);
-    invoice_out[invoice_len - 1] = '\0';
-
-    if (payment_hash_out && hash_len > 0 && cJSON_IsString(hash)) {
-        strncpy(payment_hash_out, hash->valuestring, hash_len - 1);
-        payment_hash_out[hash_len - 1] = '\0';
-    }
-
+done:
     cJSON_Delete(root);
-    return ESP_OK;
+    return ret;
 }
 
-/* ── node_info ────────────────────────────────────────────────── */
+/* ── new_hold_invoice ──────────────────────────────────────────── */
 
-esp_err_t wy_fiber_node_info(const char *rpc_url,
-                             char       *node_id_out,
-                             size_t      node_id_len)
+esp_err_t wy_fiber_new_hold_invoice(const char *rpc_url,
+                                    uint64_t    amount_shannons,
+                                    const char *description,
+                                    char       *invoice_out,
+                                    size_t      out_len)
 {
-    const char *body =
-        "{\"jsonrpc\":\"2.0\",\"method\":\"node_info\","
-        "\"params\":[],\"id\":1}";
+    cJSON *req    = cJSON_CreateObject();
+    cJSON *params = cJSON_CreateArray();
+    cJSON *p0     = cJSON_CreateObject();
+    cJSON_AddStringToObject(req, "jsonrpc", "2.0");
+    cJSON_AddStringToObject(req, "method",  "new_invoice");
+    /* amount as string — fnn expects uint128 in some versions */
+    char amount_str[24];
+    snprintf(amount_str, sizeof(amount_str), "%llu", (unsigned long long)amount_shannons);
+    cJSON_AddStringToObject(p0, "amount",      amount_str);
+    cJSON_AddStringToObject(p0, "description", description ? description : "");
+    cJSON_AddItemToArray(params, p0);
+    cJSON_AddItemToObject(req, "params", params);
+    cJSON_AddNumberToObject(req, "id", 1);
 
-    char resp[RPC_BUF_SIZE];
-    esp_err_t err = _rpc_post(rpc_url, body, resp, sizeof(resp));
-    if (err != ESP_OK) return err;
+    char *body = cJSON_PrintUnformatted(req);
+    cJSON_Delete(req);
+    if (!body) return ESP_ERR_NO_MEM;
 
-    cJSON *root   = cJSON_Parse(resp);
-    if (!root) return ESP_FAIL;
+    cJSON *root = _rpc_call(rpc_url, body);
+    cJSON_free(body);
+    if (!root) return WY_FIBER_ERR_RPC_FAIL;
 
-    cJSON *result  = cJSON_GetObjectItem(root, "result");
-    cJSON *node_id = cJSON_GetObjectItem(result, "node_id");
+    esp_err_t ret = _check_rpc_error(root);
+    if (ret != ESP_OK) goto done;
 
-    if (cJSON_IsString(node_id) && node_id_out && node_id_len > 0) {
-        strncpy(node_id_out, node_id->valuestring, node_id_len - 1);
-        node_id_out[node_id_len - 1] = '\0';
+    cJSON *res     = cJSON_GetObjectItem(root, "result");
+    cJSON *invoice = res ? cJSON_GetObjectItem(res, "invoice_address") : NULL;
+    if (!invoice || !cJSON_IsString(invoice)) {
+        ret = WY_FIBER_ERR_PARSE;
+        goto done;
     }
 
+    if (strlen(invoice->valuestring) >= out_len) {
+        ret = WY_FIBER_ERR_BUFFER;
+        goto done;
+    }
+    strncpy(invoice_out, invoice->valuestring, out_len - 1);
+    invoice_out[out_len - 1] = '\0';
+
+done:
     cJSON_Delete(root);
-    return (result != NULL) ? ESP_OK : ESP_FAIL;
+    return ret;
+}
+
+/* ── settle_hold / cancel_hold ─────────────────────────────────── */
+
+esp_err_t wy_fiber_settle_hold(const char *rpc_url,
+                               const char *payment_hash,
+                               const char *preimage)
+{
+    cJSON *req    = cJSON_CreateObject();
+    cJSON *params = cJSON_CreateArray();
+    cJSON *p0     = cJSON_CreateObject();
+    cJSON_AddStringToObject(req, "jsonrpc", "2.0");
+    cJSON_AddStringToObject(req, "method",  "settle_invoice");
+    cJSON_AddStringToObject(p0,  "payment_hash", payment_hash);
+    cJSON_AddStringToObject(p0,  "preimage",      preimage);
+    cJSON_AddItemToArray(params, p0);
+    cJSON_AddItemToObject(req, "params", params);
+    cJSON_AddNumberToObject(req, "id", 1);
+
+    char *body = cJSON_PrintUnformatted(req);
+    cJSON_Delete(req);
+    if (!body) return ESP_ERR_NO_MEM;
+
+    cJSON *root = _rpc_call(rpc_url, body);
+    cJSON_free(body);
+    if (!root) return WY_FIBER_ERR_RPC_FAIL;
+
+    esp_err_t ret = _check_rpc_error(root);
+    cJSON_Delete(root);
+    return ret;
+}
+
+esp_err_t wy_fiber_cancel_hold(const char *rpc_url, const char *payment_hash)
+{
+    cJSON *req    = cJSON_CreateObject();
+    cJSON *params = cJSON_CreateArray();
+    cJSON *p0     = cJSON_CreateObject();
+    cJSON_AddStringToObject(req, "jsonrpc", "2.0");
+    cJSON_AddStringToObject(req, "method",  "cancel_invoice");
+    cJSON_AddStringToObject(p0,  "payment_hash", payment_hash);
+    cJSON_AddItemToArray(params, p0);
+    cJSON_AddItemToObject(req, "params", params);
+    cJSON_AddNumberToObject(req, "id", 1);
+
+    char *body = cJSON_PrintUnformatted(req);
+    cJSON_Delete(req);
+    if (!body) return ESP_ERR_NO_MEM;
+
+    cJSON *root = _rpc_call(rpc_url, body);
+    cJSON_free(body);
+    if (!root) return WY_FIBER_ERR_RPC_FAIL;
+
+    esp_err_t ret = _check_rpc_error(root);
+    cJSON_Delete(root);
+    return ret;
 }

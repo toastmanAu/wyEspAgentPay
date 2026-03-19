@@ -1,116 +1,165 @@
-/*
- * wy_x402.c — HTTP 402 Payment Required handler
+/**
+ * wy_x402.c — HTTP 402 intercept implementation
  */
-#include "wy_x402.h"
-#include "wy_fiber_rpc.h"
 
-#include <string.h>
-#include <stdlib.h>
+#include "wy_x402.h"
+#include "esp_http_client.h"
 #include "esp_log.h"
 #include "cJSON.h"
+#include <string.h>
+#include <stdlib.h>
 
 static const char *TAG = "wy_x402";
 
-#define BODY_BUF_SIZE  1024
+#define X402_BODY_BUF   1024
+#define PROOF_HDR_LEN   140   /* "preimage_hex:payment_hash_hex\0" */
 
-esp_err_t wy_x402_handle(esp_http_client_handle_t client,
-                         const char              *fiber_rpc_url,
-                         char                    *proof_out,
-                         size_t                   proof_len,
-                         uint32_t                 timeout_ms)
+/* ── Internal HTTP helper ──────────────────────────────────────── */
+
+typedef struct {
+    char  *buf;
+    size_t len;
+    size_t cap;
+} http_resp_t;
+
+static esp_err_t _evt(esp_http_client_event_t *evt)
 {
-    /* ── 1. Verify we actually got a 402 ─────────────────────── */
-    int status = esp_http_client_get_status_code(client);
-    if (status != 402) {
-        ESP_LOGW(TAG, "Called on non-402 response (got %d)", status);
-        return ESP_ERR_INVALID_STATE;
+    http_resp_t *r = (http_resp_t *)evt->user_data;
+    if (!r) return ESP_OK;
+    if (evt->event_id == HTTP_EVENT_ON_DATA) {
+        size_t copy = evt->data_len;
+        if (r->len + copy >= r->cap) copy = r->cap - r->len - 1;
+        if (copy > 0) {
+            memcpy(r->buf + r->len, evt->data, copy);
+            r->len += copy;
+            r->buf[r->len] = '\0';
+        }
+    }
+    return ESP_OK;
+}
+
+static esp_err_t _do_request(const char  *url,
+                              const char  *method,
+                              const char  *body,
+                              const char  *proof_header, /* NULL if first attempt */
+                              char        *resp_buf,
+                              size_t       resp_len,
+                              int         *status_out)
+{
+    http_resp_t resp = { .buf = resp_buf, .len = 0, .cap = resp_len };
+
+    esp_http_client_config_t cfg = {
+        .url           = url,
+        .method        = (strcasecmp(method, "POST") == 0) ? HTTP_METHOD_POST : HTTP_METHOD_GET,
+        .timeout_ms    = 15000,
+        .event_handler = _evt,
+        .user_data     = &resp,
+    };
+    esp_http_client_handle_t client = esp_http_client_init(&cfg);
+    if (!client) return ESP_ERR_NO_MEM;
+
+    if (body) {
+        esp_http_client_set_header(client, "Content-Type", "application/json");
+        esp_http_client_set_post_field(client, body, strlen(body));
+    }
+    if (proof_header) {
+        /* X-Payment-Proof: <preimage_hex>:<payment_hash_hex> */
+        esp_http_client_set_header(client, "X-Payment-Proof", proof_header);
     }
 
-    /* ── 2. Read 402 body ─────────────────────────────────────── */
-    int content_len = esp_http_client_get_content_length(client);
-    if (content_len <= 0) content_len = BODY_BUF_SIZE - 1;
-    if (content_len >= BODY_BUF_SIZE) content_len = BODY_BUF_SIZE - 1;
-
-    char *body = malloc(content_len + 1);
-    if (!body) return ESP_ERR_NO_MEM;
-
-    int read = esp_http_client_read(client, body, content_len);
-    if (read < 0) {
-        free(body);
-        ESP_LOGE(TAG, "Failed to read 402 body");
-        return ESP_FAIL;
+    esp_err_t err = esp_http_client_perform(client);
+    if (err == ESP_OK && status_out) {
+        *status_out = esp_http_client_get_status_code(client);
     }
-    body[read] = '\0';
-    ESP_LOGD(TAG, "402 body: %s", body);
+    esp_http_client_cleanup(client);
+    return err;
+}
 
-    /* ── 3. Parse Fiber invoice from body ─────────────────────── */
-    cJSON *root    = cJSON_Parse(body);
-    free(body);
-    if (!root) {
-        ESP_LOGE(TAG, "402 body is not valid JSON");
-        return ESP_FAIL;
-    }
+/* ── Parse 402 body ────────────────────────────────────────────── */
 
+static esp_err_t _parse_402(const char *body,
+                             char       *invoice_out,
+                             size_t      invoice_len)
+{
+    cJSON *root = cJSON_Parse(body);
+    if (!root) return ESP_FAIL;
+
+    esp_err_t ret = ESP_FAIL;
     cJSON *payment = cJSON_GetObjectItem(root, "payment");
-    cJSON *inv_obj = cJSON_GetObjectItem(payment, "fiber_invoice");
+    if (!payment) goto done;
 
-    if (!cJSON_IsString(inv_obj)) {
-        ESP_LOGE(TAG, "402 body missing payment.fiber_invoice");
-        cJSON_Delete(root);
-        return ESP_FAIL;
+    cJSON *inv = cJSON_GetObjectItem(payment, "fiber_invoice");
+    if (!inv || !cJSON_IsString(inv)) goto done;
+
+    if (strlen(inv->valuestring) >= invoice_len) goto done;
+
+    strncpy(invoice_out, inv->valuestring, invoice_len - 1);
+    invoice_out[invoice_len - 1] = '\0';
+    ret = ESP_OK;
+
+done:
+    cJSON_Delete(root);
+    return ret;
+}
+
+/* ── Public API ────────────────────────────────────────────────── */
+
+esp_err_t wy_x402_perform(const char              *url,
+                           const char              *method,
+                           const char              *post_body,
+                           const wy_x402_config_t  *x402_cfg,
+                           char                    *resp_buf,
+                           size_t                   resp_len,
+                           int                     *http_status,
+                           wy_payment_result_t     *payment_out)
+{
+    int status = 0;
+
+    /* First attempt */
+    esp_err_t err = _do_request(url, method, post_body, NULL,
+                                resp_buf, resp_len, &status);
+    if (err != ESP_OK) return err;
+
+    if (status != 402) {
+        if (http_status) *http_status = status;
+        return ESP_OK;
     }
 
-    char invoice[520];
-    strncpy(invoice, inv_obj->valuestring, sizeof(invoice) - 1);
-    invoice[sizeof(invoice) - 1] = '\0';
-    cJSON_Delete(root);
+    ESP_LOGI(TAG, "402 received — parsing payment request");
 
-    ESP_LOGI(TAG, "Paying invoice: %.40s...", invoice);
-
-    /* ── 4. Pay and wait for settlement ──────────────────────── */
-    char preimage[70] = {0};
-    char pay_hash[70] = {0};
-
-    /* pay_and_wait gives us preimage directly */
-    esp_err_t err = wy_fiber_pay_and_wait(fiber_rpc_url, invoice,
-                                          preimage, sizeof(preimage),
-                                          timeout_ms);
+    /* Parse invoice from 402 body */
+    char invoice[512] = {0};
+    err = _parse_402(resp_buf, invoice, sizeof(invoice));
     if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Payment failed: %s", esp_err_to_name(err));
+        ESP_LOGE(TAG, "Failed to parse 402 body: %.120s", resp_buf);
+        return err;
+    }
+    ESP_LOGI(TAG, "Invoice: %.40s...", invoice);
+
+    /* Pay via Fiber */
+    wy_payment_result_t pay_result = {0};
+    err = wy_fiber_send_payment(x402_cfg->fiber_rpc_url,
+                                invoice,
+                                x402_cfg->payment_timeout_ms,
+                                &pay_result);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Payment failed: 0x%x", err);
         return err;
     }
 
-    /* We also need the payment_hash for the proof header.
-     * pay_and_wait doesn't return it directly — re-derive by
-     * sending again? No — instead we call send_payment + poll
-     * separately when we need both. Use the two-step path: */
+    ESP_LOGI(TAG, "Payment settled — hash: %.16s...", pay_result.payment_hash);
 
-    /* Actually: preimage IS the proof for the payer side.
-     * Standard x402 proof = "preimage:payment_hash"
-     * We have the preimage from pay_and_wait.
-     * We can get payment_hash by re-checking payment status
-     * or by calling send_payment first and caching it.
-     *
-     * For now: just pass the preimage alone — servers that
-     * only need proof-of-payment accept this. TODO: two-step
-     * path to capture hash for full "preimage:hash" format.
-     */
-    if (strlen(preimage) == 0) {
-        ESP_LOGW(TAG, "Settled but no preimage returned — using placeholder");
-        strncpy(preimage, "settled", sizeof(preimage) - 1);
-    }
+    if (payment_out) memcpy(payment_out, &pay_result, sizeof(wy_payment_result_t));
 
-    /* ── 5. Build X-Payment-Proof header value ────────────────── */
-    /* Format: "preimage:payment_hash"
-     * If we only have preimage, use "preimage:unknown" as fallback */
-    int written = snprintf(proof_out, proof_len, "%s:%s",
-                           preimage,
-                           strlen(pay_hash) > 0 ? pay_hash : "confirmed");
-    if (written < 0 || (size_t)written >= proof_len) {
-        ESP_LOGE(TAG, "proof_out buffer too small");
-        return ESP_ERR_INVALID_SIZE;
-    }
+    /* Build proof header: "<preimage>:<payment_hash>" */
+    char proof[PROOF_HDR_LEN] = {0};
+    snprintf(proof, sizeof(proof), "%s:%s", pay_result.preimage, pay_result.payment_hash);
 
-    ESP_LOGI(TAG, "Payment proof ready: %.30s...", proof_out);
-    return ESP_OK;
+    /* Retry with proof */
+    memset(resp_buf, 0, resp_len);
+    err = _do_request(url, method, post_body, proof,
+                      resp_buf, resp_len, &status);
+    if (http_status) *http_status = status;
+
+    return err;
 }

@@ -1,121 +1,121 @@
-/*
- * wy_fiber_rpc.h — Fiber payment channel RPC client for ESP-IDF
- * ==============================================================
- * Wraps the fnn JSON-RPC 2.0 API for payment operations.
- * All calls are synchronous (blocking). Designed for ESP32-P4
- * but compatible with any ESP32 variant with enough heap.
+/**
+ * wy_fiber_rpc.h — Fiber Network JSON-RPC client for ESP32
+ * =========================================================
+ * Wraps fnn v0.7.x RPC methods needed for x402 payment flows.
+ * All calls are synchronous (blocking). No dynamic allocation
+ * beyond cJSON internals — safe for ESP32 heap constraints.
  *
- * RPC methods covered:
- *   send_payment       — pay a BOLT11-style Fiber invoice
- *   get_payment        — poll payment status by hash
- *   new_invoice        — generate a receivable invoice (provider role)
- *   node_info          — sanity-check node connectivity
- *
- * No heap allocations survive past each function call.
- * All output buffers are caller-owned fixed-size arrays.
+ * Tested against fnn v0.7.0 (ckbnode, 192.168.68.105:8227)
  */
 #pragma once
 
 #include <stdint.h>
-#include <stddef.h>
+#include <stdbool.h>
 #include "esp_err.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* ── Payment status ───────────────────────────────────────────── */
+/* ── Error codes ─────────────────────────────────────────────── */
+#define WY_FIBER_ERR_BASE          0x9000
+#define WY_FIBER_ERR_RPC_FAIL      (WY_FIBER_ERR_BASE + 1)  /* HTTP/transport error */
+#define WY_FIBER_ERR_RPC_ERROR     (WY_FIBER_ERR_BASE + 2)  /* fnn returned {error:...} */
+#define WY_FIBER_ERR_PARSE         (WY_FIBER_ERR_BASE + 3)  /* JSON parse failure */
+#define WY_FIBER_ERR_TIMEOUT       (WY_FIBER_ERR_BASE + 4)  /* payment poll timed out */
+#define WY_FIBER_ERR_REJECTED      (WY_FIBER_ERR_BASE + 5)  /* payment failed/rejected */
+#define WY_FIBER_ERR_BUFFER        (WY_FIBER_ERR_BASE + 6)  /* output buffer too small */
+
+/* ── Payment status ──────────────────────────────────────────── */
 typedef enum {
-    WY_PAYMENT_INFLIGHT  = 0,
-    WY_PAYMENT_SUCCESS   = 1,
-    WY_PAYMENT_FAILED    = 2,
-    WY_PAYMENT_UNKNOWN   = 3,
+    WY_PAYMENT_PENDING = 0,
+    WY_PAYMENT_SUCCESS,
+    WY_PAYMENT_FAILED,
+    WY_PAYMENT_UNKNOWN,
 } wy_payment_status_t;
 
-/* ── send_payment ─────────────────────────────────────────────── */
-/*
- * Pay a Fiber invoice.
+/* ── send_payment result ─────────────────────────────────────── */
+typedef struct {
+    char payment_hash[66];   /* hex, 32 bytes = 64 chars + null */
+    char preimage[66];       /* hex, revealed on success */
+    wy_payment_status_t status;
+} wy_payment_result_t;
+
+/* ── node_info result (subset) ───────────────────────────────── */
+typedef struct {
+    char node_id[68];        /* 33-byte compressed pubkey, hex */
+    char version[32];
+    uint32_t channel_count;
+} wy_node_info_t;
+
+/**
+ * @brief Query fnn node info (connectivity check / channel count).
  *
- * @param rpc_url        fnn RPC endpoint, e.g. "http://192.168.1.10:8227"
- * @param invoice        Fiber BOLT11 invoice string (fibt1...)
- * @param payment_hash   OUT: 66-char hex string "0x..." (null-terminated)
- * @param hash_len       size of payment_hash buffer (>=67 bytes)
+ * @param rpc_url   Full URL of fnn RPC, e.g. "http://192.168.1.1:8227"
+ * @param out       Populated on success
+ */
+esp_err_t wy_fiber_node_info(const char *rpc_url, wy_node_info_t *out);
+
+/**
+ * @brief Send a payment for a BOLT11-style Fiber invoice.
+ *        Blocks until fnn reports success/failure or timeout.
  *
- * Returns ESP_OK if the payment was accepted by fnn (inflight).
- * Does NOT mean payment is settled — call wy_fiber_get_payment() to confirm.
+ * @param rpc_url       fnn RPC URL
+ * @param invoice       Fiber invoice string (fibn1...)
+ * @param timeout_ms    Max wait for payment to settle (ms), 0 = default 30s
+ * @param result        Populated with payment_hash, preimage, status on return
  */
 esp_err_t wy_fiber_send_payment(const char *rpc_url,
                                 const char *invoice,
-                                char       *payment_hash,
-                                size_t      hash_len);
+                                uint32_t    timeout_ms,
+                                wy_payment_result_t *result);
 
-/* ── get_payment ──────────────────────────────────────────────── */
-/*
- * Poll payment status by hash.
+/**
+ * @brief Poll payment status by payment_hash.
  *
- * @param rpc_url        fnn RPC endpoint
- * @param payment_hash   hex hash returned by wy_fiber_send_payment()
- * @param status_out     OUT: current payment status
- * @param preimage_out   OUT: payment preimage if SUCCESS (66-char hex, or empty)
- * @param preimage_len   size of preimage_out buffer (>=67 bytes)
+ * @param rpc_url       fnn RPC URL
+ * @param payment_hash  Hex payment hash from send_payment
+ * @param status_out    Current status
+ * @param preimage_out  Buffer for preimage (66 bytes), filled on SUCCESS
+ * @param preimage_len  Size of preimage_out buffer
  */
-esp_err_t wy_fiber_get_payment(const char          *rpc_url,
-                               const char          *payment_hash,
-                               wy_payment_status_t *status_out,
-                               char                *preimage_out,
-                               size_t               preimage_len);
+esp_err_t wy_fiber_get_payment_status(const char          *rpc_url,
+                                      const char          *payment_hash,
+                                      wy_payment_status_t *status_out,
+                                      char                *preimage_out,
+                                      size_t               preimage_len);
 
-/* ── send_payment + poll loop ─────────────────────────────────── */
-/*
- * Pay an invoice and wait for settlement (blocking, with timeout).
+/**
+ * @brief Create a hold invoice (escrow — provider side).
+ *        Used when the ESP32 *receives* payment before delivering a resource.
  *
- * @param rpc_url        fnn RPC endpoint
- * @param invoice        Fiber invoice string
- * @param preimage_out   OUT: payment preimage on success (66-char hex)
- * @param preimage_len   size of preimage_out buffer
- * @param timeout_ms     max wait time in milliseconds
- *
- * Returns ESP_OK only when payment is fully settled (preimage received).
- * Returns ESP_ERR_TIMEOUT if not settled within timeout_ms.
- * Returns ESP_FAIL on RPC or payment error.
+ * @param rpc_url         fnn RPC URL
+ * @param amount_shannons Payment amount in shannons (1 CKB = 10^8 shannons)
+ * @param description     Human-readable purpose string
+ * @param invoice_out     Buffer for resulting invoice string
+ * @param out_len         Size of invoice_out
  */
-esp_err_t wy_fiber_pay_and_wait(const char *rpc_url,
-                                const char *invoice,
-                                char       *preimage_out,
-                                size_t      preimage_len,
-                                uint32_t    timeout_ms);
+esp_err_t wy_fiber_new_hold_invoice(const char *rpc_url,
+                                    uint64_t    amount_shannons,
+                                    const char *description,
+                                    char       *invoice_out,
+                                    size_t      out_len);
 
-/* ── new_invoice ──────────────────────────────────────────────── */
-/*
- * Generate a new invoice to receive payment (provider role).
+/**
+ * @brief Settle a hold invoice by revealing the preimage (provider side).
  *
- * @param rpc_url        fnn RPC endpoint
- * @param amount_shannons  amount in shannons (1 CKB = 10^8 shannons)
- * @param description    human-readable description (max 64 chars)
- * @param invoice_out    OUT: invoice string buffer
- * @param invoice_len    size of invoice_out buffer (>=512 bytes recommended)
- * @param payment_hash_out  OUT: payment hash for this invoice (66-char hex)
- * @param hash_len       size of payment_hash_out buffer
+ * @param rpc_url       fnn RPC URL
+ * @param payment_hash  Hash of the hold invoice to settle
+ * @param preimage      32-byte preimage hex to reveal
  */
-esp_err_t wy_fiber_new_invoice(const char *rpc_url,
-                               uint64_t    amount_shannons,
-                               const char *description,
-                               char       *invoice_out,
-                               size_t      invoice_len,
-                               char       *payment_hash_out,
-                               size_t      hash_len);
+esp_err_t wy_fiber_settle_hold(const char *rpc_url,
+                               const char *payment_hash,
+                               const char *preimage);
 
-/* ── node_info ────────────────────────────────────────────────── */
-/*
- * Fetch node info — use to verify RPC connectivity at startup.
- *
- * @param rpc_url        fnn RPC endpoint
- * @param node_id_out    OUT: node public key hex (68-char, or empty on fail)
- * @param node_id_len    size of node_id_out buffer
+/**
+ * @brief Cancel a hold invoice (provider side — payment not made or expired).
  */
-esp_err_t wy_fiber_node_info(const char *rpc_url,
-                             char       *node_id_out,
-                             size_t      node_id_len);
+esp_err_t wy_fiber_cancel_hold(const char *rpc_url, const char *payment_hash);
 
 #ifdef __cplusplus
 }

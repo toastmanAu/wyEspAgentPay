@@ -1,62 +1,73 @@
-/*
- * wy_x402.h — HTTP 402 Payment Required intercept for ESP-IDF
- * ============================================================
- * Intercepts a 402 response, parses the Fiber invoice, pays it
- * via wy_fiber_rpc, then signals the caller to retry with the
- * correct X-Payment-Proof header.
+/**
+ * wy_x402.h — HTTP 402 Payment Required interceptor
+ * ==================================================
+ * Drop-in wrapper around esp_http_client that handles
+ * x402 payment flows transparently:
  *
- * x402 proof format (standard):  preimage:payment_hash
- * Header:                         X-Payment-Proof: <proof>
- *
- * Usage pattern:
- *   1. Make your HTTP request
- *   2. If status == 402, call wy_x402_handle()
- *   3. If ESP_OK, set X-Payment-Proof header and retry request
+ *   1. Make HTTP request
+ *   2. If 402 → parse Fiber invoice from body
+ *   3. Pay via wy_fiber_rpc
+ *   4. Retry with X-Payment-Proof header
+ *   5. Return final response to caller
  */
 #pragma once
 
-#include <stddef.h>
 #include "esp_err.h"
 #include "esp_http_client.h"
+#include "wy_fiber_rpc.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/*
- * Handle a 402 response.
- *
- * Reads the 402 body, extracts the Fiber invoice, pays it via fnn,
- * waits for settlement, and builds the X-Payment-Proof header value.
- *
- * @param client         ESP HTTP client handle (after perform(), status=402)
- * @param fiber_rpc_url  fnn RPC endpoint, e.g. "http://192.168.1.10:8227"
- * @param proof_out      OUT: proof string for X-Payment-Proof header
- *                            format: "preimage:payment_hash" (null-terminated)
- * @param proof_len      size of proof_out (>=140 bytes recommended)
- * @param timeout_ms     max wait for payment settlement
- *
- * Returns ESP_OK if payment settled and proof_out is populated.
+/**
+ * x402 config — provided once per request (or stored in agentpay_client).
+ * No secrets stored here — fiber_rpc_url points to local/trusted fnn node.
  */
-esp_err_t wy_x402_handle(esp_http_client_handle_t client,
-                         const char              *fiber_rpc_url,
-                         char                    *proof_out,
-                         size_t                   proof_len,
-                         uint32_t                 timeout_ms);
+typedef struct {
+    const char *fiber_rpc_url;   /* e.g. "http://192.168.1.1:8227" */
+    uint32_t    payment_timeout_ms;  /* 0 = default 30s */
+} wy_x402_config_t;
 
-/*
- * Expected 402 body JSON schema:
+/**
+ * Expected x402 body schema (JSON):
  * {
- *   "x402Version": 1,
  *   "payment": {
- *     "scheme": "fiber",
- *     "network": "testnet",
- *     "fiber_invoice": "fibt1...",
+ *     "fiber_invoice": "fibn1...",
  *     "amount_shannons": 1000,
- *     "description": "..."
+ *     "description": "optional"
  *   }
  * }
  */
+
+/**
+ * @brief Perform an HTTP request, handling 402 automatically.
+ *
+ * If the server returns 402, this function:
+ *   - Reads and parses the payment details
+ *   - Pays via Fiber (blocking until settled or timeout)
+ *   - Retries the original request with proof header
+ *
+ * @param url           Target URL
+ * @param method        "GET" or "POST"
+ * @param post_body     JSON body for POST (NULL for GET)
+ * @param x402_cfg      Fiber payment config
+ * @param resp_buf      Buffer for response body
+ * @param resp_len      Size of resp_buf
+ * @param http_status   Final HTTP status code (out)
+ * @param payment_out   Optional — filled with payment details if payment was made
+ *
+ * @return ESP_OK on successful request (regardless of payment);
+ *         WY_FIBER_ERR_* if payment itself failed
+ */
+esp_err_t wy_x402_perform(const char              *url,
+                           const char              *method,
+                           const char              *post_body,
+                           const wy_x402_config_t  *x402_cfg,
+                           char                    *resp_buf,
+                           size_t                   resp_len,
+                           int                     *http_status,
+                           wy_payment_result_t     *payment_out);
 
 #ifdef __cplusplus
 }

@@ -1,95 +1,122 @@
-/*
- * wy_agentpay.h — Top-level AgentPay API for ESP-IDF
- * ====================================================
- * Single-header interface for adding x402 Fiber micropayments
- * to any ESP-IDF HTTP request. Integrates wy_fiber_rpc + wy_x402.
+/**
+ * wy_agentpay.h — Top-level AgentPay client API
+ * ===============================================
+ * Single include for integrating wyEspAgentPay into a project.
  *
- * Typical usage (payer role):
+ * Usage (payer side — device calls paid API):
  *
  *   wy_agentpay_config_t cfg = {
- *       .fiber_rpc_url  = CONFIG_WY_FIBER_RPC_URL,
+ *       .fiber_rpc_url = "http://192.168.1.1:8227",
  *       .payment_timeout_ms = 30000,
  *   };
  *   wy_agentpay_init(&cfg);
  *
- *   char response[1024];
- *   esp_err_t err = wy_agentpay_get("http://service.local/data",
- *                                   response, sizeof(response));
- *   if (err == ESP_OK) { ... use response ... }
+ *   char resp[2048];
+ *   int status;
+ *   esp_err_t err = wy_agentpay_call("https://api.example.com/data",
+ *                                     "GET", NULL, resp, sizeof(resp), &status);
  *
- * Config comes from NVS or Kconfig — no hardcoded secrets.
+ * Usage (provider side — device serves paid resource):
+ *
+ *   wy_agentpay_server_t srv;
+ *   wy_agentpay_server_init(&srv, &cfg, 100);  // 100 shannons per request
+ *   // In your httpd handler:
+ *   wy_payment_result_t pay;
+ *   esp_err_t err = wy_agentpay_server_await_payment(&srv, req, &pay);
+ *   if (err == ESP_OK) { // payment confirmed, send resource }
  */
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
 #include "esp_err.h"
+#include "wy_fiber_rpc.h"
+#include "wy_x402.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* ── Config ───────────────────────────────────────────────────── */
+/* ── Config — no hardcoded secrets, all runtime-provided ──────── */
 
 typedef struct {
-    char     fiber_rpc_url[256];   /* fnn RPC endpoint — from NVS/Kconfig  */
-    uint32_t payment_timeout_ms;   /* max wait for settlement (default 30s) */
-    uint32_t http_timeout_ms;      /* HTTP request timeout (default 10s)    */
+    char     fiber_rpc_url[256];    /* local fnn RPC endpoint */
+    uint32_t payment_timeout_ms;    /* 0 = 30s default */
+    char     node_description[64];  /* optional, used in invoices */
 } wy_agentpay_config_t;
 
-/* ── Lifecycle ────────────────────────────────────────────────── */
+/* ── Payer API ─────────────────────────────────────────────────── */
 
-/*
- * Initialise AgentPay. Call once at startup after WiFi is up.
- * Verifies fnn connectivity via node_info RPC.
+/**
+ * @brief Initialise the AgentPay client. Must be called before wy_agentpay_call().
+ *        Verifies connectivity to fnn node and logs node_id/version.
  */
-esp_err_t wy_agentpay_init(const wy_agentpay_config_t *config);
+esp_err_t wy_agentpay_init(const wy_agentpay_config_t *cfg);
 
-/* ── Payer API ────────────────────────────────────────────────── */
-
-/*
- * HTTP GET with automatic x402 payment handling.
+/**
+ * @brief Make an HTTP call, paying automatically if a 402 is returned.
+ *        Wraps wy_x402_perform with the stored config.
  *
- * Makes request → if 402, pays invoice → retries with proof header.
- * Fills response_buf with the final (post-payment) response body.
- */
-esp_err_t wy_agentpay_get(const char *url,
-                          char       *response_buf,
-                          size_t      buf_len);
-
-/*
- * HTTP POST with automatic x402 payment handling.
- */
-esp_err_t wy_agentpay_post(const char *url,
-                           const char *json_body,
-                           char       *response_buf,
-                           size_t      buf_len);
-
-/* ── Provider API (receive payments) ─────────────────────────── */
-
-/*
- * Generate a 402 response body JSON for a given invoice amount.
- * The server role: call this to build the 402 response payload.
+ * @param url           Target URL
+ * @param method        "GET" or "POST"
+ * @param post_body     JSON body for POST (NULL for GET)
+ * @param resp_buf      Response body buffer
+ * @param resp_len      Buffer size
+ * @param http_status   Final HTTP status (out)
  *
- * @param amount_shannons  how much to charge
- * @param description      what the payment is for
- * @param out_json         OUT: JSON string to send as 402 body
- * @param out_len          size of out_json buffer (>=512 bytes)
+ * @return ESP_OK on success, WY_FIBER_ERR_* on payment failure
  */
-esp_err_t wy_agentpay_make_402(uint64_t    amount_shannons,
-                               const char *description,
-                               char       *out_json,
-                               size_t      out_len);
+esp_err_t wy_agentpay_call(const char *url,
+                            const char *method,
+                            const char *post_body,
+                            char       *resp_buf,
+                            size_t      resp_len,
+                            int        *http_status);
 
-/*
- * Verify an incoming X-Payment-Proof header value.
- * Returns ESP_OK if the preimage is valid for the expected payment_hash.
+/* ── Provider (server) API ─────────────────────────────────────── */
+
+typedef struct {
+    wy_agentpay_config_t cfg;
+    uint64_t             price_shannons;   /* cost per request */
+} wy_agentpay_server_t;
+
+/**
+ * @brief Initialise the server-side context.
  *
- * @param proof_header   value of X-Payment-Proof header from request
- * @param expected_hash  payment hash you issued in the 402
+ * @param srv              Server context to populate
+ * @param cfg              AgentPay config (fiber_rpc_url etc.)
+ * @param price_shannons   Amount to charge per request (1 CKB = 100,000,000)
  */
-esp_err_t wy_agentpay_verify_proof(const char *proof_header,
-                                   const char *expected_hash);
+esp_err_t wy_agentpay_server_init(wy_agentpay_server_t       *srv,
+                                   const wy_agentpay_config_t *cfg,
+                                   uint64_t                    price_shannons);
+
+/**
+ * @brief Generate a 402 response payload for an incoming request.
+ *        Call this when your httpd handler wants to demand payment.
+ *        Returns JSON: {"payment":{"fiber_invoice":"fibn1...","amount_shannons":N}}
+ *
+ * @param srv         Server context
+ * @param out_buf     Buffer for JSON payload
+ * @param out_len     Buffer size
+ * @param hash_out    Payment hash for later verification (66 bytes)
+ */
+esp_err_t wy_agentpay_server_make_challenge(wy_agentpay_server_t *srv,
+                                             char                 *out_buf,
+                                             size_t                out_len,
+                                             char                 *hash_out);
+
+/**
+ * @brief Verify X-Payment-Proof header from a retried request.
+ *        Checks preimage:hash format and confirms settlement with fnn.
+ *
+ * @param srv          Server context
+ * @param proof_header Value of X-Payment-Proof header
+ * @param expected_hash Payment hash issued in the challenge
+ *
+ * @return ESP_OK if payment confirmed, error otherwise
+ */
+esp_err_t wy_agentpay_server_verify_proof(wy_agentpay_server_t *srv,
+                                           const char           *proof_header,
+                                           const char           *expected_hash);
 
 #ifdef __cplusplus
 }

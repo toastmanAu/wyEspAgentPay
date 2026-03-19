@@ -308,112 +308,75 @@ static size_t ar_decompress(const uint8_t *in, size_t in_len,
 
 /* ═══════════════════════════════════════════════════════════════════
  * 3. MOLECULE TABLE PARSER
- *    Fiber serialises InvoiceData as molecule (not protobuf).
- *    Molecule table layout:
- *      [total_size: u32LE]
- *      [offset_table: field_count × u32LE]   (offsets from start of table)
- *      [field0][field1][field2]...
+ *    Uses molecule_reader.h from wyltek-embedded-builder (official
+ *    Nervos molecule C bindings) — no inline reimplementation needed.
  *
  *    RawInvoiceData (FIELD_COUNT=3):
- *      field 0: timestamp    — Uint128 (16 bytes, little-endian u128)
+ *      field 0: timestamp    — Uint128 (16 bytes LE)
  *      field 1: payment_hash — PaymentHash (32 bytes)
- *      field 2: attrs        — InvoiceAttrsVec (variable, we skip for now)
- *
- *    Confirmed from gen/invoice.rs DEFAULT_VALUE:
- *      [68,0,0,0, 16,0,0,0, 32,0,0,0, 64,0,0,0, ...16 bytes ts..., ...32 bytes hash..., 4,0,0,0]
- *      total=68, offsets: field0@16, field1@32, field2@64
+ *      field 2: attrs        — InvoiceAttrsVec (molecule union vector)
  * ═══════════════════════════════════════════════════════════════════ */
 
-static uint32_t mol_u32le(const uint8_t *p)
-{
-    return (uint32_t)p[0] | ((uint32_t)p[1]<<8) |
-           ((uint32_t)p[2]<<16) | ((uint32_t)p[3]<<24);
-}
+#include "molecule_reader.h"   /* from wyltek-embedded-builder/src/ckb/ */
 
 static esp_err_t mol_parse_invoice(const uint8_t *buf, size_t len,
                                     wy_fiber_invoice_t *out)
 {
-    if (len < 4) return WY_INV_ERR_PARSE;
-    uint32_t total = mol_u32le(buf);
-    if ((size_t)total > len || total < 8) return WY_INV_ERR_PARSE;
+    mol_seg_t root = { .ptr = buf, .size = (mol_num_t)len };
 
-    /* Number of fields from offset table size */
-    uint32_t first_offset = mol_u32le(buf + 4);
-    if (first_offset < 8 || first_offset % 4 != 0) return WY_INV_ERR_PARSE;
-    uint32_t nfields = (first_offset - 4) / 4;  /* header=4 + nfields*4 = first_offset */
-    if (nfields < 2) return WY_INV_ERR_PARSE;
-
-    /* Compute field offsets: offset[i] is start, offset[i+1] is end */
-    /* offsets stored at buf[4..4+nfields*4] */
-    uint32_t off[8] = {0};
-    uint32_t n = nfields < 7 ? nfields : 7;
-    for (uint32_t i = 0; i < n; i++)
-        off[i] = mol_u32le(buf + 4 + i * 4);
-    off[n] = total;  /* sentinel end */
-
-    /* Field 0: timestamp (Uint128 = 16 bytes LE) */
-    if (off[0] + 16 <= total) {
-        uint64_t ts_lo = 0, ts_hi = 0;
-        for (int i = 0; i < 8; i++) ts_lo |= (uint64_t)buf[off[0]+i] << (i*8);
-        for (int i = 0; i < 8; i++) ts_hi |= (uint64_t)buf[off[0]+8+i] << (i*8);
-        out->timestamp = ts_lo;  /* use low 64 bits — enough for epoch seconds */
-        (void)ts_hi;
+    /* field 0: timestamp (Uint128 = 16 bytes LE) */
+    mol_seg_t ts_seg = mol_table_slice_by_index(&root, 0);
+    if (ts_seg.size >= 8) {
+        uint64_t ts_lo = 0;
+        for (int i = 0; i < 8; i++) ts_lo |= (uint64_t)ts_seg.ptr[i] << (i*8);
+        out->timestamp = ts_lo;
     }
 
-    /* Field 1: payment_hash (32 bytes) */
-    if (nfields >= 2 && off[1] + 32 <= total) {
-        memcpy(out->payment_hash, buf + off[1], 32);
+    /* field 1: payment_hash (32 bytes) */
+    mol_seg_t ph_seg = mol_table_slice_by_index(&root, 1);
+    if (ph_seg.size == 32) {
+        memcpy(out->payment_hash, ph_seg.ptr, 32);
         for (int i = 0; i < 32; i++)
             snprintf(out->payment_hash_hex + i*2, 3, "%02x", out->payment_hash[i]);
         out->payment_hash_hex[64] = '\0';
     }
 
-    /* Field 2: attrs (InvoiceAttrsVec) — parse for description + expiry */
-    if (nfields >= 3 && off[2] < total) {
-        const uint8_t *attrs_buf = buf + off[2];
-        uint32_t attrs_len = total - off[2];
-        /* InvoiceAttrsVec is a molecule vector: [total:u32][count:u32][item_offsets...][items] */
-        if (attrs_len >= 8) {
-            uint32_t vec_total = mol_u32le(attrs_buf);
-            uint32_t vec_count = mol_u32le(attrs_buf + 4);
-            /* Each InvoiceAttr is a molecule union: [type:u32LE][data] */
-            uint32_t item_off = 8 + vec_count * 4;  /* skip item offset table */
-            for (uint32_t i = 0; i < vec_count && item_off < vec_total; i++) {
-                if (item_off + 4 > vec_total) break;
-                uint32_t union_type = mol_u32le(attrs_buf + item_off);
-                const uint8_t *item_data = attrs_buf + item_off + 4;
-                uint32_t next_off = (i + 1 < vec_count)
-                    ? mol_u32le(attrs_buf + 8 + i * 4)
-                    : vec_total;
-                uint32_t item_total_len = next_off - item_off;
-                uint32_t data_len = item_total_len > 4 ? item_total_len - 4 : 0;
+    /* field 2: attrs (InvoiceAttrsVec — molecule dynvec of union items) */
+    mol_seg_t attrs_seg = mol_table_slice_by_index(&root, 2);
+    if (attrs_seg.size >= 8) {
+        mol_num_t item_count = mol_unpack_number(attrs_seg.ptr);
+        /* Iterate union items: each is [type:u32LE][data] */
+        for (mol_num_t i = 0; i < item_count; i++) {
+            mol_seg_t item = mol_dynvec_slice_by_index(&attrs_seg, i);
+            if (item.size < 4) continue;
+            uint32_t union_type = mol_unpack_number(item.ptr);
+            const uint8_t *data = item.ptr + 4;
+            uint32_t data_len   = item.size - 4;
 
-                switch (union_type) {
-                case 2: /* Description — molecule Bytes: [len:u32][data] */
-                    if (data_len >= 4) {
-                        uint32_t str_len = mol_u32le(item_data);
-                        if (str_len < sizeof(out->description) && str_len <= data_len - 4) {
-                            memcpy(out->description, item_data + 4, str_len);
-                            out->description[str_len] = '\0';
-                        }
+            switch (union_type) {
+            case 2: /* Description — molecule Bytes: [len:u32][utf8] */
+                if (data_len >= 4) {
+                    uint32_t str_len = mol_unpack_number(data);
+                    if (str_len < sizeof(out->description) && str_len <= data_len - 4) {
+                        memcpy(out->description, data + 4, str_len);
+                        out->description[str_len] = '\0';
                     }
-                    break;
-                case 3: /* ExpiryTime — u64LE */
-                    if (data_len >= 8) {
-                        uint64_t exp = 0;
-                        for (int b = 0; b < 8; b++) exp |= (uint64_t)item_data[b] << (b*8);
-                        out->expiry_seconds = exp;
-                    }
-                    break;
-                case 5: /* PaymentSecret — 32 bytes */
-                    if (data_len >= 32) {
-                        memcpy(out->payment_secret, item_data, 32);
-                        out->has_payment_secret = true;
-                    }
-                    break;
-                default: break;
                 }
-                item_off = next_off;
+                break;
+            case 3: /* ExpiryTime — u64 LE */
+                if (data_len >= 8) {
+                    uint64_t exp = 0;
+                    for (int b = 0; b < 8; b++) exp |= (uint64_t)data[b] << (b*8);
+                    out->expiry_seconds = exp;
+                }
+                break;
+            case 5: /* PaymentSecret — 32 bytes */
+                if (data_len >= 32) {
+                    memcpy(out->payment_secret, data, 32);
+                    out->has_payment_secret = true;
+                }
+                break;
+            default: break;
             }
         }
     }

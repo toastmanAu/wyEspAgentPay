@@ -1,0 +1,26 @@
+menu "wyEspAgentPay"
+
+    config WY_FIBER_RPC_URL
+        string "Fiber RPC URL"
+        default "http://192.168.1.10:8227"
+        help
+            URL of the fnn (Fiber Network Node) JSON-RPC endpoint.
+            Example: http://192.168.68.105:8227
+            Populate from NVS at runtime for production deployments.
+
+    config WY_PAYMENT_TIMEOUT_MS
+        int "Payment settlement timeout (ms)"
+        default 30000
+        range 5000 120000
+        help
+            Maximum time to wait for a Fiber payment to settle.
+            30 seconds is reasonable for testnet. Increase for mainnet.
+
+    config WY_HTTP_TIMEOUT_MS
+        int "HTTP request timeout (ms)"
+        default 10000
+        range 2000 60000
+        help
+            Timeout for individual HTTP requests (not including payment time).
+
+endmenu

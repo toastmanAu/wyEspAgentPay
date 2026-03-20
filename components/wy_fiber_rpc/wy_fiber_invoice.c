@@ -347,7 +347,9 @@ static esp_err_t mol_parse_invoice(const uint8_t *buf, size_t len,
         mol_num_t item_count = mol_unpack_number(attrs_seg.ptr);
         /* Iterate union items: each is [type:u32LE][data] */
         for (mol_num_t i = 0; i < item_count; i++) {
-            mol_seg_t item = mol_dynvec_slice_by_index(&attrs_seg, i);
+            mol_seg_res_t item_res = mol_dynvec_slice_by_index(&attrs_seg, i);
+            if (item_res.errno != MOL_OK) continue;
+            mol_seg_t item = item_res.seg;
             if (item.size < 4) continue;
             uint32_t union_type = mol_unpack_number(item.ptr);
             const uint8_t *data = item.ptr + 4;

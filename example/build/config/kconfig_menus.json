@@ -7101,6 +7101,54 @@
     {
         "children": [
             {
+                "children": [],
+                "depends_on": null,
+                "help": "SSID (network name) to connect to.",
+                "id": "EXAMPLE_WIFI_SSID",
+                "name": "EXAMPLE_WIFI_SSID",
+                "range": null,
+                "title": "WiFi SSID",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "WiFi password (WPA or WPA2).",
+                "id": "EXAMPLE_WIFI_PASS",
+                "name": "EXAMPLE_WIFI_PASS",
+                "range": null,
+                "title": "WiFi Password",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "URL of the Fiber Network node RPC endpoint.",
+                "id": "EXAMPLE_FIBER_RPC_URL",
+                "name": "EXAMPLE_FIBER_RPC_URL",
+                "range": null,
+                "title": "Fiber RPC URL",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "URL to call (will return 402 for testing).",
+                "id": "EXAMPLE_TARGET_URL",
+                "name": "EXAMPLE_TARGET_URL",
+                "range": null,
+                "title": "Target URL",
+                "type": "string"
+            }
+        ],
+        "depends_on": null,
+        "id": "example-configuration",
+        "title": "Example Configuration",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
                 "children": [
                     {
                         "children": [],

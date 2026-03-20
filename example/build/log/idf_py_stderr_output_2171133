@@ -1,0 +1,46 @@
+/home/phill/wyEspAgentPay/components/wy_fiber_rpc/wy_fiber_invoice.c: In function 'mol_parse_invoice':
+/home/phill/wyEspAgentPay/components/wy_fiber_rpc/wy_fiber_invoice.c:325:31: warning: initialization discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  325 |     mol_seg_t root = { .ptr = buf, .size = (mol_num_t)len };
+      |                               ^~~
+In file included from /home/phill/wyEspAgentPay/example/main/main.c:21:
+/home/phill/wyEspAgentPay/example/main/main.c: In function 'wifi_init':
+/home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi.h:303:26: error: 'CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM' undeclared (first use in this function); did you mean 'CONFIG_ETH_DMA_RX_BUFFER_NUM'?
+  303 |     .static_rx_buf_num = CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM,\
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:48:30: note: in expansion of macro 'WIFI_INIT_CONFIG_DEFAULT'
+   48 |     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi.h:303:26: note: each undeclared identifier is reported only once for each function it appears in
+  303 |     .static_rx_buf_num = CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM,\
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:48:30: note: in expansion of macro 'WIFI_INIT_CONFIG_DEFAULT'
+   48 |     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi.h:304:27: error: 'CONFIG_ESP_WIFI_DYNAMIC_RX_BUFFER_NUM' undeclared (first use in this function); did you mean 'WIFI_DYNAMIC_TX_BUFFER_NUM'?
+  304 |     .dynamic_rx_buf_num = CONFIG_ESP_WIFI_DYNAMIC_RX_BUFFER_NUM,\
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:48:30: note: in expansion of macro 'WIFI_INIT_CONFIG_DEFAULT'
+   48 |     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi.h:305:20: error: 'CONFIG_ESP_WIFI_TX_BUFFER_TYPE' undeclared (first use in this function); did you mean 'CONFIG_ETH_DMA_TX_BUFFER_NUM'?
+  305 |     .tx_buf_type = CONFIG_ESP_WIFI_TX_BUFFER_TYPE,\
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:48:30: note: in expansion of macro 'WIFI_INIT_CONFIG_DEFAULT'
+   48 |     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi.h:308:25: error: 'CONFIG_ESP_WIFI_DYNAMIC_RX_MGMT_BUF' undeclared (first use in this function)
+  308 |     .rx_mgmt_buf_type = CONFIG_ESP_WIFI_DYNAMIC_RX_MGMT_BUF,\
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:48:30: note: in expansion of macro 'WIFI_INIT_CONFIG_DEFAULT'
+   48 |     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi.h:323:31: error: 'CONFIG_ESP_WIFI_ESPNOW_MAX_ENCRYPT_NUM' undeclared (first use in this function)
+  323 |     .espnow_max_encrypt_num = CONFIG_ESP_WIFI_ESPNOW_MAX_ENCRYPT_NUM, \
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:48:30: note: in expansion of macro 'WIFI_INIT_CONFIG_DEFAULT'
+   48 |     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:76: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5839: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:136: all] Error 2

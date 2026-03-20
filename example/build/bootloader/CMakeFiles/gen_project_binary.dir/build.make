@@ -70,7 +70,7 @@ CMakeFiles/gen_project_binary: .bin_timestamp
 
 .bin_timestamp: bootloader.elf
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/phill/wyEspAgentPay/example/build/bootloader/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating binary image from built executable"
-	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/phill/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32p4 elf2image --flash_mode dio --flash_freq 80m --flash_size 2MB --min-rev-full 1 --max-rev-full 199 -o /home/phill/wyEspAgentPay/example/build/bootloader/bootloader.bin /home/phill/wyEspAgentPay/example/build/bootloader/bootloader.elf
+	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/phill/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32p4 elf2image --flash_mode dio --flash_freq 80m --flash_size 16MB --min-rev-full 1 --max-rev-full 199 -o /home/phill/wyEspAgentPay/example/build/bootloader/bootloader.bin /home/phill/wyEspAgentPay/example/build/bootloader/bootloader.elf
 	/usr/bin/cmake -E echo "Generated /home/phill/wyEspAgentPay/example/build/bootloader/bootloader.bin"
 	/usr/bin/cmake -E md5sum /home/phill/wyEspAgentPay/example/build/bootloader/bootloader.bin > /home/phill/wyEspAgentPay/example/build/bootloader/.bin_timestamp
 

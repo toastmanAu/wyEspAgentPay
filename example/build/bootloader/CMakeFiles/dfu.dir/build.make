@@ -67,7 +67,7 @@ include CMakeFiles/dfu.dir/compiler_depend.make
 include CMakeFiles/dfu.dir/progress.make
 
 CMakeFiles/dfu: bootloader
-	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/phill/esp/esp-idf/tools/mkdfu.py write -o /home/phill/wyEspAgentPay/example/build/bootloader/dfu.bin --json /home/phill/wyEspAgentPay/example/build/bootloader/flasher_args.json --pid 12 --flash-size 2MB
+	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/phill/esp/esp-idf/tools/mkdfu.py write -o /home/phill/wyEspAgentPay/example/build/bootloader/dfu.bin --json /home/phill/wyEspAgentPay/example/build/bootloader/flasher_args.json --pid 12 --flash-size 16MB
 
 dfu: CMakeFiles/dfu
 dfu: CMakeFiles/dfu.dir/build.make

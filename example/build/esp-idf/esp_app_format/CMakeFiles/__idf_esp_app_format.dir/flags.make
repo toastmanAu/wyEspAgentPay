@@ -8,5 +8,5 @@ C_INCLUDES = -I/home/phill/wyEspAgentPay/example/build/config -I/home/phill/esp/
 
 C_FLAGS = -march=rv32imafc_zicsr_zifencei_xesppie -mabi=ilp32f  -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -nostartfiles -Og -fno-shrink-wrap -fmacro-prefix-map=/home/phill/wyEspAgentPay/example=. -fmacro-prefix-map=/home/phill/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration
 
-# Custom defines: esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj_DEFINES = PROJECT_VER="b5c20ff-dirty"; PROJECT_NAME="agentpay_example"
+# Custom defines: esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj_DEFINES = PROJECT_VER="a628ae1-dirty"; PROJECT_NAME="agentpay_example"
 

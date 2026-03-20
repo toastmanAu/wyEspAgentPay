@@ -70,7 +70,7 @@ CMakeFiles/gen_project_binary: .bin_timestamp
 
 .bin_timestamp: agentpay_example.elf
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating binary image from built executable"
-	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/phill/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32p4 elf2image --flash_mode dio --flash_freq 80m --flash_size 2MB --elf-sha256-offset 0xb0 --min-rev-full 1 --max-rev-full 199 -o /home/phill/wyEspAgentPay/example/build/agentpay_example.bin /home/phill/wyEspAgentPay/example/build/agentpay_example.elf
+	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/phill/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32p4 elf2image --flash_mode dio --flash_freq 80m --flash_size 16MB --elf-sha256-offset 0xb0 --min-rev-full 1 --max-rev-full 199 -o /home/phill/wyEspAgentPay/example/build/agentpay_example.bin /home/phill/wyEspAgentPay/example/build/agentpay_example.elf
 	/usr/bin/cmake -E echo "Generated /home/phill/wyEspAgentPay/example/build/agentpay_example.bin"
 	/usr/bin/cmake -E md5sum /home/phill/wyEspAgentPay/example/build/agentpay_example.bin > /home/phill/wyEspAgentPay/example/build/.bin_timestamp
 

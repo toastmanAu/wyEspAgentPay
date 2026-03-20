@@ -1,0 +1,27 @@
+menu "Example Configuration"
+
+    config EXAMPLE_WIFI_SSID
+        string "WiFi SSID"
+        default "your_ssid"
+        help
+            SSID (network name) to connect to.
+
+    config EXAMPLE_WIFI_PASS
+        string "WiFi Password"
+        default "your_password"
+        help
+            WiFi password (WPA or WPA2).
+
+    config EXAMPLE_FIBER_RPC_URL
+        string "Fiber RPC URL"
+        default "http://192.168.68.105:8227"
+        help
+            URL of the Fiber Network node RPC endpoint.
+
+    config EXAMPLE_TARGET_URL
+        string "Target URL"
+        default "http://httpbin.org/status/402"
+        help
+            URL to call (will return 402 for testing).
+
+endmenu

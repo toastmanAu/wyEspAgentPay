@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/phill/wyEspAgentPay/example/main/main.c" "esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj.d"
+  "/home/phill/wyEspAgentPay/example/main/wifi_scan.c" "esp-idf/main/CMakeFiles/__idf_main.dir/wifi_scan.c.obj" "gcc" "esp-idf/main/CMakeFiles/__idf_main.dir/wifi_scan.c.obj.d"
   )
 
 # Targets to which this target links.

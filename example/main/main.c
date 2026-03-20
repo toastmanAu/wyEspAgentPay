@@ -20,6 +20,7 @@
 #include "lwip/sys.h"
 
 #include "wy_agentpay.h"
+#include "wifi_scan.h"
 
 static const char *TAG = "wyAgentPay_P4";
 
@@ -60,14 +61,6 @@ static void event_handler(void* arg, esp_event_base_t event_base,
 void wifi_init_sta(void)
 {
     s_wifi_event_group = xEventGroupCreate();
-
-    ESP_ERROR_CHECK(esp_netif_init());
-
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
-    esp_netif_create_default_wifi_sta();
-
-    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
 
     esp_event_handler_instance_t instance_any_id;
     esp_event_handler_instance_t instance_got_ip;
@@ -197,7 +190,25 @@ void app_main(void)
     ESP_LOGI(TAG, "");
     
     // Connect to WiFi
-    ESP_LOGI(TAG, "Connecting to WiFi...");
+    ESP_LOGI(TAG, "Initializing WiFi for scan...");
+    
+    // Initialize WiFi in station mode first
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    esp_netif_create_default_wifi_sta();
+    
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_start());
+    
+    // Scan for networks BEFORE trying to connect
+    vTaskDelay(pdMS_TO_TICKS(1000));  // Let WiFi stabilize
+    wifi_scan_and_print();
+    ESP_LOGI(TAG, "");
+    
+    // Now try to connect
+    ESP_LOGI(TAG, "Attempting to connect to: %s", CONFIG_EXAMPLE_WIFI_SSID);
     wifi_init_sta();
     
     // Start payment demo (16KB stack for HTTP + payment processing)

@@ -68,7 +68,7 @@ include CMakeFiles/save-defconfig.dir/progress.make
 
 CMakeFiles/save-defconfig:
 	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python /home/phill/esp/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --list-separator=semicolon --env-file /home/phill/wyEspAgentPay/example/build/config.env
-	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python -m kconfgen --list-separator=semicolon --kconfig /home/phill/esp/esp-idf/Kconfig --sdkconfig-rename /home/phill/esp/esp-idf/sdkconfig.rename --config /home/phill/wyEspAgentPay/example/sdkconfig --defaults /home/phill/wyEspAgentPay/example/sdkconfig.defaults --env-file /home/phill/wyEspAgentPay/example/build/config.env --dont-write-deprecated --output savedefconfig /home/phill/wyEspAgentPay/example/sdkconfig.defaults
+	/home/phill/.espressif/python_env/idf5.3_py3.14_env/bin/python -m kconfgen --list-separator=semicolon --kconfig /home/phill/esp/esp-idf/Kconfig --sdkconfig-rename /home/phill/esp/esp-idf/sdkconfig.rename --config /home/phill/wyEspAgentPay/example/sdkconfig --defaults /home/phill/wyEspAgentPay/example/sdkconfig.defaults --defaults /home/phill/wyEspAgentPay/example/sdkconfig.local --env-file /home/phill/wyEspAgentPay/example/build/config.env --dont-write-deprecated --output savedefconfig /home/phill/wyEspAgentPay/example/sdkconfig.defaults
 
 save-defconfig: CMakeFiles/save-defconfig
 save-defconfig: CMakeFiles/save-defconfig.dir/build.make

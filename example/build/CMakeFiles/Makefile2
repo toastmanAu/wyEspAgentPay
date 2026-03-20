@@ -2844,7 +2844,7 @@ esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all: esp-idf/esp_driver_gpio/CMakeFiles
 
 # Build rule for subdir invocation for target.
 esp-idf/riscv/CMakeFiles/__idf_riscv.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/riscv/CMakeFiles/__idf_riscv.dir/rule
@@ -2870,7 +2870,7 @@ esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/all: esp-idf/esp_pm
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 79
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/rule
@@ -2896,7 +2896,7 @@ esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all: esp-idf/mbedtls/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 79
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 78
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/rule
@@ -2917,12 +2917,12 @@ esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/clean:
 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all: esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/build.make esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/build.make esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num= "Built target __idf_mbedtls"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=59 "Built target __idf_mbedtls"
 .PHONY : esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 79
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 78
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/rule
@@ -3000,7 +3000,7 @@ esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/all: esp-idf/mbe
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 79
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 77
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/rule
@@ -3026,7 +3026,7 @@ esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/all: esp-idf/mbedtl
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 79
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 77
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/rule
@@ -3052,7 +3052,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all: esp-idf/mbedtls/m
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 79
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 77
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rule
@@ -3078,7 +3078,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all: esp-idf/mbedtls/mbe
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 69
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 67
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/rule
@@ -3104,7 +3104,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all: esp-idf/esp_app_form
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 68
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 66
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/rule
@@ -3130,7 +3130,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/all: esp-idf/riscv/CMakeFiles
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/rule
@@ -3443,7 +3443,7 @@ esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/all: esp-idf/esp_boot
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 66
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 64
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/rule
@@ -3469,7 +3469,7 @@ esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/all: es
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 66
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 64
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/rule
@@ -3495,7 +3495,7 @@ esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all: esp-idf/esp_partition/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 66
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 64
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/app_update/CMakeFiles/__idf_app_update.dir/rule
@@ -3521,7 +3521,7 @@ esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/all: esp-idf/efuse/CMak
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 66
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 64
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/rule
@@ -3547,7 +3547,7 @@ esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all: esp-idf/bootloader_support/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 65
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 63
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/efuse/CMakeFiles/__idf_efuse.dir/rule
@@ -3755,7 +3755,7 @@ esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all: esp-idf/
 
 # Build rule for subdir invocation for target.
 esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 64
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 62
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/rule
@@ -3781,7 +3781,7 @@ esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/all: esp-idf/spi_flash/CMakeFiles/__i
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 62
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/rule
@@ -3807,7 +3807,7 @@ esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all: esp-idf/esp_system/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 62
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/rule
@@ -3833,7 +3833,7 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all: esp-idf/esp_common/CMake
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/rule
@@ -3965,7 +3965,7 @@ esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all: esp-idf/esp_rom/CMakeFil
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 55
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/rule
@@ -3991,7 +3991,7 @@ esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all: esp-idf/hal/CMakeFiles/__idf_h
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 55
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/rule
@@ -4012,12 +4012,12 @@ esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/clean:
 esp-idf/hal/CMakeFiles/__idf_hal.dir/all: esp-idf/log/CMakeFiles/__idf_log.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/hal/CMakeFiles/__idf_hal.dir/build.make esp-idf/hal/CMakeFiles/__idf_hal.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/hal/CMakeFiles/__idf_hal.dir/build.make esp-idf/hal/CMakeFiles/__idf_hal.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=43,44,45,46,47,48 "Built target __idf_hal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=42,43,44,45,46,47,48 "Built target __idf_hal"
 .PHONY : esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/hal/CMakeFiles/__idf_hal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 56
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 54
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/hal/CMakeFiles/__idf_hal.dir/rule
@@ -4043,7 +4043,7 @@ esp-idf/log/CMakeFiles/__idf_log.dir/all: esp-idf/heap/CMakeFiles/__idf_heap.dir
 
 # Build rule for subdir invocation for target.
 esp-idf/log/CMakeFiles/__idf_log.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 47
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/log/CMakeFiles/__idf_log.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/log/CMakeFiles/__idf_log.dir/rule
@@ -4064,12 +4064,12 @@ esp-idf/log/CMakeFiles/__idf_log.dir/clean:
 esp-idf/heap/CMakeFiles/__idf_heap.dir/all: esp-idf/soc/CMakeFiles/__idf_soc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/heap/CMakeFiles/__idf_heap.dir/build.make esp-idf/heap/CMakeFiles/__idf_heap.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/heap/CMakeFiles/__idf_heap.dir/build.make esp-idf/heap/CMakeFiles/__idf_heap.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=49 "Built target __idf_heap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num= "Built target __idf_heap"
 .PHONY : esp-idf/heap/CMakeFiles/__idf_heap.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/heap/CMakeFiles/__idf_heap.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 47
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/heap/CMakeFiles/__idf_heap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/heap/CMakeFiles/__idf_heap.dir/rule
@@ -4095,7 +4095,7 @@ esp-idf/soc/CMakeFiles/__idf_soc.dir/all: esp-idf/esp_hw_support/CMakeFiles/__id
 
 # Build rule for subdir invocation for target.
 esp-idf/soc/CMakeFiles/__idf_soc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 47
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/soc/CMakeFiles/__idf_soc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/soc/CMakeFiles/__idf_soc.dir/rule
@@ -4121,7 +4121,7 @@ esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all: esp-idf/freertos
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 46
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 44
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rule
@@ -4142,12 +4142,12 @@ esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/clean:
 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all: esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build.make esp-idf/freertos/CMakeFiles/__idf_freertos.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build.make esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=41,42 "Built target __idf_freertos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=41 "Built target __idf_freertos"
 .PHONY : esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 38
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/freertos/CMakeFiles/__idf_freertos.dir/rule
@@ -4173,7 +4173,7 @@ esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all: esp-idf/pthread/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 38
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 37
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/newlib/CMakeFiles/__idf_newlib.dir/rule
@@ -4199,7 +4199,7 @@ esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all: esp-idf/cxx/CMakeFiles/__idf_c
 
 # Build rule for subdir invocation for target.
 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/pthread/CMakeFiles/__idf_pthread.dir/rule
@@ -4225,7 +4225,7 @@ esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all: esp-idf/esp_timer/CMakeFiles/__idf_esp
 
 # Build rule for subdir invocation for target.
 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/cxx/CMakeFiles/__idf_cxx.dir/rule
@@ -4251,7 +4251,7 @@ esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all: esp-idf/esp_driver_gptimer
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/rule
@@ -4277,7 +4277,7 @@ esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all: esp-idf/
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/rule
@@ -4303,7 +4303,7 @@ esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all: esp-idf/esp_driver_uar
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/rule
@@ -4329,7 +4329,7 @@ esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/all: esp-idf/esp_ev
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/rule
@@ -4355,7 +4355,7 @@ esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all: esp-idf/riscv/CMakeFiles/_
 
 # Build rule for subdir invocation for target.
 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/rule
@@ -4381,7 +4381,7 @@ esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all: esp-idf/esp_driver_usb_ser
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/rule
@@ -4407,7 +4407,7 @@ esp-idf/esp_driver_usb_serial_jtag/CMakeFiles/__idf_esp_driver_usb_serial_jtag.d
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_usb_serial_jtag/CMakeFiles/__idf_esp_driver_usb_serial_jtag.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_usb_serial_jtag/CMakeFiles/__idf_esp_driver_usb_serial_jtag.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_usb_serial_jtag/CMakeFiles/__idf_esp_driver_usb_serial_jtag.dir/rule
@@ -4433,7 +4433,7 @@ esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/all: esp-idf/vfs/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/rule
@@ -4459,7 +4459,7 @@ esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all: esp-idf/lwip/CMakeFiles/__idf_lwip.dir
 
 # Build rule for subdir invocation for target.
 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/vfs/CMakeFiles/__idf_vfs.dir/rule
@@ -4485,7 +4485,7 @@ esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all: esp-idf/esp_netif/CMakeFiles/__idf_e
 
 # Build rule for subdir invocation for target.
 esp-idf/lwip/CMakeFiles/__idf_lwip.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/lwip/CMakeFiles/__idf_lwip.dir/rule
@@ -4511,7 +4511,7 @@ esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all: esp-idf/esp_driver_pcnt/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/rule
@@ -4537,7 +4537,7 @@ esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all: esp-idf/esp_dr
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/rule
@@ -4563,7 +4563,7 @@ esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all: esp-idf/esp_driv
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/rule
@@ -4589,7 +4589,7 @@ esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all: esp-idf/esp_
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/rule
@@ -4615,7 +4615,7 @@ esp-idf/esp_driver_ana_cmpr/CMakeFiles/__idf_esp_driver_ana_cmpr.dir/all: esp-id
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_ana_cmpr/CMakeFiles/__idf_esp_driver_ana_cmpr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_ana_cmpr/CMakeFiles/__idf_esp_driver_ana_cmpr.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_ana_cmpr/CMakeFiles/__idf_esp_driver_ana_cmpr.dir/rule
@@ -4641,7 +4641,7 @@ esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all: esp-idf/sdmmc/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/rule
@@ -4667,7 +4667,7 @@ esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all: esp-idf/esp_driver_sdmmc/CMakeFile
 
 # Build rule for subdir invocation for target.
 esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/rule
@@ -4693,7 +4693,7 @@ esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all: esp-idf/esp_
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 23
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/rule
@@ -4719,7 +4719,7 @@ esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all: esp-idf/esp_
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 23
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/rule
@@ -4745,7 +4745,7 @@ esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all: esp-idf/esp_driv
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 22
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 21
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/rule
@@ -4771,7 +4771,7 @@ esp-idf/esp_driver_tsens/CMakeFiles/__idf_esp_driver_tsens.dir/all: esp-idf/esp_
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_tsens/CMakeFiles/__idf_esp_driver_tsens.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_tsens/CMakeFiles/__idf_esp_driver_tsens.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_tsens/CMakeFiles/__idf_esp_driver_tsens.dir/rule
@@ -4797,7 +4797,7 @@ esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all: esp-idf/esp_driv
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/rule
@@ -4823,7 +4823,7 @@ esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all: esp-idf/esp_driv
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/rule
@@ -4849,7 +4849,7 @@ esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all: esp-idf/esp_dr
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 20
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/rule
@@ -4875,7 +4875,7 @@ esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all: esp-idf/dr
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 20
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/rule
@@ -4901,7 +4901,7 @@ esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/nvs_flash/CMakeFiles/__i
 
 # Build rule for subdir invocation for target.
 esp-idf/driver/CMakeFiles/__idf_driver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 19
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 18
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/driver/CMakeFiles/__idf_driver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/driver/CMakeFiles/__idf_driver.dir/rule
@@ -4927,7 +4927,7 @@ esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all: esp-idf/wpa_supplicant/CMa
 
 # Build rule for subdir invocation for target.
 esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/rule
@@ -4953,7 +4953,7 @@ esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all: esp-idf/esp_wifi
 
 # Build rule for subdir invocation for target.
 esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 16
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/rule
@@ -4979,7 +4979,7 @@ esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all: esp-idf/http_parser/CMakeFil
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/rule
@@ -5005,7 +5005,7 @@ esp-idf/unity/CMakeFiles/__idf_unity.dir/all: esp-idf/riscv/CMakeFiles/__idf_ris
 
 # Build rule for subdir invocation for target.
 esp-idf/unity/CMakeFiles/__idf_unity.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/unity/CMakeFiles/__idf_unity.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/unity/CMakeFiles/__idf_unity.dir/rule
@@ -5032,7 +5032,7 @@ esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all: esp-idf/unity/CMakeFiles/__idf_uni
 
 # Build rule for subdir invocation for target.
 esp-idf/cmock/CMakeFiles/__idf_cmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/cmock/CMakeFiles/__idf_cmock.dir/rule
@@ -5058,7 +5058,7 @@ esp-idf/console/CMakeFiles/__idf_console.dir/all: esp-idf/riscv/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/console/CMakeFiles/__idf_console.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/console/CMakeFiles/__idf_console.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/console/CMakeFiles/__idf_console.dir/rule
@@ -5079,12 +5079,12 @@ esp-idf/console/CMakeFiles/__idf_console.dir/clean:
 esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/all: esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/build.make esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/build.make esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num= "Built target __idf_http_parser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=49 "Built target __idf_http_parser"
 .PHONY : esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/rule
@@ -5110,7 +5110,7 @@ esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all: esp-idf/esp_adc/CMakeFiles/__i
 
 # Build rule for subdir invocation for target.
 esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/rule
@@ -5136,7 +5136,7 @@ esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/all: esp-idf/esp_eth/CMakeFiles/__i
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/rule
@@ -5162,7 +5162,7 @@ esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/all: esp-idf/riscv/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/rule
@@ -5189,7 +5189,7 @@ esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all: esp-idf/esp_driv
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/rule
@@ -5215,7 +5215,7 @@ esp-idf/esp_driver_jpeg/CMakeFiles/__idf_esp_driver_jpeg.dir/all: esp-idf/riscv/
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_jpeg/CMakeFiles/__idf_esp_driver_jpeg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_jpeg/CMakeFiles/__idf_esp_driver_jpeg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_jpeg/CMakeFiles/__idf_esp_driver_jpeg.dir/rule
@@ -5241,7 +5241,7 @@ esp-idf/esp_driver_ppa/CMakeFiles/__idf_esp_driver_ppa.dir/all: esp-idf/riscv/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_ppa/CMakeFiles/__idf_esp_driver_ppa.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_ppa/CMakeFiles/__idf_esp_driver_ppa.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_ppa/CMakeFiles/__idf_esp_driver_ppa.dir/rule
@@ -5267,7 +5267,7 @@ esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/all: es
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/rule
@@ -5293,7 +5293,7 @@ esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all: esp-idf/esp_gdbstub/CMakeFiles
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/rule
@@ -5314,12 +5314,12 @@ esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/clean:
 esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all: esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/build.make esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/build.make esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=20 "Built target __idf_esp_gdbstub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num= "Built target __idf_esp_gdbstub"
 .PHONY : esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/rule
@@ -5340,7 +5340,7 @@ esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/clean:
 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num= "Built target __idf_esp_hid"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=20 "Built target __idf_esp_hid"
 .PHONY : esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5366,12 +5366,12 @@ esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/clean:
 esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all: esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build.make esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build.make esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=72 "Built target __idf_tcp_transport"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num= "Built target __idf_tcp_transport"
 .PHONY : esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/rule
@@ -5475,7 +5475,7 @@ esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/all: esp-idf/risc
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/rule
@@ -5501,7 +5501,7 @@ esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/riscv/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/rule
@@ -5527,7 +5527,7 @@ esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all: esp-idf/riscv/CMakeFiles
 
 # Build rule for subdir invocation for target.
 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/rule
@@ -5555,7 +5555,7 @@ esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all: esp-idf/protobuf-c/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 84
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/rule
@@ -5585,7 +5585,7 @@ esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all: esp-idf/protocom
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 84
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/rule
@@ -5611,7 +5611,7 @@ esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all: esp-idf/riscv/CMakeFil
 
 # Build rule for subdir invocation for target.
 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/rule
@@ -5637,7 +5637,7 @@ esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all: esp-idf/riscv/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/rule
@@ -5664,7 +5664,7 @@ esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all: esp-idf/wear_levelling/CMakeFiles/
 
 # Build rule for subdir invocation for target.
 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/rule
@@ -5690,7 +5690,7 @@ esp-idf/json/CMakeFiles/__idf_json.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv
 
 # Build rule for subdir invocation for target.
 esp-idf/json/CMakeFiles/__idf_json.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/json/CMakeFiles/__idf_json.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/json/CMakeFiles/__idf_json.dir/rule
@@ -5711,12 +5711,12 @@ esp-idf/json/CMakeFiles/__idf_json.dir/clean:
 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/build.make esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/build.make esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=59 "Built target __idf_mqtt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num= "Built target __idf_mqtt"
 .PHONY : esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/rule
@@ -5742,7 +5742,7 @@ esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/all: esp-idf/risc
 
 # Build rule for subdir invocation for target.
 esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/rule
@@ -5763,7 +5763,7 @@ esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/clean:
 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build.make esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build.make esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num= "Built target __idf_spiffs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/phill/wyEspAgentPay/example/build/CMakeFiles --progress-num=72 "Built target __idf_spiffs"
 .PHONY : esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5794,7 +5794,7 @@ esp-idf/usb/CMakeFiles/__idf_usb.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.d
 
 # Build rule for subdir invocation for target.
 esp-idf/usb/CMakeFiles/__idf_usb.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/usb/CMakeFiles/__idf_usb.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/usb/CMakeFiles/__idf_usb.dir/rule
@@ -5824,7 +5824,7 @@ esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/js
 
 # Build rule for subdir invocation for target.
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 85
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/rule
@@ -5851,7 +5851,7 @@ esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/all: esp-idf/json/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/rule
@@ -5879,7 +5879,7 @@ esp-idf/wy_x402/CMakeFiles/__idf_wy_x402.dir/all: esp-idf/wy_fiber_rpc/CMakeFile
 
 # Build rule for subdir invocation for target.
 esp-idf/wy_x402/CMakeFiles/__idf_wy_x402.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wy_x402/CMakeFiles/__idf_wy_x402.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/wy_x402/CMakeFiles/__idf_wy_x402.dir/rule
@@ -5908,7 +5908,7 @@ esp-idf/wy_agentpay/CMakeFiles/__idf_wy_agentpay.dir/all: esp-idf/wy_x402/CMakeF
 
 # Build rule for subdir invocation for target.
 esp-idf/wy_agentpay/CMakeFiles/__idf_wy_agentpay.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wy_agentpay/CMakeFiles/__idf_wy_agentpay.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/wy_agentpay/CMakeFiles/__idf_wy_agentpay.dir/rule
@@ -6018,7 +6018,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/wy_agentpay/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/main/CMakeFiles/__idf_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/main/CMakeFiles/__idf_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/phill/wyEspAgentPay/example/build/CMakeFiles 0
 .PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/rule

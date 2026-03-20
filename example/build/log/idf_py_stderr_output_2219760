@@ -1,0 +1,294 @@
+info: INFO: Symbol ESP_WIFI_STATIC_RX_BUFFER_NUM defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:27
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:4
+info: INFO: Symbol ESP_WIFI_DYNAMIC_RX_BUFFER_NUM defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:20
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:43
+info: INFO: Symbol ESP_WIFI_STATIC_TX_BUFFER defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:56
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:79
+info: INFO: Symbol ESP_WIFI_DYNAMIC_TX_BUFFER defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:58
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:81
+info: INFO: Symbol ESP_WIFI_TX_BUFFER_TYPE defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:63
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:86
+info: INFO: Symbol ESP_WIFI_STATIC_TX_BUFFER_NUM defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:91
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:68
+info: INFO: Symbol ESP_WIFI_CACHE_TX_BUFFER_NUM defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:106
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:83
+info: INFO: Symbol ESP_WIFI_DYNAMIC_TX_BUFFER_NUM defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:96
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:119
+info: INFO: Symbol ESP_WIFI_STATIC_RX_MGMT_BUFFER defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:123
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:146
+info: INFO: Symbol ESP_WIFI_DYNAMIC_RX_MGMT_BUFFER defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:125
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:148
+info: INFO: Symbol ESP_WIFI_DYNAMIC_RX_MGMT_BUF defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:129
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:152
+info: INFO: Symbol ESP_WIFI_RX_MGMT_BUF_NUM_DEF defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:157
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:134
+info: INFO: Symbol ESP_WIFI_CSI_ENABLED defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:167
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:144
+info: INFO: Symbol ESP_WIFI_AMPDU_TX_ENABLED defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:153
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:176
+info: INFO: Symbol ESP_WIFI_TX_BA_WIN defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:183
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:160
+info: INFO: Symbol ESP_WIFI_AMPDU_RX_ENABLED defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:195
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:172
+info: INFO: Symbol ESP_WIFI_RX_BA_WIN defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:201
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:178
+info: INFO: Symbol ESP_WIFI_AMSDU_TX_ENABLED defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:216
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:193
+info: INFO: Symbol ESP_WIFI_NVS_ENABLED defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:223
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:200
+info: INFO: Symbol ESP_WIFI_TASK_PINNED_TO_CORE_0 defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:236
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:213
+info: INFO: Symbol ESP_WIFI_TASK_PINNED_TO_CORE_1 defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:238
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:215
+info: INFO: Symbol ESP_WIFI_SOFTAP_BEACON_MAX_LEN defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:242
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:219
+info: INFO: Symbol ESP_WIFI_MGMT_SBUF_NUM defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:265
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:242
+info: INFO: Symbol ESP_WIFI_IRAM_OPT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:249
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:275
+info: INFO: Symbol ESP_WIFI_EXTRA_IRAM_OPT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:258
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:284
+info: INFO: Symbol ESP_WIFI_RX_IRAM_OPT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:293
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:267
+info: INFO: Symbol ESP_WIFI_ENABLE_WPA3_SAE defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:302
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:276
+info: INFO: Symbol ESP_WIFI_ENABLE_SAE_PK defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:312
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:286
+info: INFO: Symbol ESP_WIFI_SOFTAP_SAE_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:319
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:293
+info: INFO: Symbol ESP_WIFI_ENABLE_WPA3_OWE_STA defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:327
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:301
+info: INFO: Symbol ESP_WIFI_SLP_IRAM_OPT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:311
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:337
+info: INFO: Symbol ESP_WIFI_SLP_DEFAULT_MIN_ACTIVE_TIME defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:324
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:350
+info: INFO: Symbol ESP_WIFI_SLP_DEFAULT_MAX_ACTIVE_TIME defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:334
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:360
+info: INFO: Symbol ESP_WIFI_SLP_DEFAULT_WAIT_BROADCAST_DATA_TIME defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:343
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:369
+info: INFO: Symbol ESP_WIFI_FTM_ENABLE defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:379
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:353
+info: INFO: Symbol ESP_WIFI_FTM_INITIATOR_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:360
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:386
+info: INFO: Symbol ESP_WIFI_FTM_RESPONDER_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:365
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:391
+info: INFO: Symbol ESP_WIFI_STA_DISCONNECTED_PM_ENABLE defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:396
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:370
+info: INFO: Symbol ESP_WIFI_GCMP_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:377
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:403
+info: INFO: Symbol ESP_WIFI_GMAC_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:384
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:410
+info: INFO: Symbol ESP_WIFI_SOFTAP_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:416
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:390
+info: INFO: Symbol ESP_WIFI_ENHANCED_LIGHT_SLEEP defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:422
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:396
+info: INFO: Symbol ESP_WIFI_SLP_BEACON_LOST_OPT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:403
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:429
+info: INFO: Symbol ESP_WIFI_SLP_BEACON_LOST_TIMEOUT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:435
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:409
+info: INFO: Symbol ESP_WIFI_SLP_BEACON_LOST_THRESHOLD defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:443
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:417
+info: INFO: Symbol ESP_WIFI_SLP_PHY_ON_DELTA_EARLY_TIME defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:426
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:452
+info: INFO: Symbol ESP_WIFI_SLP_PHY_OFF_DELTA_TIMEOUT_TIME defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:435
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:461
+info: INFO: Symbol ESP_WIFI_ESPNOW_MAX_ENCRYPT_NUM defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:470
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:444
+info: INFO: Symbol ESP_WIFI_NAN_ENABLE defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:483
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:457
+info: INFO: Symbol ESP_WIFI_MBEDTLS_CRYPTO defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:464
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:490
+info: INFO: Symbol ESP_WIFI_MBEDTLS_TLS_CLIENT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:483
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:509
+info: INFO: Symbol ESP_WIFI_EAP_TLS1_3 defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:495
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:521
+info: INFO: Symbol ESP_WIFI_WAPI_PSK defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:536
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:510
+info: INFO: Symbol ESP_WIFI_SUITE_B_192 defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:544
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:518
+info: INFO: Symbol ESP_WIFI_11KV_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:554
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:528
+info: INFO: Symbol ESP_WIFI_SCAN_CACHE defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:570
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:544
+info: INFO: Symbol ESP_WIFI_MBO_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:578
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:552
+info: INFO: Symbol ESP_WIFI_ENABLE_ROAMING_APP defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:586
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:560
+info: INFO: Symbol ESP_WIFI_DPP_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:580
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:606
+info: INFO: Symbol ESP_WIFI_11R_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:613
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:587
+info: INFO: Symbol ESP_WIFI_WPS_SOFTAP_REGISTRAR defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:619
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:593
+info: INFO: Symbol ESP_WIFI_ENABLE_WIFI_TX_STATS defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:626
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:600
+info: INFO: Symbol ESP_WIFI_ENABLE_WIFI_RX_STATS defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:634
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:608
+info: INFO: Symbol ESP_WIFI_ENABLE_WIFI_RX_MU_STATS defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:642
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:616
+info: INFO: Symbol ESP_WIFI_TX_HETB_QUEUE_NUM defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:649
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:623
+info: INFO: Symbol ESP_WIFI_ENABLE_DUMP_HESIGB defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:632
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:658
+info: INFO: Symbol ESP_WIFI_ENABLE_DUMP_MU_CFO defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:665
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:639
+info: INFO: Symbol ESP_WIFI_ENABLE_DUMP_CTRL_NDPA defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:646
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:672
+info: INFO: Symbol ESP_WIFI_ENABLE_DUMP_CTRL_BFRP defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:653
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:679
+info: INFO: Symbol ESP_WIFI_WPS_STRICT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:687
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:661
+info: INFO: Symbol ESP_WIFI_WPS_PASSPHRASE defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:669
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:695
+info: INFO: Symbol ESP_WIFI_DEBUG_PRINT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:709
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:683
+info: INFO: Symbol ESP_WIFI_TESTING_OPTIONS defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:720
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:694
+info: INFO: Symbol ESP_WIFI_ENTERPRISE_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:700
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:726
+info: INFO: Symbol ESP_WIFI_ENT_FREE_DYNAMIC_BUFFER defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:740
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:714
+info: INFO: Symbol SLAVE_SOC_WIFI_SUPPORTED defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:161
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:117
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:33
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:73
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:189
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:5
+info: INFO: Symbol SLAVE_SOC_WIFI_WAPI_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:209
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:137
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:49
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:93
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:9
+info: INFO: Symbol SLAVE_SOC_WIFI_CSI_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:97
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:141
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:13
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:213
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:53
+info: INFO: Symbol SLAVE_SOC_WIFI_MESH_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:101
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:17
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:145
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:217
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:57
+info: INFO: Symbol SLAVE_SOC_WIFI_SUPPORT_VARIABLE_BEACON_WINDOW defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:105
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:21
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:61
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:177
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:149
+info: INFO: Symbol SLAVE_SOC_WIFI_NAN_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:65
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:25
+info: INFO: Symbol SLAVE_SOC_WIFI_LIGHT_SLEEP_CLK_WIDTH defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:193
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:37
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:121
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:165
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:77
+info: INFO: Symbol SLAVE_SOC_WIFI_HW_TSF defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:125
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:81
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:197
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:169
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:41
+info: INFO: Symbol SLAVE_SOC_WIFI_FTM_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:85
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:129
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:45
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:201
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:173
+info: INFO: Symbol SLAVE_SOC_WIFI_GCMP_SUPPORT defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:89
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:205
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:133
+info: INFO: Symbol SLAVE_SOC_WIFI_PHY_NEEDS_USB_WORKAROUND defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:109
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:181
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.soc_wifi_caps.in:153
+info: INFO: Choice ESP_WIFI_TX_BUFFER defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:62
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:39
+info: INFO: Choice ESP_WIFI_MGMT_RX_BUFFER defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:133
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:110
+info: INFO: Choice ESP_WIFI_TASK_CORE_ID defined in multiple locations (see below). Please check if this is a correct behavior or a random name match:
+    /home/phill/esp/esp-idf/components/esp_wifi/Kconfig:229
+    /home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/Kconfig.wifi.in:206

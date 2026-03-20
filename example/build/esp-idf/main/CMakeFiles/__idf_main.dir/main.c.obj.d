@@ -180,4 +180,5 @@ esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/inet.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/errno.h \
  /home/phill/esp/esp-idf/components/newlib/platform_include/net/if.h \
- /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/if_api.h
+ /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/if_api.h \
+ /home/phill/wyEspAgentPay/example/main/wifi_scan.h

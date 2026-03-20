@@ -1,12 +1,12 @@
 {
     "version":            "1.1",
     "project_name":       "agentpay_example",
-    "project_version":    "4d898a3-dirty",
+    "project_version":    "cd48f8d-dirty",
     "project_path":       "/home/phill/wyEspAgentPay/example",
     "idf_path":           "/home/phill/esp/esp-idf",
     "build_dir":          "/home/phill/wyEspAgentPay/example/build",
     "config_file":        "/home/phill/wyEspAgentPay/example/sdkconfig",
-    "config_defaults":    "/home/phill/wyEspAgentPay/example/sdkconfig.defaults",
+    "config_defaults":    "/home/phill/wyEspAgentPay/example/sdkconfig.defaults;/home/phill/wyEspAgentPay/example/sdkconfig.local",
     "bootloader_elf":     "/home/phill/wyEspAgentPay/example/build/bootloader/bootloader.elf",
     "app_elf":            "agentpay_example.elf",
     "app_bin":            "agentpay_example.bin",
@@ -1225,7 +1225,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_hosted", "espressif__esp_wifi_remote" ],
             "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/main/libmain.a",
-            "sources": [ "/home/phill/wyEspAgentPay/example/main/main.c" ],
+            "sources": [ "/home/phill/wyEspAgentPay/example/main/main.c", "/home/phill/wyEspAgentPay/example/main/wifi_scan.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

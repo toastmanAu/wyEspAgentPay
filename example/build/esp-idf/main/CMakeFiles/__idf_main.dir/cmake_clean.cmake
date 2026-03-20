@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/__idf_main.dir/main.c.obj"
   "CMakeFiles/__idf_main.dir/main.c.obj.d"
+  "CMakeFiles/__idf_main.dir/wifi_scan.c.obj"
+  "CMakeFiles/__idf_main.dir/wifi_scan.c.obj.d"
   "libmain.a"
   "libmain.pdb"
 )

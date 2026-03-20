@@ -1,0 +1,2 @@
+/home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/riscv32-esp-elf-ar qc libmain.a CMakeFiles/__idf_main.dir/bootloader_start.c.obj
+/home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/riscv32-esp-elf-ranlib libmain.a

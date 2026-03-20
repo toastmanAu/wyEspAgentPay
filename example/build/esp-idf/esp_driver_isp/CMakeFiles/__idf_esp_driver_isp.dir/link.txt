@@ -1,0 +1,2 @@
+/home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/riscv32-esp-elf-ar qc libesp_driver_isp.a CMakeFiles/__idf_esp_driver_isp.dir/src/isp_core.c.obj CMakeFiles/__idf_esp_driver_isp.dir/src/isp_af.c.obj CMakeFiles/__idf_esp_driver_isp.dir/src/isp_ccm.c.obj CMakeFiles/__idf_esp_driver_isp.dir/src/isp_awb.c.obj CMakeFiles/__idf_esp_driver_isp.dir/src/isp_bf.c.obj
+/home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/riscv32-esp-elf-ranlib libesp_driver_isp.a

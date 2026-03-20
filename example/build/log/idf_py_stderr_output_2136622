@@ -1,0 +1,7 @@
+CMake Error at /home/phill/esp/esp-idf/tools/cmake/component.cmake:314 (message):
+  Include directory '/src/ckb' is not a directory.
+Call Stack (most recent call first):
+  /home/phill/esp/esp-idf/tools/cmake/component.cmake:482 (__component_add_include_dirs)
+  /home/phill/wyEspAgentPay/components/wy_fiber_rpc/CMakeLists.txt:1 (idf_component_register)
+
+

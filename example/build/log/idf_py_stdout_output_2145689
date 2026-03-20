@@ -1,0 +1,248 @@
+[  0%] Built target memory.ld
+[  0%] Built target custom_bundle
+[  0%] Built target sections.ld.in
+[  0%] Built target partition_table_bin
+[  0%] Built target _project_elf_src
+Consolidate compiler generated dependencies of target __idf_esp_https_ota
+[  1%] Performing build step for 'bootloader'
+[  2%] Built target __idf_esp_https_ota
+Consolidate compiler generated dependencies of target __idf_esp_http_server
+Consolidate compiler generated dependencies of target __idf_log
+[  3%] Built target __idf_log
+[  3%] Built target __idf_esp_http_server
+Consolidate compiler generated dependencies of target __idf_esp_rom
+[  4%] Built target _project_elf_src
+[ 12%] Built target __idf_esp_rom
+Consolidate compiler generated dependencies of target __idf_esp_http_client
+Consolidate compiler generated dependencies of target __idf_esp_common
+[  3%] Built target __idf_esp_http_client
+[ 14%] Built target __idf_esp_common
+Consolidate compiler generated dependencies of target __idf_tcp_transport
+Consolidate compiler generated dependencies of target __idf_esp_hw_support
+[  4%] Built target __idf_tcp_transport
+[ 24%] Built target __idf_esp_hw_support
+Consolidate compiler generated dependencies of target __idf_esp_gdbstub
+Consolidate compiler generated dependencies of target __idf_esp_system
+[  5%] Built target __idf_esp_gdbstub
+[ 26%] Built target __idf_esp_system
+Consolidate compiler generated dependencies of target __idf_efuse
+Consolidate compiler generated dependencies of target __idf_esp_eth
+[ 35%] Built target __idf_efuse
+[  7%] Built target __idf_esp_eth
+Consolidate compiler generated dependencies of target __idf_bootloader_support
+Consolidate compiler generated dependencies of target __idf_esp_adc
+[ 54%] Built target __idf_bootloader_support
+[  7%] Built target __idf_esp_adc
+Consolidate compiler generated dependencies of target __idf_esp_bootloader_format
+Consolidate compiler generated dependencies of target __idf_esp-tls
+[ 55%] Built target __idf_esp_bootloader_format
+[  8%] Built target __idf_esp-tls
+Consolidate compiler generated dependencies of target __idf_spi_flash
+Consolidate compiler generated dependencies of target __idf_http_parser
+[ 57%] Built target __idf_spi_flash
+[  8%] Built target __idf_http_parser
+Consolidate compiler generated dependencies of target __idf_esp_wifi
+Consolidate compiler generated dependencies of target __idf_hal
+[  8%] Built target __idf_esp_wifi
+[ 63%] Built target __idf_hal
+Consolidate compiler generated dependencies of target __idf_nvs_flash
+Consolidate compiler generated dependencies of target __idf_micro-ecc
+[ 64%] Built target __idf_micro-ecc
+[ 10%] Built target __idf_nvs_flash
+Consolidate compiler generated dependencies of target __idf_soc
+Consolidate compiler generated dependencies of target __idf_driver
+[ 11%] Built target __idf_driver
+[ 94%] Built target __idf_soc
+Consolidate compiler generated dependencies of target __idf_main
+Consolidate compiler generated dependencies of target __idf_esp_driver_parlio
+[ 96%] Built target __idf_main
+[ 11%] Built target __idf_esp_driver_parlio
+Consolidate compiler generated dependencies of target bootloader.elf
+Consolidate compiler generated dependencies of target __idf_esp_driver_ledc
+[ 98%] Built target bootloader.elf
+[ 11%] Built target __idf_esp_driver_ledc
+Consolidate compiler generated dependencies of target __idf_esp_driver_i2c
+[100%] Built target gen_project_binary
+[ 12%] Built target __idf_esp_driver_i2c
+Consolidate compiler generated dependencies of target __idf_esp_driver_sdm
+[ 13%] Built target __idf_esp_driver_sdm
+Bootloader binary size 0x58e0 bytes. 0x720 bytes (7%) free.
+Consolidate compiler generated dependencies of target __idf_esp_driver_tsens
+[ 14%] Built target __idf_esp_driver_tsens
+[100%] Built target bootloader_check_size
+Consolidate compiler generated dependencies of target __idf_esp_driver_rmt
+[100%] Built target app
+[ 14%] Built target __idf_esp_driver_rmt
+Consolidate compiler generated dependencies of target __idf_esp_driver_sdspi
+[ 14%] No install step for 'bootloader'
+[ 14%] Built target __idf_esp_driver_sdspi
+Consolidate compiler generated dependencies of target __idf_esp_driver_sdmmc
+[ 14%] Completed 'bootloader'
+[ 14%] Built target __idf_esp_driver_sdmmc
+Consolidate compiler generated dependencies of target __idf_sdmmc
+[ 15%] Built target __idf_sdmmc
+[ 15%] Built target bootloader
+Consolidate compiler generated dependencies of target __idf_esp_driver_i2s
+[ 15%] Built target __idf_esp_driver_i2s
+Consolidate compiler generated dependencies of target __idf_esp_driver_ana_cmpr
+[ 15%] Built target __idf_esp_driver_ana_cmpr
+Consolidate compiler generated dependencies of target __idf_esp_driver_mcpwm
+[ 16%] Built target __idf_esp_driver_mcpwm
+Consolidate compiler generated dependencies of target __idf_esp_driver_spi
+[ 17%] Built target __idf_esp_driver_spi
+Consolidate compiler generated dependencies of target __idf_esp_driver_pcnt
+[ 17%] Built target __idf_esp_driver_pcnt
+Consolidate compiler generated dependencies of target __idf_esp_netif
+[ 18%] Built target __idf_esp_netif
+Consolidate compiler generated dependencies of target __idf_lwip
+[ 27%] Built target __idf_lwip
+Consolidate compiler generated dependencies of target __idf_vfs
+[ 27%] Built target __idf_vfs
+Consolidate compiler generated dependencies of target __idf_esp_vfs_console
+[ 27%] Built target __idf_esp_vfs_console
+Consolidate compiler generated dependencies of target __idf_esp_driver_usb_serial_jtag
+[ 27%] Built target __idf_esp_driver_usb_serial_jtag
+Consolidate compiler generated dependencies of target __idf_esp_event
+[ 27%] Built target __idf_esp_event
+Consolidate compiler generated dependencies of target __idf_esp_driver_uart
+[ 27%] Built target __idf_esp_driver_uart
+Consolidate compiler generated dependencies of target __idf_esp_ringbuf
+[ 27%] Built target __idf_esp_ringbuf
+Consolidate compiler generated dependencies of target __idf_esp_driver_gptimer
+[ 27%] Built target __idf_esp_driver_gptimer
+Consolidate compiler generated dependencies of target __idf_esp_timer
+[ 28%] Built target __idf_esp_timer
+Consolidate compiler generated dependencies of target __idf_cxx
+[ 29%] Built target __idf_cxx
+Consolidate compiler generated dependencies of target __idf_pthread
+[ 29%] Built target __idf_pthread
+Consolidate compiler generated dependencies of target __idf_newlib
+[ 31%] Built target __idf_newlib
+Consolidate compiler generated dependencies of target __idf_freertos
+[ 32%] Built target __idf_freertos
+Consolidate compiler generated dependencies of target __idf_esp_hw_support
+[ 38%] Built target __idf_esp_hw_support
+Consolidate compiler generated dependencies of target __idf_soc
+[ 41%] Built target __idf_soc
+Consolidate compiler generated dependencies of target __idf_heap
+[ 42%] Built target __idf_heap
+Consolidate compiler generated dependencies of target __idf_log
+[ 43%] Built target __idf_log
+Consolidate compiler generated dependencies of target __idf_hal
+[ 50%] Built target __idf_hal
+Consolidate compiler generated dependencies of target __idf_esp_rom
+[ 52%] Built target __idf_esp_rom
+Consolidate compiler generated dependencies of target __idf_esp_common
+[ 52%] Built target __idf_esp_common
+Consolidate compiler generated dependencies of target __idf_esp_system
+[ 55%] Built target __idf_esp_system
+Consolidate compiler generated dependencies of target __idf_spi_flash
+[ 57%] Built target __idf_spi_flash
+Consolidate compiler generated dependencies of target __idf_esp_mm
+[ 58%] Built target __idf_esp_mm
+Consolidate compiler generated dependencies of target __idf_bootloader_support
+[ 60%] Built target __idf_bootloader_support
+Consolidate compiler generated dependencies of target __idf_efuse
+[ 61%] Built target __idf_efuse
+Consolidate compiler generated dependencies of target __idf_esp_partition
+[ 61%] Built target __idf_esp_partition
+Consolidate compiler generated dependencies of target __idf_app_update
+[ 61%] Built target __idf_app_update
+Consolidate compiler generated dependencies of target __idf_esp_bootloader_format
+[ 61%] Built target __idf_esp_bootloader_format
+Consolidate compiler generated dependencies of target __idf_esp_app_format
+[ 62%] Built target __idf_esp_app_format
+Consolidate compiler generated dependencies of target mbedtls
+[ 65%] Built target mbedtls
+Consolidate compiler generated dependencies of target mbedx509
+[ 66%] Built target mbedx509
+Consolidate compiler generated dependencies of target mbedcrypto
+[ 76%] Built target mbedcrypto
+Consolidate compiler generated dependencies of target p256m
+[ 76%] Built target p256m
+Consolidate compiler generated dependencies of target everest
+[ 77%] Built target everest
+Consolidate compiler generated dependencies of target __idf_mbedtls
+[ 78%] Built target __idf_mbedtls
+Consolidate compiler generated dependencies of target __idf_esp_pm
+[ 78%] Built target __idf_esp_pm
+Consolidate compiler generated dependencies of target __idf_esp_driver_gpio
+[ 79%] Built target __idf_esp_driver_gpio
+Consolidate compiler generated dependencies of target __idf_riscv
+[ 80%] Built target __idf_riscv
+Consolidate compiler generated dependencies of target __idf_esp_hid
+Consolidate compiler generated dependencies of target __idf_unity
+Consolidate compiler generated dependencies of target __idf_esp_driver_isp
+Consolidate compiler generated dependencies of target __idf_esp_driver_ppa
+Consolidate compiler generated dependencies of target __idf_json
+Consolidate compiler generated dependencies of target __idf_console
+Consolidate compiler generated dependencies of target __idf_esp_driver_jpeg
+Consolidate compiler generated dependencies of target __idf_esp_driver_touch_sens
+Consolidate compiler generated dependencies of target __idf_app_trace
+Consolidate compiler generated dependencies of target __idf_esp_https_server
+[ 81%] Built target __idf_unity
+[ 81%] Built target __idf_json
+[ 82%] Built target __idf_esp_driver_ppa
+[ 83%] Built target __idf_esp_hid
+[ 84%] Built target __idf_console
+[ 84%] Built target __idf_app_trace
+[ 85%] Built target __idf_esp_driver_isp
+[ 85%] Built target __idf_esp_https_server
+[ 86%] Built target __idf_esp_driver_touch_sens
+[ 86%] Built target __idf_esp_driver_jpeg
+Consolidate compiler generated dependencies of target __idf_protobuf-c
+Consolidate compiler generated dependencies of target __idf_wear_levelling
+Consolidate compiler generated dependencies of target __idf_espcoredump
+Consolidate compiler generated dependencies of target __idf_esp_lcd
+Consolidate compiler generated dependencies of target __idf_usb
+Consolidate compiler generated dependencies of target __idf_spiffs
+[ 87%] Built target __idf_wear_levelling
+Consolidate compiler generated dependencies of target __idf_nvs_sec_provider
+[ 89%] Built target __idf_esp_lcd
+[ 88%] Building C object esp-idf/cmock/CMakeFiles/__idf_cmock.dir/CMock/src/cmock.c.obj
+Consolidate compiler generated dependencies of target __idf_mqtt
+[ 89%] Built target __idf_protobuf-c
+[ 91%] Built target __idf_espcoredump
+[ 92%] Building C object esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/wy_fiber_rpc.c.obj
+[ 92%] Built target __idf_usb
+[ 92%] Built target __idf_mqtt
+[ 92%] Building C object esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/wy_fiber_invoice.c.obj
+[ 93%] Built target __idf_spiffs
+[ 93%] Built target __idf_nvs_sec_provider
+[ 93%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/diskio/diskio.c.obj
+[ 93%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/src/ffunicode.c.obj
+[ 93%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/diskio/diskio_wl.c.obj
+[ 93%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/src/ff.c.obj
+[ 93%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/diskio/diskio_rawflash.c.obj
+[ 93%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/common/protocomm.c.obj
+[ 93%] Building C object esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/esp_cam_ctlr.c.obj
+[ 93%] Linking C static library libcmock.a
+[ 94%] Building C object esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/dvp_share_ctrl.c.obj
+[ 94%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/port/freertos/ffsystem.c.obj
+[ 94%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/diskio/diskio_sdmmc.c.obj
+[ 94%] Built target __idf_cmock
+[ 94%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/vfs/vfs_fat.c.obj
+[ 94%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/vfs/vfs_fat_sdmmc.c.obj
+[ 95%] Building C object esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/vfs/vfs_fat_spiflash.c.obj
+[ 95%] Building C object esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/csi/src/esp_cam_ctlr_csi.c.obj
+[ 95%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/proto-c/constants.pb-c.c.obj
+[ 95%] Building C object esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/dvp/src/esp_cam_ctlr_dvp_gdma.c.obj
+[ 95%] Building C object esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/isp_dvp/src/esp_cam_ctlr_isp_dvp.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/proto-c/sec0.pb-c.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/proto-c/sec1.pb-c.c.obj
+[ 96%] Building C object esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/dvp/src/esp_cam_ctlr_dvp_cam.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/proto-c/session.pb-c.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/proto-c/sec2.pb-c.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_console.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_httpd.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/security/security0.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/security/security1.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp.c.obj
+[ 96%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/security/security2.c.obj
+[ 97%] Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp_mpi.c.obj
+[ 97%] Linking C static library libfatfs.a
+[ 97%] Built target __idf_fatfs
+[ 97%] Linking C static library libprotocomm.a
+[ 97%] Linking C static library libesp_driver_cam.a
+[ 97%] Built target __idf_protocomm
+[ 97%] Built target __idf_esp_driver_cam

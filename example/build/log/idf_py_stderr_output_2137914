@@ -1,0 +1,8 @@
+/home/phill/wyEspAgentPay/components/wy_fiber_rpc/wy_fiber_rpc.c:11:10: fatal error: cjson/cJSON.h: No such file or directory
+   11 | #include "cjson/cJSON.h"
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/build.make:76: esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/wy_fiber_rpc.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5752: esp-idf/wy_fiber_rpc/CMakeFiles/__idf_wy_fiber_rpc.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:136: all] Error 2

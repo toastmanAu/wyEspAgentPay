@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/phill/esp/esp-idf/components/esp_common/include/esp_assert.h
+assert.h
+/home/phill/esp/esp-idf/components/esp_common/include/assert.h
+
+/home/phill/esp/esp-idf/components/esp_common/include/esp_bit_defs.h
+
+/home/phill/esp/esp-idf/components/esp_system/port/arch/riscv/esp_ipc_isr_handler.S
+soc/hp_system_reg.h
+/home/phill/esp/esp-idf/components/esp_system/port/arch/riscv/soc/hp_system_reg.h
+
+/home/phill/esp/esp-idf/components/newlib/platform_include/assert.h
+sdkconfig.h
+-
+stdlib.h
+-
+stdint.h
+-
+
+/home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/hp_system_reg.h
+soc/soc.h
+/home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/soc/soc.h
+
+/home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/reg_base.h
+
+/home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/soc.h
+stdint.h
+-
+esp_assert.h
+/home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/esp_assert.h
+esp_bit_defs.h
+/home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/esp_bit_defs.h
+reg_base.h
+/home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/reg_base.h
+
+config/sdkconfig.h
+

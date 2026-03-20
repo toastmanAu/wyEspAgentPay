@@ -5,7 +5,7 @@
 #include "wy_x402.h"
 #include "esp_http_client.h"
 #include "esp_log.h"
-#include "cJSON.h"
+#include "cJSON/cJSON.h"
 #include <string.h>
 #include <stdlib.h>
 

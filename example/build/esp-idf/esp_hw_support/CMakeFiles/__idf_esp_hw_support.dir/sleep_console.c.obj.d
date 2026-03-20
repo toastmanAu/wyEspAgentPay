@@ -1,0 +1,20 @@
+esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_console.c.obj: \
+ /home/phill/esp/esp-idf/components/esp_hw_support/sleep_console.c \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/13.2.0/include/stdbool.h \
+ /home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/soc_caps.h \
+ /home/phill/esp/esp-idf/components/esp_hw_support/include/esp_private/sleep_console.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/13.2.0/include/stdint.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/stdint.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/machine/_default_types.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/features.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/_newlib_version.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/_intsup.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/_stdint.h \
+ /home/phill/wyEspAgentPay/example/build/config/sdkconfig.h \
+ /home/phill/esp/esp-idf/components/esp_common/include/esp_attr.h \
+ /home/phill/esp/esp-idf/components/hal/esp32p4/include/hal/usb_serial_jtag_ll.h \
+ /home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/lp_system_struct.h \
+ /home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/lp_clkrst_struct.h \
+ /home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/hp_sys_clkrst_struct.h \
+ /home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/usb_serial_jtag_struct.h \
+ /home/phill/esp/esp-idf/components/hal/include/hal/usb_serial_jtag_types.h

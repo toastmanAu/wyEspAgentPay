@@ -21,7 +21,7 @@ CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM=10
 CONFIG_ESP_WIFI_AMPDU_RX_ENABLED=y
 CONFIG_ESP_WIFI_RX_BA_WIN=6
 
-# Example app config
+# Example app config (defaults — override in sdkconfig.local)
 CONFIG_EXAMPLE_WIFI_SSID="your_ssid"
 CONFIG_EXAMPLE_WIFI_PASS="your_password"
 CONFIG_EXAMPLE_FIBER_RPC_URL="http://192.168.68.105:8227"

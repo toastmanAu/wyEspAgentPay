@@ -1,0 +1,5 @@
+
+# Secrets (WiFi credentials, API keys, etc.)
+.secrets/
+example/.secrets/
+**/sdkconfig.local

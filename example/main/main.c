@@ -122,7 +122,24 @@ void wifi_init_sta(void)
 
 static void agentpay_demo_task(void *pvParameters)
 {
-    ESP_LOGI(TAG, "Starting wyAgentPay demo...");
+    ESP_LOGI(TAG, "WiFi connection check...");
+    
+    // Wait for WiFi connection (with timeout)
+    EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
+            WIFI_CONNECTED_BIT | WIFI_FAIL_BIT,
+            pdFALSE, pdFALSE,
+            pdMS_TO_TICKS(30000));
+    
+    if (!(bits & WIFI_CONNECTED_BIT)) {
+        ESP_LOGW(TAG, "WiFi not connected. Skipping payment demo.");
+        ESP_LOGI(TAG, "Configure WiFi credentials in sdkconfig: idf.py menuconfig");
+        ESP_LOGI(TAG, "→ Example Configuration → WiFi SSID / Password");
+        while(1) {
+            vTaskDelay(pdMS_TO_TICKS(10000));
+        }
+    }
+    
+    ESP_LOGI(TAG, "✓ WiFi connected! Starting wyAgentPay demo...");
     
     // Configure wyAgentPay
     wy_agentpay_config_t config = {
@@ -183,6 +200,6 @@ void app_main(void)
     ESP_LOGI(TAG, "Connecting to WiFi...");
     wifi_init_sta();
     
-    // Start payment demo
-    xTaskCreate(agentpay_demo_task, "agentpay_demo", 8192, NULL, 5, NULL);
+    // Start payment demo (16KB stack for HTTP + payment processing)
+    xTaskCreate(agentpay_demo_task, "agentpay_demo", 16384, NULL, 5, NULL);
 }

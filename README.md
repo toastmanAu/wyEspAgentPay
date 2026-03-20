@@ -100,6 +100,7 @@ Device                          Service
 
 ## Credits
 
+- AgentPay concept: [alefnt/agentPay](https://github.com/alefnt/AgentPay)
 - Fiber Network RPC: [nervosnetwork/fiber](https://github.com/nervosnetwork/fiber)
 - x402 protocol concept: [coinbase/x402](https://github.com/coinbase/x402)
 - CKB address decode: `ckb_bech32.h` from [wyltek-embedded-builder](https://github.com/toastmanAu/wyltek-embedded-builder)

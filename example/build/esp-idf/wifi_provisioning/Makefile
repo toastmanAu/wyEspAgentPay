@@ -343,6 +343,30 @@ src/scheme_console.c.s:
 	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_console.c.s
 .PHONY : src/scheme_console.c.s
 
+src/scheme_softap.obj: src/scheme_softap.c.obj
+.PHONY : src/scheme_softap.obj
+
+# target to build an object file
+src/scheme_softap.c.obj:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.obj
+.PHONY : src/scheme_softap.c.obj
+
+src/scheme_softap.i: src/scheme_softap.c.i
+.PHONY : src/scheme_softap.i
+
+# target to preprocess a source file
+src/scheme_softap.c.i:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.i
+.PHONY : src/scheme_softap.c.i
+
+src/scheme_softap.s: src/scheme_softap.c.s
+.PHONY : src/scheme_softap.s
+
+# target to generate assembly for a file
+src/scheme_softap.c.s:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.s
+.PHONY : src/scheme_softap.c.s
+
 src/wifi_config.obj: src/wifi_config.c.obj
 .PHONY : src/wifi_config.obj
 
@@ -449,6 +473,9 @@ help:
 	@echo "... src/scheme_console.obj"
 	@echo "... src/scheme_console.i"
 	@echo "... src/scheme_console.s"
+	@echo "... src/scheme_softap.obj"
+	@echo "... src/scheme_softap.i"
+	@echo "... src/scheme_softap.s"
 	@echo "... src/wifi_config.obj"
 	@echo "... src/wifi_config.i"
 	@echo "... src/wifi_config.s"

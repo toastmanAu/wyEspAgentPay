@@ -1,0 +1,28 @@
+/home/phill/wyEspAgentPay/components/wy_fiber_rpc/wy_fiber_invoice.c: In function 'mol_parse_invoice':
+/home/phill/wyEspAgentPay/components/wy_fiber_rpc/wy_fiber_invoice.c:325:31: warning: initialization discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  325 |     mol_seg_t root = { .ptr = buf, .size = (mol_num_t)len };
+      |                               ^~~
+/home/phill/wyEspAgentPay/example/main/main.c: In function 'agentpay_demo_task':
+/home/phill/wyEspAgentPay/example/main/main.c:130:10: error: 'wy_agentpay_config_t' has no member named 'auto_intercept_402'
+  130 |         .auto_intercept_402 = true,
+      |          ^~~~~~~~~~~~~~~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:131:31: warning: initialized field overwritten [-Woverride-init]
+  131 |         .payment_timeout_ms = 30000,
+      |                               ^~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:131:31: note: (near initialization for 'config.payment_timeout_ms')
+/home/phill/wyEspAgentPay/example/main/main.c:145:11: error: implicit declaration of function 'wy_agentpay_http_get'; did you mean 'wy_agentpay_init'? [-Werror=implicit-function-declaration]
+  145 |     err = wy_agentpay_http_get(CONFIG_EXAMPLE_TARGET_URL, NULL, 0);
+      |           ^~~~~~~~~~~~~~~~~~~~
+      |           wy_agentpay_init
+/home/phill/wyEspAgentPay/example/main/main.c:149:23: error: 'WY_ERR_PAYMENT_DECLINED' undeclared (first use in this function)
+  149 |     } else if (err == WY_ERR_PAYMENT_DECLINED) {
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~
+/home/phill/wyEspAgentPay/example/main/main.c:149:23: note: each undeclared identifier is reported only once for each function it appears in
+/home/phill/wyEspAgentPay/example/main/main.c:151:23: error: 'WY_ERR_INSUFFICIENT_FUNDS' undeclared (first use in this function)
+  151 |     } else if (err == WY_ERR_INSUFFICIENT_FUNDS) {
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:76: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6015: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:136: all] Error 2

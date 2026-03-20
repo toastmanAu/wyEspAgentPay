@@ -40,7 +40,7 @@ db4a32310d7b88c328016862e90ae2b9 esp-idf/efuse/CMakeFiles/show-efuse-table
 5360b2f074ccc5c76b5671d3afa6f710 esp-idf/esp_system/CMakeFiles/memory.ld
 5360b2f074ccc5c76b5671d3afa6f710 esp-idf/esp_system/CMakeFiles/sections.ld.in
 226a80c6de252583494afeb78f434f49 esp-idf/esp_system/ld/memory.ld
-40a96c76570886cdd3a1519ddc330493 esp-idf/esp_system/ld/sections.ld
+1f2dba92218108bee2b6b393b66fb533 esp-idf/esp_system/ld/sections.ld
 10adf03d9df3bef2837ca90de577e939 esp-idf/esp_system/ld/sections.ld.in
 8db1e9367b6c2a14662178eb0d0bf19e esp-idf/esptool_py/CMakeFiles/app-flash
 2f01a86ebb83c8505802d54ba0269711 esp-idf/esptool_py/CMakeFiles/app_check_size

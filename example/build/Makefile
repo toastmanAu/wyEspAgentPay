@@ -1475,6 +1475,19 @@ __idf_nvs_flash/fast:
 .PHONY : __idf_nvs_flash/fast
 
 #=============================================================================
+# Target rules for targets named __idf_wpa_supplicant
+
+# Build rule for target.
+__idf_wpa_supplicant: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_wpa_supplicant
+.PHONY : __idf_wpa_supplicant
+
+# fast build rule for target.
+__idf_wpa_supplicant/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/build.make esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/build
+.PHONY : __idf_wpa_supplicant/fast
+
+#=============================================================================
 # Target rules for targets named __idf_esp_wifi
 
 # Build rule for target.
@@ -1943,6 +1956,45 @@ __idf_wy_agentpay/fast:
 .PHONY : __idf_wy_agentpay/fast
 
 #=============================================================================
+# Target rules for targets named __idf_espressif__esp_serial_slave_link
+
+# Build rule for target.
+__idf_espressif__esp_serial_slave_link: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_espressif__esp_serial_slave_link
+.PHONY : __idf_espressif__esp_serial_slave_link
+
+# fast build rule for target.
+__idf_espressif__esp_serial_slave_link/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/espressif__esp_serial_slave_link/CMakeFiles/__idf_espressif__esp_serial_slave_link.dir/build.make esp-idf/espressif__esp_serial_slave_link/CMakeFiles/__idf_espressif__esp_serial_slave_link.dir/build
+.PHONY : __idf_espressif__esp_serial_slave_link/fast
+
+#=============================================================================
+# Target rules for targets named __idf_espressif__eppp_link
+
+# Build rule for target.
+__idf_espressif__eppp_link: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_espressif__eppp_link
+.PHONY : __idf_espressif__eppp_link
+
+# fast build rule for target.
+__idf_espressif__eppp_link/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/espressif__eppp_link/CMakeFiles/__idf_espressif__eppp_link.dir/build.make esp-idf/espressif__eppp_link/CMakeFiles/__idf_espressif__eppp_link.dir/build
+.PHONY : __idf_espressif__eppp_link/fast
+
+#=============================================================================
+# Target rules for targets named __idf_espressif__esp_wifi_remote
+
+# Build rule for target.
+__idf_espressif__esp_wifi_remote: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_espressif__esp_wifi_remote
+.PHONY : __idf_espressif__esp_wifi_remote
+
+# fast build rule for target.
+__idf_espressif__esp_wifi_remote/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/espressif__esp_wifi_remote/CMakeFiles/__idf_espressif__esp_wifi_remote.dir/build.make esp-idf/espressif__esp_wifi_remote/CMakeFiles/__idf_espressif__esp_wifi_remote.dir/build
+.PHONY : __idf_espressif__esp_wifi_remote/fast
+
+#=============================================================================
 # Target rules for targets named __idf_main
 
 # Build rule for target.
@@ -2092,6 +2144,9 @@ help:
 	@echo "... __idf_esp_vfs_console"
 	@echo "... __idf_esp_wifi"
 	@echo "... __idf_espcoredump"
+	@echo "... __idf_espressif__eppp_link"
+	@echo "... __idf_espressif__esp_serial_slave_link"
+	@echo "... __idf_espressif__esp_wifi_remote"
 	@echo "... __idf_fatfs"
 	@echo "... __idf_freertos"
 	@echo "... __idf_hal"
@@ -2120,6 +2175,7 @@ help:
 	@echo "... __idf_vfs"
 	@echo "... __idf_wear_levelling"
 	@echo "... __idf_wifi_provisioning"
+	@echo "... __idf_wpa_supplicant"
 	@echo "... __idf_wy_agentpay"
 	@echo "... __idf_wy_fiber_rpc"
 	@echo "... __idf_wy_x402"

@@ -49,6 +49,7 @@ $<TARGET_FILE:__idf_esp_driver_ledc>
 $<TARGET_FILE:__idf_esp_driver_parlio>
 $<TARGET_FILE:__idf_driver>
 $<TARGET_FILE:__idf_nvs_flash>
+$<TARGET_FILE:__idf_wpa_supplicant>
 $<TARGET_FILE:__idf_esp_wifi>
 $<TARGET_FILE:__idf_unity>
 $<TARGET_FILE:__idf_cmock>
@@ -85,4 +86,7 @@ $<TARGET_FILE:__idf_wifi_provisioning>
 $<TARGET_FILE:__idf_wy_fiber_rpc>
 $<TARGET_FILE:__idf_wy_x402>
 $<TARGET_FILE:__idf_wy_agentpay>
+$<TARGET_FILE:__idf_espressif__esp_serial_slave_link>
+$<TARGET_FILE:__idf_espressif__eppp_link>
+$<TARGET_FILE:__idf_espressif__esp_wifi_remote>
 $<TARGET_FILE:__idf_main>

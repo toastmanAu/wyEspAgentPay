@@ -1,25 +1,26 @@
 esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/phill/wyEspAgentPay/example/main/main.c \
- /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/string.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/stdio.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/_ansi.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/newlib.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/_newlib_version.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/config.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/machine/ieeefp.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/features.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/cdefs.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/machine/_default_types.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/13.2.0/include/stddef.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/13.2.0/include/stdarg.h \
  /home/phill/esp/esp-idf/components/newlib/platform_include/sys/reent.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/reent.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/_ansi.h \
- /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/13.2.0/include/stddef.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/_types.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/machine/_types.h \
- /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/machine/_default_types.h \
  /home/phill/esp/esp-idf/components/newlib/platform_include/sys/lock.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/lock.h \
  /home/phill/wyEspAgentPay/example/build/config/sdkconfig.h \
  /home/phill/esp/esp-idf/components/newlib/platform_include/assert.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/stdlib.h \
- /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/cdefs.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/machine/stdlib.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/alloca.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/_locale.h \
@@ -28,6 +29,8 @@ esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/_intsup.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/_stdint.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/assert.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/stdio.h \
+ /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/string.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/strings.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/string.h \
  /home/phill/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h \
@@ -38,9 +41,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/phill/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/deprecated_definitions.h \
  /home/phill/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/include/freertos/portmacro.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/13.2.0/include/stdbool.h \
- /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/stdio.h \
- /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/13.2.0/include/stdarg.h \
- /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/stdio.h \
  /home/phill/esp/esp-idf/components/esp_hw_support/include/spinlock.h \
  /home/phill/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h \
  /home/phill/esp/esp-idf/components/soc/esp32p4/include/soc/soc_caps.h \
@@ -100,6 +100,8 @@ esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types_generic.h \
  /home/phill/esp/esp-idf/components/esp_event/include/esp_event_base.h \
  /home/phill/esp/esp-idf/components/esp_hw_support/include/esp_interface.h \
+ /home/phill/esp/esp-idf/components/esp_wifi/include/local/esp_wifi_types_native.h \
+ /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types_generic.h \
  /home/phill/esp/esp-idf/components/esp_event/include/esp_event.h \
  /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_crypto_types.h \
  /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_default.h \
@@ -112,13 +114,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/phill/esp/esp-idf/components/nvs_flash/include/nvs_flash.h \
  /home/phill/esp/esp-idf/components/nvs_flash/include/nvs.h \
  /home/phill/esp/esp-idf/components/esp_partition/include/esp_partition.h \
- /home/phill/wyEspAgentPay/components/wy_agentpay/include/wy_agentpay.h \
- /home/phill/wyEspAgentPay/components/wy_fiber_rpc/include/wy_fiber_rpc.h \
- /home/phill/wyEspAgentPay/components/wy_x402/include/wy_x402.h \
- /home/phill/esp/esp-idf/components/esp_http_client/include/esp_http_client.h \
- /home/phill/esp/esp-idf/components/lwip/port/esp32xx/include/sys/socket.h \
- /home/phill/esp/esp-idf/components/lwip/include/lwip/sockets.h \
- /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/sockets.h \
+ /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/err.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/opt.h \
  /home/phill/esp/esp-idf/components/lwip/port/include/lwipopts.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/unistd.h \
@@ -159,6 +155,14 @@ esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/errno.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/sys/errno.h \
  /home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/riscv32-esp-elf/include/ctype.h \
+ /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/sys.h \
+ /home/phill/wyEspAgentPay/components/wy_agentpay/include/wy_agentpay.h \
+ /home/phill/wyEspAgentPay/components/wy_fiber_rpc/include/wy_fiber_rpc.h \
+ /home/phill/wyEspAgentPay/components/wy_x402/include/wy_x402.h \
+ /home/phill/esp/esp-idf/components/esp_http_client/include/esp_http_client.h \
+ /home/phill/esp/esp-idf/components/lwip/port/esp32xx/include/sys/socket.h \
+ /home/phill/esp/esp-idf/components/lwip/include/lwip/sockets.h \
+ /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/sockets.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/ip_addr.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/def.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/ip4_addr.h \
@@ -166,7 +170,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj: \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/def.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/ip6_zone.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/netif.h \
- /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/err.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/pbuf.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/stats.h \
  /home/phill/esp/esp-idf/components/lwip/lwip/src/include/lwip/mem.h \

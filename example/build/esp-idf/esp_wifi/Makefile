@@ -175,6 +175,126 @@ __idf_esp_wifi/fast:
 	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build
 .PHONY : __idf_esp_wifi/fast
 
+esp32p4/esp_adapter.obj: esp32p4/esp_adapter.c.obj
+.PHONY : esp32p4/esp_adapter.obj
+
+# target to build an object file
+esp32p4/esp_adapter.c.obj:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/esp32p4/esp_adapter.c.obj
+.PHONY : esp32p4/esp_adapter.c.obj
+
+esp32p4/esp_adapter.i: esp32p4/esp_adapter.c.i
+.PHONY : esp32p4/esp_adapter.i
+
+# target to preprocess a source file
+esp32p4/esp_adapter.c.i:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/esp32p4/esp_adapter.c.i
+.PHONY : esp32p4/esp_adapter.c.i
+
+esp32p4/esp_adapter.s: esp32p4/esp_adapter.c.s
+.PHONY : esp32p4/esp_adapter.s
+
+# target to generate assembly for a file
+esp32p4/esp_adapter.c.s:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/esp32p4/esp_adapter.c.s
+.PHONY : esp32p4/esp_adapter.c.s
+
+src/lib_printf.obj: src/lib_printf.c.obj
+.PHONY : src/lib_printf.obj
+
+# target to build an object file
+src/lib_printf.c.obj:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/lib_printf.c.obj
+.PHONY : src/lib_printf.c.obj
+
+src/lib_printf.i: src/lib_printf.c.i
+.PHONY : src/lib_printf.i
+
+# target to preprocess a source file
+src/lib_printf.c.i:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/lib_printf.c.i
+.PHONY : src/lib_printf.c.i
+
+src/lib_printf.s: src/lib_printf.c.s
+.PHONY : src/lib_printf.s
+
+# target to generate assembly for a file
+src/lib_printf.c.s:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/lib_printf.c.s
+.PHONY : src/lib_printf.c.s
+
+src/mesh_event.obj: src/mesh_event.c.obj
+.PHONY : src/mesh_event.obj
+
+# target to build an object file
+src/mesh_event.c.obj:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/mesh_event.c.obj
+.PHONY : src/mesh_event.c.obj
+
+src/mesh_event.i: src/mesh_event.c.i
+.PHONY : src/mesh_event.i
+
+# target to preprocess a source file
+src/mesh_event.c.i:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/mesh_event.c.i
+.PHONY : src/mesh_event.c.i
+
+src/mesh_event.s: src/mesh_event.c.s
+.PHONY : src/mesh_event.s
+
+# target to generate assembly for a file
+src/mesh_event.c.s:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/mesh_event.c.s
+.PHONY : src/mesh_event.c.s
+
+src/smartconfig.obj: src/smartconfig.c.obj
+.PHONY : src/smartconfig.obj
+
+# target to build an object file
+src/smartconfig.c.obj:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig.c.obj
+.PHONY : src/smartconfig.c.obj
+
+src/smartconfig.i: src/smartconfig.c.i
+.PHONY : src/smartconfig.i
+
+# target to preprocess a source file
+src/smartconfig.c.i:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig.c.i
+.PHONY : src/smartconfig.c.i
+
+src/smartconfig.s: src/smartconfig.c.s
+.PHONY : src/smartconfig.s
+
+# target to generate assembly for a file
+src/smartconfig.c.s:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig.c.s
+.PHONY : src/smartconfig.c.s
+
+src/smartconfig_ack.obj: src/smartconfig_ack.c.obj
+.PHONY : src/smartconfig_ack.obj
+
+# target to build an object file
+src/smartconfig_ack.c.obj:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig_ack.c.obj
+.PHONY : src/smartconfig_ack.c.obj
+
+src/smartconfig_ack.i: src/smartconfig_ack.c.i
+.PHONY : src/smartconfig_ack.i
+
+# target to preprocess a source file
+src/smartconfig_ack.c.i:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig_ack.c.i
+.PHONY : src/smartconfig_ack.c.i
+
+src/smartconfig_ack.s: src/smartconfig_ack.c.s
+.PHONY : src/smartconfig_ack.s
+
+# target to generate assembly for a file
+src/smartconfig_ack.c.s:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig_ack.c.s
+.PHONY : src/smartconfig_ack.c.s
+
 src/wifi_default.obj: src/wifi_default.c.obj
 .PHONY : src/wifi_default.obj
 
@@ -223,6 +343,30 @@ src/wifi_default_ap.c.s:
 	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default_ap.c.s
 .PHONY : src/wifi_default_ap.c.s
 
+src/wifi_init.obj: src/wifi_init.c.obj
+.PHONY : src/wifi_init.obj
+
+# target to build an object file
+src/wifi_init.c.obj:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_init.c.obj
+.PHONY : src/wifi_init.c.obj
+
+src/wifi_init.i: src/wifi_init.c.i
+.PHONY : src/wifi_init.i
+
+# target to preprocess a source file
+src/wifi_init.c.i:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_init.c.i
+.PHONY : src/wifi_init.c.i
+
+src/wifi_init.s: src/wifi_init.c.s
+.PHONY : src/wifi_init.s
+
+# target to generate assembly for a file
+src/wifi_init.c.s:
+	cd /home/phill/wyEspAgentPay/example/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_init.c.s
+.PHONY : src/wifi_init.c.s
+
 src/wifi_netif.obj: src/wifi_netif.c.obj
 .PHONY : src/wifi_netif.obj
 
@@ -260,12 +404,30 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... __idf_esp_wifi"
+	@echo "... esp32p4/esp_adapter.obj"
+	@echo "... esp32p4/esp_adapter.i"
+	@echo "... esp32p4/esp_adapter.s"
+	@echo "... src/lib_printf.obj"
+	@echo "... src/lib_printf.i"
+	@echo "... src/lib_printf.s"
+	@echo "... src/mesh_event.obj"
+	@echo "... src/mesh_event.i"
+	@echo "... src/mesh_event.s"
+	@echo "... src/smartconfig.obj"
+	@echo "... src/smartconfig.i"
+	@echo "... src/smartconfig.s"
+	@echo "... src/smartconfig_ack.obj"
+	@echo "... src/smartconfig_ack.i"
+	@echo "... src/smartconfig_ack.s"
 	@echo "... src/wifi_default.obj"
 	@echo "... src/wifi_default.i"
 	@echo "... src/wifi_default.s"
 	@echo "... src/wifi_default_ap.obj"
 	@echo "... src/wifi_default_ap.i"
 	@echo "... src/wifi_default_ap.s"
+	@echo "... src/wifi_init.obj"
+	@echo "... src/wifi_init.i"
+	@echo "... src/wifi_init.s"
 	@echo "... src/wifi_netif.obj"
 	@echo "... src/wifi_netif.i"
 	@echo "... src/wifi_netif.s"

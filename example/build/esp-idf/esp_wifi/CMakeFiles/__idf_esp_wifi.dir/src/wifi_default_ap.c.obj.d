@@ -52,4 +52,6 @@ esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default_ap.c.obj: \
  /home/phill/esp/esp-idf/components/esp_netif/include/esp_netif_types.h \
  /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types.h \
  /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types_generic.h \
- /home/phill/esp/esp-idf/components/esp_hw_support/include/esp_interface.h
+ /home/phill/esp/esp-idf/components/esp_hw_support/include/esp_interface.h \
+ /home/phill/esp/esp-idf/components/esp_wifi/include/local/esp_wifi_types_native.h \
+ /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types_generic.h

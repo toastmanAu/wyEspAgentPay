@@ -1,120 +1,188 @@
 /**
- * wyEspAgentPay ESP32-P4 Example
- * ===============================
- * Tests the Fiber invoice decoder without WiFi.
- * 
- * For WiFi: ESP32-P4 uses C6 coprocessor via SDIO.
- * Flash AT firmware to C6, then use esp_at or esp_hosted driver.
+ * wyEspAgentPay ESP32-P4 Example with C6 WiFi Coprocessor
+ * =========================================================
+ * Demonstrates Fiber invoice decoder + payment flow using
+ * ESP32-P4 host with ESP32-C6 WiFi coprocessor over SDIO.
  */
 
 #include <stdio.h>
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/event_groups.h"
 #include "esp_system.h"
+#include "esp_wifi.h"
+#include "esp_event.h"
 #include "esp_log.h"
 #include "nvs_flash.h"
 
-#include "wy_fiber_invoice.h"
+#include "lwip/err.h"
+#include "lwip/sys.h"
+
+#include "wy_agentpay.h"
 
 static const char *TAG = "wyAgentPay_P4";
 
-/**
- * Test: Decode a Fiber invoice (offline, no network)
- */
-static void test_invoice_decode(void)
+/* FreeRTOS event group to signal when we are connected */
+static EventGroupHandle_t s_wifi_event_group;
+
+/* The event group allows multiple bits for each event, but we only care about two events:
+ * - we are connected to the AP with an IP
+ * - we failed to connect after the maximum amount of retries */
+#define WIFI_CONNECTED_BIT BIT0
+#define WIFI_FAIL_BIT      BIT1
+
+static int s_retry_num = 0;
+#define EXAMPLE_ESP_MAXIMUM_RETRY  5
+
+static void event_handler(void* arg, esp_event_base_t event_base,
+                                int32_t event_id, void* event_data)
 {
-    ESP_LOGI(TAG, "=== Fiber Invoice Decoder Test ===");
-    
-    // Example testnet invoice (fibt1...) - replace with real one for testing
-    // This is a placeholder - actual invoices are much longer
-    const char *test_invoice = 
-        "fibt1qqqsyqcyq5rqwzqfqqqsyqcyq5rqwzqfqqqsyqcyq5rqwzqfqypqhp58yjmdan79s6qqdhdzgynm4zwqd5d7xmw5fk98klysy043l2ahrqsnp4q0n326hr8v9zprg8gsvezcch06gfaqqhde2aj730yg0durunfhv66859qfhxgqypm";
-    
-    wy_fiber_invoice_t decoded;
-    esp_err_t err = wy_fiber_invoice_decode(test_invoice, &decoded);
-    
-    if (err == ESP_OK) {
-        ESP_LOGI(TAG, "✓ Decode SUCCESS");
-        ESP_LOGI(TAG, "  Currency: %s", 
-                 decoded.currency == WY_FIBER_TESTNET ? "testnet" : 
-                 decoded.currency == WY_FIBER_MAINNET ? "mainnet" : "devnet");
-        ESP_LOGI(TAG, "  Amount: %llu shannons", (unsigned long long)decoded.amount_shannons);
-        ESP_LOGI(TAG, "  Payment hash: %s", decoded.payment_hash_hex);
-        ESP_LOGI(TAG, "  Description: %s", decoded.description);
-        ESP_LOGI(TAG, "  Timestamp: %llu", (unsigned long long)decoded.timestamp);
-        ESP_LOGI(TAG, "  Expiry: %llu seconds", (unsigned long long)decoded.expiry_seconds);
-    } else {
-        ESP_LOGE(TAG, "✗ Decode FAILED: 0x%x", err);
-        if (err == WY_INV_ERR_PREFIX) ESP_LOGE(TAG, "  Unknown currency prefix");
-        if (err == WY_INV_ERR_BECH32) ESP_LOGE(TAG, "  Bech32 decode error");
-        if (err == WY_INV_ERR_DECOMPRESS) ESP_LOGE(TAG, "  Arithmetic decompress failed");
-        if (err == WY_INV_ERR_PARSE) ESP_LOGE(TAG, "  Molecule parse error");
+    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
+        esp_wifi_connect();
+    } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        if (s_retry_num < EXAMPLE_ESP_MAXIMUM_RETRY) {
+            esp_wifi_connect();
+            s_retry_num++;
+            ESP_LOGI(TAG, "retry to connect to the AP");
+        } else {
+            xEventGroupSetBits(s_wifi_event_group, WIFI_FAIL_BIT);
+        }
+        ESP_LOGI(TAG,"connect to the AP fail");
+    } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+        ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
+        ESP_LOGI(TAG, "got ip:" IPSTR, IP2STR(&event->ip_info.ip));
+        s_retry_num = 0;
+        xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
     }
 }
 
-/**
- * Test: Verify preimage (offline proof verification)
- */
-static void test_preimage_verify(void)
+void wifi_init_sta(void)
 {
-    ESP_LOGI(TAG, "=== Preimage Verification Test ===");
-    
-    // Example: payment hash and preimage (both 32 bytes hex)
-    // In real use: hash comes from invoice, preimage from payment proof header
-    const char *test_preimage = "0000000000000000000000000000000000000000000000000000000000000000";
-    
-    // Create a mock invoice with known hash
-    wy_fiber_invoice_t invoice = {0};
-    // SHA256("0000...") for testing - in real use this comes from decoded invoice
-    
-    esp_err_t err = wy_fiber_verify_preimage(&invoice, test_preimage);
-    if (err == ESP_OK) {
-        ESP_LOGI(TAG, "✓ Preimage valid");
+    s_wifi_event_group = xEventGroupCreate();
+
+    ESP_ERROR_CHECK(esp_netif_init());
+
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    esp_netif_create_default_wifi_sta();
+
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+
+    esp_event_handler_instance_t instance_any_id;
+    esp_event_handler_instance_t instance_got_ip;
+    ESP_ERROR_CHECK(esp_event_handler_instance_register(WIFI_EVENT,
+                                                        ESP_EVENT_ANY_ID,
+                                                        &event_handler,
+                                                        NULL,
+                                                        &instance_any_id));
+    ESP_ERROR_CHECK(esp_event_handler_instance_register(IP_EVENT,
+                                                        IP_EVENT_STA_GOT_IP,
+                                                        &event_handler,
+                                                        NULL,
+                                                        &instance_got_ip));
+
+    wifi_config_t wifi_config = {
+        .sta = {
+            .ssid = CONFIG_EXAMPLE_WIFI_SSID,
+            .password = CONFIG_EXAMPLE_WIFI_PASS,
+            /* Authmode threshold resets to WPA2 as default if password matches WPA2 standards (password len => 8).
+             * If you want to connect the device to deprecated WEP/WPA networks, Please set the threshold value
+             * to WIFI_AUTH_WEP/WIFI_AUTH_WPA_PSK and set the password with length and format matching to
+             * WIFI_AUTH_WEP/WIFI_AUTH_WPA_PSK standards.
+             */
+            .threshold.authmode = WIFI_AUTH_WPA2_PSK,
+            .sae_pwe_h2e = WPA3_SAE_PWE_BOTH,
+        },
+    };
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config) );
+    ESP_ERROR_CHECK(esp_wifi_start() );
+
+    ESP_LOGI(TAG, "wifi_init_sta finished.");
+
+    /* Waiting until either the connection is established (WIFI_CONNECTED_BIT) or connection failed for the maximum
+     * number of re-tries (WIFI_FAIL_BIT). The bits are set by event_handler() (see above) */
+    EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
+            WIFI_CONNECTED_BIT | WIFI_FAIL_BIT,
+            pdFALSE,
+            pdFALSE,
+            portMAX_DELAY);
+
+    /* xEventGroupWaitBits() returns the bits before the call returned, hence we can test which event actually
+     * happened. */
+    if (bits & WIFI_CONNECTED_BIT) {
+        ESP_LOGI(TAG, "connected to ap SSID:%s", CONFIG_EXAMPLE_WIFI_SSID);
+    } else if (bits & WIFI_FAIL_BIT) {
+        ESP_LOGI(TAG, "Failed to connect to SSID:%s", CONFIG_EXAMPLE_WIFI_SSID);
     } else {
-        ESP_LOGW(TAG, "✗ Preimage invalid (expected - mock data)");
+        ESP_LOGE(TAG, "UNEXPECTED EVENT");
     }
+}
+
+static void agentpay_demo_task(void *pvParameters)
+{
+    ESP_LOGI(TAG, "Starting wyAgentPay demo...");
+    
+    // Configure wyAgentPay
+    wy_agentpay_config_t config = {
+        .fiber_rpc_url      = CONFIG_EXAMPLE_FIBER_RPC_URL,
+        .payment_timeout_ms = 30000,
+    };
+    strncpy(config.node_description, "ESP32-P4 Demo", sizeof(config.node_description)-1);
+    
+    esp_err_t err = wy_agentpay_init(&config);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "AgentPay init failed: 0x%x", err);
+        vTaskDelete(NULL);
+        return;
+    }
+    
+    ESP_LOGI(TAG, "AgentPay initialized ✓");
+    ESP_LOGI(TAG, "Calling: %s", CONFIG_EXAMPLE_TARGET_URL);
+    
+    // Make HTTP request (wyAgentPay handles 402 automatically)
+    char resp_buf[2048];
+    int http_status;
+    err = wy_agentpay_call(CONFIG_EXAMPLE_TARGET_URL, "GET", NULL, 
+                           resp_buf, sizeof(resp_buf), &http_status);
+    
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "✓ HTTP %d — Payment flow complete!", http_status);
+        ESP_LOGI(TAG, "Response: %.100s%s", resp_buf, strlen(resp_buf) > 100 ? "..." : "");
+    } else {
+        ESP_LOGE(TAG, "Request failed: 0x%x", err);
+    }
+    
+    vTaskDelay(pdMS_TO_TICKS(5000));
+    ESP_LOGI(TAG, "Demo complete. Restarting in 10s...");
+    vTaskDelay(pdMS_TO_TICKS(10000));
+    esp_restart();
 }
 
 void app_main(void)
 {
     ESP_LOGI(TAG, "╔══════════════════════════════════════════════════╗");
-    ESP_LOGI(TAG, "║  wyEspAgentPay — ESP32-P4 Test                   ║");
+    ESP_LOGI(TAG, "║  wyEspAgentPay — ESP32-P4 + C6 WiFi Demo        ║");
     ESP_LOGI(TAG, "╚══════════════════════════════════════════════════╝");
     
-    // Init NVS
+    // Initialize NVS
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-        ESP_ERROR_CHECK(nvs_flash_erase());
-        ret = nvs_flash_init();
+      ESP_ERROR_CHECK(nvs_flash_erase());
+      ret = nvs_flash_init();
     }
     ESP_ERROR_CHECK(ret);
     
-    ESP_LOGI(TAG, "Board: ESP32-P4 (400MHz RISC-V)");
-    ESP_LOGI(TAG, "WiFi: C6 coprocessor (SDIO) — not configured yet");
+    ESP_LOGI(TAG, "Board: ESP32-P4 @ 400MHz (RISC-V)");
+    ESP_LOGI(TAG, "WiFi: ESP32-C6 coprocessor (SDIO)");
     ESP_LOGI(TAG, "Libraries: wy_fiber_rpc, wy_agentpay, wy_x402");
     ESP_LOGI(TAG, "");
     
-    // Test 1: Invoice decoder
-    test_invoice_decode();
-    ESP_LOGI(TAG, "");
+    // Connect to WiFi
+    ESP_LOGI(TAG, "Connecting to WiFi...");
+    wifi_init_sta();
     
-    vTaskDelay(pdMS_TO_TICKS(2000));
-    
-    // Test 2: Preimage verification
-    test_preimage_verify();
-    ESP_LOGI(TAG, "");
-    
-    ESP_LOGI(TAG, "=== All tests complete ===");
-    ESP_LOGI(TAG, "");
-    ESP_LOGI(TAG, "Next steps:");
-    ESP_LOGI(TAG, "1. Flash AT firmware to C6 coprocessor");
-    ESP_LOGI(TAG, "2. Configure SDIO communication (P4 ↔ C6)");
-    ESP_LOGI(TAG, "3. Enable wyAgentPay network features");
-    ESP_LOGI(TAG, "");
-    ESP_LOGI(TAG, "See: https://github.com/espressif/esp-at");
-    
-    while (1) {
-        vTaskDelay(pdMS_TO_TICKS(10000));
-    }
+    // Start payment demo
+    xTaskCreate(agentpay_demo_task, "agentpay_demo", 8192, NULL, 5, NULL);
 }

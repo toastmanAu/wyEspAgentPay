@@ -544,6 +544,26 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__esp_hosted/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__esp_serial_slave_link/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__eppp_link/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__esp_wifi_remote/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/home/phill/wyEspAgentPay/example/build/esp-idf/main/cmake_install.cmake")
 endif()
 

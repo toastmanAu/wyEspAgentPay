@@ -46,6 +46,8 @@ esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_cons
  /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types_generic.h \
  /home/phill/esp/esp-idf/components/esp_event/include/esp_event_base.h \
  /home/phill/esp/esp-idf/components/esp_hw_support/include/esp_interface.h \
+ /home/phill/esp/esp-idf/components/esp_wifi/include/local/esp_wifi_types_native.h \
+ /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types_generic.h \
  /home/phill/esp/esp-idf/components/esp_event/include/esp_event.h \
  /home/phill/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h \
  /home/phill/esp/esp-idf/components/freertos/config/include/freertos/FreeRTOSConfig.h \

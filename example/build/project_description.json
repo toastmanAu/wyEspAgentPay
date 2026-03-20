@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "agentpay_example",
-    "project_version":    "a628ae1-dirty",
+    "project_version":    "4d898a3-dirty",
     "project_path":       "/home/phill/wyEspAgentPay/example",
     "idf_path":           "/home/phill/esp/esp-idf",
     "build_dir":          "/home/phill/wyEspAgentPay/example/build",
@@ -21,12 +21,12 @@
     "monitor_toolprefix": "riscv32-esp-elf-",
     "c_compiler":         "/home/phill/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/riscv32-esp-elf-gcc",
     "config_environment" : {
-        "COMPONENT_KCONFIGS" : "/home/phill/esp/esp-idf/components/app_trace/Kconfig;/home/phill/esp/esp-idf/components/bt/Kconfig;/home/phill/esp/esp-idf/components/console/Kconfig;/home/phill/esp/esp-idf/components/driver/Kconfig;/home/phill/esp/esp-idf/components/efuse/Kconfig;/home/phill/esp/esp-idf/components/esp-tls/Kconfig;/home/phill/esp/esp-idf/components/esp_adc/Kconfig;/home/phill/esp/esp-idf/components/esp_coex/Kconfig;/home/phill/esp/esp-idf/components/esp_common/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_ana_cmpr/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_cam/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_dac/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_gpio/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_gptimer/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_i2c/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_i2s/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_isp/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_jpeg/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_ledc/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_mcpwm/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_parlio/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_pcnt/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_rmt/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_sdm/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_spi/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_touch_sens/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_tsens/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_uart/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_usb_serial_jtag/Kconfig;/home/phill/esp/esp-idf/components/esp_eth/Kconfig;/home/phill/esp/esp-idf/components/esp_event/Kconfig;/home/phill/esp/esp-idf/components/esp_gdbstub/Kconfig;/home/phill/esp/esp-idf/components/esp_http_client/Kconfig;/home/phill/esp/esp-idf/components/esp_http_server/Kconfig;/home/phill/esp/esp-idf/components/esp_https_ota/Kconfig;/home/phill/esp/esp-idf/components/esp_https_server/Kconfig;/home/phill/esp/esp-idf/components/esp_hw_support/Kconfig;/home/phill/esp/esp-idf/components/esp_lcd/Kconfig;/home/phill/esp/esp-idf/components/esp_netif/Kconfig;/home/phill/esp/esp-idf/components/esp_partition/Kconfig;/home/phill/esp/esp-idf/components/esp_pm/Kconfig;/home/phill/esp/esp-idf/components/esp_psram/Kconfig;/home/phill/esp/esp-idf/components/esp_ringbuf/Kconfig;/home/phill/esp/esp-idf/components/esp_system/Kconfig;/home/phill/esp/esp-idf/components/esp_timer/Kconfig;/home/phill/esp/esp-idf/components/esp_wifi/Kconfig;/home/phill/esp/esp-idf/components/espcoredump/Kconfig;/home/phill/esp/esp-idf/components/fatfs/Kconfig;/home/phill/esp/esp-idf/components/freertos/Kconfig;/home/phill/esp/esp-idf/components/hal/Kconfig;/home/phill/esp/esp-idf/components/heap/Kconfig;/home/phill/esp/esp-idf/components/ieee802154/Kconfig;/home/phill/esp/esp-idf/components/log/Kconfig;/home/phill/esp/esp-idf/components/lwip/Kconfig;/home/phill/esp/esp-idf/components/mbedtls/Kconfig;/home/phill/esp/esp-idf/components/mqtt/esp-mqtt/Kconfig;/home/phill/esp/esp-idf/components/newlib/Kconfig;/home/phill/esp/esp-idf/components/nvs_flash/Kconfig;/home/phill/esp/esp-idf/components/nvs_sec_provider/Kconfig;/home/phill/esp/esp-idf/components/openthread/Kconfig;/home/phill/esp/esp-idf/components/protocomm/Kconfig;/home/phill/esp/esp-idf/components/pthread/Kconfig;/home/phill/esp/esp-idf/components/soc/Kconfig;/home/phill/esp/esp-idf/components/spi_flash/Kconfig;/home/phill/esp/esp-idf/components/spiffs/Kconfig;/home/phill/esp/esp-idf/components/tcp_transport/Kconfig;/home/phill/esp/esp-idf/components/ulp/Kconfig;/home/phill/esp/esp-idf/components/unity/Kconfig;/home/phill/esp/esp-idf/components/usb/Kconfig;/home/phill/esp/esp-idf/components/vfs/Kconfig;/home/phill/esp/esp-idf/components/wear_levelling/Kconfig;/home/phill/esp/esp-idf/components/wifi_provisioning/Kconfig",
+        "COMPONENT_KCONFIGS" : "/home/phill/esp/esp-idf/components/app_trace/Kconfig;/home/phill/esp/esp-idf/components/bt/Kconfig;/home/phill/esp/esp-idf/components/console/Kconfig;/home/phill/esp/esp-idf/components/driver/Kconfig;/home/phill/esp/esp-idf/components/efuse/Kconfig;/home/phill/esp/esp-idf/components/esp-tls/Kconfig;/home/phill/esp/esp-idf/components/esp_adc/Kconfig;/home/phill/esp/esp-idf/components/esp_coex/Kconfig;/home/phill/esp/esp-idf/components/esp_common/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_ana_cmpr/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_cam/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_dac/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_gpio/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_gptimer/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_i2c/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_i2s/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_isp/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_jpeg/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_ledc/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_mcpwm/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_parlio/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_pcnt/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_rmt/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_sdm/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_spi/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_touch_sens/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_tsens/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_uart/Kconfig;/home/phill/esp/esp-idf/components/esp_driver_usb_serial_jtag/Kconfig;/home/phill/esp/esp-idf/components/esp_eth/Kconfig;/home/phill/esp/esp-idf/components/esp_event/Kconfig;/home/phill/esp/esp-idf/components/esp_gdbstub/Kconfig;/home/phill/esp/esp-idf/components/esp_http_client/Kconfig;/home/phill/esp/esp-idf/components/esp_http_server/Kconfig;/home/phill/esp/esp-idf/components/esp_https_ota/Kconfig;/home/phill/esp/esp-idf/components/esp_https_server/Kconfig;/home/phill/esp/esp-idf/components/esp_hw_support/Kconfig;/home/phill/esp/esp-idf/components/esp_lcd/Kconfig;/home/phill/esp/esp-idf/components/esp_netif/Kconfig;/home/phill/esp/esp-idf/components/esp_partition/Kconfig;/home/phill/esp/esp-idf/components/esp_pm/Kconfig;/home/phill/esp/esp-idf/components/esp_psram/Kconfig;/home/phill/esp/esp-idf/components/esp_ringbuf/Kconfig;/home/phill/esp/esp-idf/components/esp_system/Kconfig;/home/phill/esp/esp-idf/components/esp_timer/Kconfig;/home/phill/esp/esp-idf/components/esp_wifi/Kconfig;/home/phill/esp/esp-idf/components/espcoredump/Kconfig;/home/phill/esp/esp-idf/components/fatfs/Kconfig;/home/phill/esp/esp-idf/components/freertos/Kconfig;/home/phill/esp/esp-idf/components/hal/Kconfig;/home/phill/esp/esp-idf/components/heap/Kconfig;/home/phill/esp/esp-idf/components/ieee802154/Kconfig;/home/phill/esp/esp-idf/components/log/Kconfig;/home/phill/esp/esp-idf/components/lwip/Kconfig;/home/phill/esp/esp-idf/components/mbedtls/Kconfig;/home/phill/esp/esp-idf/components/mqtt/esp-mqtt/Kconfig;/home/phill/esp/esp-idf/components/newlib/Kconfig;/home/phill/esp/esp-idf/components/nvs_flash/Kconfig;/home/phill/esp/esp-idf/components/nvs_sec_provider/Kconfig;/home/phill/esp/esp-idf/components/openthread/Kconfig;/home/phill/esp/esp-idf/components/protocomm/Kconfig;/home/phill/esp/esp-idf/components/pthread/Kconfig;/home/phill/esp/esp-idf/components/soc/Kconfig;/home/phill/esp/esp-idf/components/spi_flash/Kconfig;/home/phill/esp/esp-idf/components/spiffs/Kconfig;/home/phill/esp/esp-idf/components/tcp_transport/Kconfig;/home/phill/esp/esp-idf/components/ulp/Kconfig;/home/phill/esp/esp-idf/components/unity/Kconfig;/home/phill/esp/esp-idf/components/usb/Kconfig;/home/phill/esp/esp-idf/components/vfs/Kconfig;/home/phill/esp/esp-idf/components/wear_levelling/Kconfig;/home/phill/esp/esp-idf/components/wifi_provisioning/Kconfig;/home/phill/wyEspAgentPay/example/managed_components/espressif__eppp_link/Kconfig;/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_hosted/Kconfig;/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/Kconfig",
         "COMPONENT_KCONFIGS_PROJBUILD" : "/home/phill/esp/esp-idf/components/bootloader/Kconfig.projbuild;/home/phill/esp/esp-idf/components/esp_app_format/Kconfig.projbuild;/home/phill/esp/esp-idf/components/esp_rom/Kconfig.projbuild;/home/phill/esp/esp-idf/components/esptool_py/Kconfig.projbuild;/home/phill/esp/esp-idf/components/partition_table/Kconfig.projbuild;/home/phill/wyEspAgentPay/example/main/Kconfig.projbuild"
     },
     "common_component_reqs": [ "cxx", "newlib", "freertos", "esp_hw_support", "heap", "log", "soc", "hal", "esp_rom", "esp_common", "esp_system", "riscv" ],
-    "build_components" : [ "app_trace", "app_update", "bootloader", "bootloader_support", "bt", "cmock", "console", "cxx", "driver", "efuse", "esp-tls", "esp_adc", "esp_app_format", "esp_bootloader_format", "esp_coex", "esp_common", "esp_driver_ana_cmpr", "esp_driver_cam", "esp_driver_dac", "esp_driver_gpio", "esp_driver_gptimer", "esp_driver_i2c", "esp_driver_i2s", "esp_driver_isp", "esp_driver_jpeg", "esp_driver_ledc", "esp_driver_mcpwm", "esp_driver_parlio", "esp_driver_pcnt", "esp_driver_ppa", "esp_driver_rmt", "esp_driver_sdio", "esp_driver_sdm", "esp_driver_sdmmc", "esp_driver_sdspi", "esp_driver_spi", "esp_driver_touch_sens", "esp_driver_tsens", "esp_driver_uart", "esp_driver_usb_serial_jtag", "esp_eth", "esp_event", "esp_gdbstub", "esp_hid", "esp_http_client", "esp_http_server", "esp_https_ota", "esp_https_server", "esp_hw_support", "esp_lcd", "esp_local_ctrl", "esp_mm", "esp_netif", "esp_netif_stack", "esp_partition", "esp_pm", "esp_psram", "esp_ringbuf", "esp_rom", "esp_system", "esp_timer", "esp_vfs_console", "esp_wifi", "espcoredump", "esptool_py", "fatfs", "freertos", "hal", "heap", "http_parser", "idf_test", "ieee802154", "json", "log", "lwip", "main", "mbedtls", "mqtt", "newlib", "nvs_flash", "nvs_sec_provider", "openthread", "partition_table", "protobuf-c", "protocomm", "pthread", "riscv", "sdmmc", "soc", "spi_flash", "spiffs", "tcp_transport", "ulp", "unity", "usb", "vfs", "wear_levelling", "wifi_provisioning", "wpa_supplicant", "wy_agentpay", "wy_fiber_rpc", "wy_x402", "" ],
-    "build_component_paths" : [ "/home/phill/esp/esp-idf/components/app_trace", "/home/phill/esp/esp-idf/components/app_update", "/home/phill/esp/esp-idf/components/bootloader", "/home/phill/esp/esp-idf/components/bootloader_support", "/home/phill/esp/esp-idf/components/bt", "/home/phill/esp/esp-idf/components/cmock", "/home/phill/esp/esp-idf/components/console", "/home/phill/esp/esp-idf/components/cxx", "/home/phill/esp/esp-idf/components/driver", "/home/phill/esp/esp-idf/components/efuse", "/home/phill/esp/esp-idf/components/esp-tls", "/home/phill/esp/esp-idf/components/esp_adc", "/home/phill/esp/esp-idf/components/esp_app_format", "/home/phill/esp/esp-idf/components/esp_bootloader_format", "/home/phill/esp/esp-idf/components/esp_coex", "/home/phill/esp/esp-idf/components/esp_common", "/home/phill/esp/esp-idf/components/esp_driver_ana_cmpr", "/home/phill/esp/esp-idf/components/esp_driver_cam", "/home/phill/esp/esp-idf/components/esp_driver_dac", "/home/phill/esp/esp-idf/components/esp_driver_gpio", "/home/phill/esp/esp-idf/components/esp_driver_gptimer", "/home/phill/esp/esp-idf/components/esp_driver_i2c", "/home/phill/esp/esp-idf/components/esp_driver_i2s", "/home/phill/esp/esp-idf/components/esp_driver_isp", "/home/phill/esp/esp-idf/components/esp_driver_jpeg", "/home/phill/esp/esp-idf/components/esp_driver_ledc", "/home/phill/esp/esp-idf/components/esp_driver_mcpwm", "/home/phill/esp/esp-idf/components/esp_driver_parlio", "/home/phill/esp/esp-idf/components/esp_driver_pcnt", "/home/phill/esp/esp-idf/components/esp_driver_ppa", "/home/phill/esp/esp-idf/components/esp_driver_rmt", "/home/phill/esp/esp-idf/components/esp_driver_sdio", "/home/phill/esp/esp-idf/components/esp_driver_sdm", "/home/phill/esp/esp-idf/components/esp_driver_sdmmc", "/home/phill/esp/esp-idf/components/esp_driver_sdspi", "/home/phill/esp/esp-idf/components/esp_driver_spi", "/home/phill/esp/esp-idf/components/esp_driver_touch_sens", "/home/phill/esp/esp-idf/components/esp_driver_tsens", "/home/phill/esp/esp-idf/components/esp_driver_uart", "/home/phill/esp/esp-idf/components/esp_driver_usb_serial_jtag", "/home/phill/esp/esp-idf/components/esp_eth", "/home/phill/esp/esp-idf/components/esp_event", "/home/phill/esp/esp-idf/components/esp_gdbstub", "/home/phill/esp/esp-idf/components/esp_hid", "/home/phill/esp/esp-idf/components/esp_http_client", "/home/phill/esp/esp-idf/components/esp_http_server", "/home/phill/esp/esp-idf/components/esp_https_ota", "/home/phill/esp/esp-idf/components/esp_https_server", "/home/phill/esp/esp-idf/components/esp_hw_support", "/home/phill/esp/esp-idf/components/esp_lcd", "/home/phill/esp/esp-idf/components/esp_local_ctrl", "/home/phill/esp/esp-idf/components/esp_mm", "/home/phill/esp/esp-idf/components/esp_netif", "/home/phill/esp/esp-idf/components/esp_netif_stack", "/home/phill/esp/esp-idf/components/esp_partition", "/home/phill/esp/esp-idf/components/esp_pm", "/home/phill/esp/esp-idf/components/esp_psram", "/home/phill/esp/esp-idf/components/esp_ringbuf", "/home/phill/esp/esp-idf/components/esp_rom", "/home/phill/esp/esp-idf/components/esp_system", "/home/phill/esp/esp-idf/components/esp_timer", "/home/phill/esp/esp-idf/components/esp_vfs_console", "/home/phill/esp/esp-idf/components/esp_wifi", "/home/phill/esp/esp-idf/components/espcoredump", "/home/phill/esp/esp-idf/components/esptool_py", "/home/phill/esp/esp-idf/components/fatfs", "/home/phill/esp/esp-idf/components/freertos", "/home/phill/esp/esp-idf/components/hal", "/home/phill/esp/esp-idf/components/heap", "/home/phill/esp/esp-idf/components/http_parser", "/home/phill/esp/esp-idf/components/idf_test", "/home/phill/esp/esp-idf/components/ieee802154", "/home/phill/esp/esp-idf/components/json", "/home/phill/esp/esp-idf/components/log", "/home/phill/esp/esp-idf/components/lwip", "/home/phill/wyEspAgentPay/example/main", "/home/phill/esp/esp-idf/components/mbedtls", "/home/phill/esp/esp-idf/components/mqtt", "/home/phill/esp/esp-idf/components/newlib", "/home/phill/esp/esp-idf/components/nvs_flash", "/home/phill/esp/esp-idf/components/nvs_sec_provider", "/home/phill/esp/esp-idf/components/openthread", "/home/phill/esp/esp-idf/components/partition_table", "/home/phill/esp/esp-idf/components/protobuf-c", "/home/phill/esp/esp-idf/components/protocomm", "/home/phill/esp/esp-idf/components/pthread", "/home/phill/esp/esp-idf/components/riscv", "/home/phill/esp/esp-idf/components/sdmmc", "/home/phill/esp/esp-idf/components/soc", "/home/phill/esp/esp-idf/components/spi_flash", "/home/phill/esp/esp-idf/components/spiffs", "/home/phill/esp/esp-idf/components/tcp_transport", "/home/phill/esp/esp-idf/components/ulp", "/home/phill/esp/esp-idf/components/unity", "/home/phill/esp/esp-idf/components/usb", "/home/phill/esp/esp-idf/components/vfs", "/home/phill/esp/esp-idf/components/wear_levelling", "/home/phill/esp/esp-idf/components/wifi_provisioning", "/home/phill/esp/esp-idf/components/wpa_supplicant", "/home/phill/wyEspAgentPay/components/wy_agentpay", "/home/phill/wyEspAgentPay/components/wy_fiber_rpc", "/home/phill/wyEspAgentPay/components/wy_x402", "" ],
+    "build_components" : [ "app_trace", "app_update", "bootloader", "bootloader_support", "bt", "cmock", "console", "cxx", "driver", "efuse", "esp-tls", "esp_adc", "esp_app_format", "esp_bootloader_format", "esp_coex", "esp_common", "esp_driver_ana_cmpr", "esp_driver_cam", "esp_driver_dac", "esp_driver_gpio", "esp_driver_gptimer", "esp_driver_i2c", "esp_driver_i2s", "esp_driver_isp", "esp_driver_jpeg", "esp_driver_ledc", "esp_driver_mcpwm", "esp_driver_parlio", "esp_driver_pcnt", "esp_driver_ppa", "esp_driver_rmt", "esp_driver_sdio", "esp_driver_sdm", "esp_driver_sdmmc", "esp_driver_sdspi", "esp_driver_spi", "esp_driver_touch_sens", "esp_driver_tsens", "esp_driver_uart", "esp_driver_usb_serial_jtag", "esp_eth", "esp_event", "esp_gdbstub", "esp_hid", "esp_http_client", "esp_http_server", "esp_https_ota", "esp_https_server", "esp_hw_support", "esp_lcd", "esp_local_ctrl", "esp_mm", "esp_netif", "esp_netif_stack", "esp_partition", "esp_pm", "esp_psram", "esp_ringbuf", "esp_rom", "esp_system", "esp_timer", "esp_vfs_console", "esp_wifi", "espcoredump", "espressif__eppp_link", "espressif__esp_hosted", "espressif__esp_serial_slave_link", "espressif__esp_wifi_remote", "esptool_py", "fatfs", "freertos", "hal", "heap", "http_parser", "idf_test", "ieee802154", "json", "log", "lwip", "main", "mbedtls", "mqtt", "newlib", "nvs_flash", "nvs_sec_provider", "openthread", "partition_table", "protobuf-c", "protocomm", "pthread", "riscv", "sdmmc", "soc", "spi_flash", "spiffs", "tcp_transport", "ulp", "unity", "usb", "vfs", "wear_levelling", "wifi_provisioning", "wpa_supplicant", "wy_agentpay", "wy_fiber_rpc", "wy_x402", "" ],
+    "build_component_paths" : [ "/home/phill/esp/esp-idf/components/app_trace", "/home/phill/esp/esp-idf/components/app_update", "/home/phill/esp/esp-idf/components/bootloader", "/home/phill/esp/esp-idf/components/bootloader_support", "/home/phill/esp/esp-idf/components/bt", "/home/phill/esp/esp-idf/components/cmock", "/home/phill/esp/esp-idf/components/console", "/home/phill/esp/esp-idf/components/cxx", "/home/phill/esp/esp-idf/components/driver", "/home/phill/esp/esp-idf/components/efuse", "/home/phill/esp/esp-idf/components/esp-tls", "/home/phill/esp/esp-idf/components/esp_adc", "/home/phill/esp/esp-idf/components/esp_app_format", "/home/phill/esp/esp-idf/components/esp_bootloader_format", "/home/phill/esp/esp-idf/components/esp_coex", "/home/phill/esp/esp-idf/components/esp_common", "/home/phill/esp/esp-idf/components/esp_driver_ana_cmpr", "/home/phill/esp/esp-idf/components/esp_driver_cam", "/home/phill/esp/esp-idf/components/esp_driver_dac", "/home/phill/esp/esp-idf/components/esp_driver_gpio", "/home/phill/esp/esp-idf/components/esp_driver_gptimer", "/home/phill/esp/esp-idf/components/esp_driver_i2c", "/home/phill/esp/esp-idf/components/esp_driver_i2s", "/home/phill/esp/esp-idf/components/esp_driver_isp", "/home/phill/esp/esp-idf/components/esp_driver_jpeg", "/home/phill/esp/esp-idf/components/esp_driver_ledc", "/home/phill/esp/esp-idf/components/esp_driver_mcpwm", "/home/phill/esp/esp-idf/components/esp_driver_parlio", "/home/phill/esp/esp-idf/components/esp_driver_pcnt", "/home/phill/esp/esp-idf/components/esp_driver_ppa", "/home/phill/esp/esp-idf/components/esp_driver_rmt", "/home/phill/esp/esp-idf/components/esp_driver_sdio", "/home/phill/esp/esp-idf/components/esp_driver_sdm", "/home/phill/esp/esp-idf/components/esp_driver_sdmmc", "/home/phill/esp/esp-idf/components/esp_driver_sdspi", "/home/phill/esp/esp-idf/components/esp_driver_spi", "/home/phill/esp/esp-idf/components/esp_driver_touch_sens", "/home/phill/esp/esp-idf/components/esp_driver_tsens", "/home/phill/esp/esp-idf/components/esp_driver_uart", "/home/phill/esp/esp-idf/components/esp_driver_usb_serial_jtag", "/home/phill/esp/esp-idf/components/esp_eth", "/home/phill/esp/esp-idf/components/esp_event", "/home/phill/esp/esp-idf/components/esp_gdbstub", "/home/phill/esp/esp-idf/components/esp_hid", "/home/phill/esp/esp-idf/components/esp_http_client", "/home/phill/esp/esp-idf/components/esp_http_server", "/home/phill/esp/esp-idf/components/esp_https_ota", "/home/phill/esp/esp-idf/components/esp_https_server", "/home/phill/esp/esp-idf/components/esp_hw_support", "/home/phill/esp/esp-idf/components/esp_lcd", "/home/phill/esp/esp-idf/components/esp_local_ctrl", "/home/phill/esp/esp-idf/components/esp_mm", "/home/phill/esp/esp-idf/components/esp_netif", "/home/phill/esp/esp-idf/components/esp_netif_stack", "/home/phill/esp/esp-idf/components/esp_partition", "/home/phill/esp/esp-idf/components/esp_pm", "/home/phill/esp/esp-idf/components/esp_psram", "/home/phill/esp/esp-idf/components/esp_ringbuf", "/home/phill/esp/esp-idf/components/esp_rom", "/home/phill/esp/esp-idf/components/esp_system", "/home/phill/esp/esp-idf/components/esp_timer", "/home/phill/esp/esp-idf/components/esp_vfs_console", "/home/phill/esp/esp-idf/components/esp_wifi", "/home/phill/esp/esp-idf/components/espcoredump", "/home/phill/wyEspAgentPay/example/managed_components/espressif__eppp_link", "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_hosted", "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_serial_slave_link", "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote", "/home/phill/esp/esp-idf/components/esptool_py", "/home/phill/esp/esp-idf/components/fatfs", "/home/phill/esp/esp-idf/components/freertos", "/home/phill/esp/esp-idf/components/hal", "/home/phill/esp/esp-idf/components/heap", "/home/phill/esp/esp-idf/components/http_parser", "/home/phill/esp/esp-idf/components/idf_test", "/home/phill/esp/esp-idf/components/ieee802154", "/home/phill/esp/esp-idf/components/json", "/home/phill/esp/esp-idf/components/log", "/home/phill/esp/esp-idf/components/lwip", "/home/phill/wyEspAgentPay/example/main", "/home/phill/esp/esp-idf/components/mbedtls", "/home/phill/esp/esp-idf/components/mqtt", "/home/phill/esp/esp-idf/components/newlib", "/home/phill/esp/esp-idf/components/nvs_flash", "/home/phill/esp/esp-idf/components/nvs_sec_provider", "/home/phill/esp/esp-idf/components/openthread", "/home/phill/esp/esp-idf/components/partition_table", "/home/phill/esp/esp-idf/components/protobuf-c", "/home/phill/esp/esp-idf/components/protocomm", "/home/phill/esp/esp-idf/components/pthread", "/home/phill/esp/esp-idf/components/riscv", "/home/phill/esp/esp-idf/components/sdmmc", "/home/phill/esp/esp-idf/components/soc", "/home/phill/esp/esp-idf/components/spi_flash", "/home/phill/esp/esp-idf/components/spiffs", "/home/phill/esp/esp-idf/components/tcp_transport", "/home/phill/esp/esp-idf/components/ulp", "/home/phill/esp/esp-idf/components/unity", "/home/phill/esp/esp-idf/components/usb", "/home/phill/esp/esp-idf/components/vfs", "/home/phill/esp/esp-idf/components/wear_levelling", "/home/phill/esp/esp-idf/components/wifi_provisioning", "/home/phill/esp/esp-idf/components/wpa_supplicant", "/home/phill/wyEspAgentPay/components/wy_agentpay", "/home/phill/wyEspAgentPay/components/wy_fiber_rpc", "/home/phill/wyEspAgentPay/components/wy_x402", "" ],
     "build_component_info" : {
         "app_trace": {
             "alias": "idf::app_trace",
@@ -970,8 +970,8 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/esp_wifi/libesp_wifi.a",
-            "sources": [ "/home/phill/esp/esp-idf/components/esp_wifi/src/wifi_default.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/wifi_netif.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/wifi_default_ap.c" ],
-            "include_dirs": [ "include", "wifi_apps/include", "wifi_apps/nan_app/include" ]
+            "sources": [ "/home/phill/esp/esp-idf/components/esp_wifi/src/lib_printf.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/mesh_event.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/smartconfig.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/wifi_init.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/wifi_default.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/wifi_netif.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/wifi_default_ap.c", "/home/phill/esp/esp-idf/components/esp_wifi/esp32p4/esp_adapter.c", "/home/phill/esp/esp-idf/components/esp_wifi/src/smartconfig_ack.c" ],
+            "include_dirs": [ "include", "wifi_apps/include", "wifi_apps/nan_app/include", "include/local" ]
         },
         "espcoredump": {
             "alias": "idf::espcoredump",
@@ -987,6 +987,66 @@
             "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/espcoredump/libespcoredump.a",
             "sources": [ "/home/phill/esp/esp-idf/components/espcoredump/src/core_dump_init.c", "/home/phill/esp/esp-idf/components/espcoredump/src/core_dump_common.c", "/home/phill/esp/esp-idf/components/espcoredump/src/core_dump_flash.c", "/home/phill/esp/esp-idf/components/espcoredump/src/core_dump_uart.c", "/home/phill/esp/esp-idf/components/espcoredump/src/core_dump_elf.c", "/home/phill/esp/esp-idf/components/espcoredump/src/core_dump_binary.c", "/home/phill/esp/esp-idf/components/espcoredump/src/core_dump_sha.c", "/home/phill/esp/esp-idf/components/espcoredump/src/core_dump_crc.c", "/home/phill/esp/esp-idf/components/espcoredump/src/port/riscv/core_dump_port.c" ],
             "include_dirs": [ "include", "include/port/riscv" ]
+        },
+        "espressif__eppp_link": {
+            "alias": "idf::espressif__eppp_link",
+            "target": "___idf_espressif__eppp_link",
+            "prefix": "idf",
+            "dir": "/home/phill/wyEspAgentPay/example/managed_components/espressif__eppp_link",
+            "type": "LIBRARY",
+            "lib": "__idf_espressif__eppp_link",
+            "reqs": [],
+            "priv_reqs": [ "esp_netif", "esp_timer", "esp_eth", "driver", "espressif__esp_serial_slave_link" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [ "espressif__esp_serial_slave_link" ],
+            "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__eppp_link/libespressif__eppp_link.a",
+            "sources": [ "/home/phill/wyEspAgentPay/example/managed_components/espressif__eppp_link/eppp_link.c", "/home/phill/wyEspAgentPay/example/managed_components/espressif__eppp_link/eppp_uart.c", "/home/phill/wyEspAgentPay/example/managed_components/espressif__eppp_link/eppp_netif_tun.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "espressif__esp_hosted": {
+            "alias": "idf::espressif__esp_hosted",
+            "target": "___idf_espressif__esp_hosted",
+            "prefix": "idf",
+            "dir": "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_hosted",
+            "type": "CONFIG_ONLY",
+            "lib": "__idf_espressif__esp_hosted",
+            "reqs": [ "esp_driver_sdmmc", "esp_driver_spi", "esp_driver_uart", "esp_driver_gpio", "esp_event" ],
+            "priv_reqs": [ "soc", "esp_netif", "esp_timer", "driver", "esp_wifi", "bt", "esp_http_client", "console", "wpa_supplicant" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "",
+            "sources": [],
+            "include_dirs": []
+        },
+        "espressif__esp_serial_slave_link": {
+            "alias": "idf::espressif__esp_serial_slave_link",
+            "target": "___idf_espressif__esp_serial_slave_link",
+            "prefix": "idf",
+            "dir": "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_serial_slave_link",
+            "type": "LIBRARY",
+            "lib": "__idf_espressif__esp_serial_slave_link",
+            "reqs": [ "sdmmc", "esp_driver_sdspi", "esp_driver_sdmmc" ],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__esp_serial_slave_link/libespressif__esp_serial_slave_link.a",
+            "sources": [ "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_serial_slave_link/essl.c", "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_serial_slave_link/essl_sdio.c", "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_serial_slave_link/essl_spi.c", "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_serial_slave_link/essl_sdio_defs.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "espressif__esp_wifi_remote": {
+            "alias": "idf::espressif__esp_wifi_remote",
+            "target": "___idf_espressif__esp_wifi_remote",
+            "prefix": "idf",
+            "dir": "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote",
+            "type": "LIBRARY",
+            "lib": "__idf_espressif__esp_wifi_remote",
+            "reqs": [ "esp_event", "esp_netif" ],
+            "priv_reqs": [ "esp_wifi", "esp-tls", "vfs", "espressif__eppp_link", "espressif__esp_hosted" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [ "espressif__eppp_link", "espressif__esp_hosted" ],
+            "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__esp_wifi_remote/libespressif__esp_wifi_remote.a",
+            "sources": [ "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote/idf_v5.3/esp_wifi_remote_weak.c" ],
+            "include_dirs": [ "include", "idf_v5.3/include" ]
         },
         "esptool_py": {
             "alias": "idf::esptool_py",
@@ -1161,9 +1221,9 @@
             "type": "LIBRARY",
             "lib": "__idf_main",
             "reqs": [ "nvs_flash", "esp_wifi", "esp_event", "esp_netif", "wy_agentpay" ],
-            "priv_reqs": [],
+            "priv_reqs": [ "espressif__esp_hosted", "espressif__esp_wifi_remote" ],
             "managed_reqs": [],
-            "managed_priv_reqs": [],
+            "managed_priv_reqs": [ "espressif__esp_hosted", "espressif__esp_wifi_remote" ],
             "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/main/libmain.a",
             "sources": [ "/home/phill/wyEspAgentPay/example/main/main.c" ],
             "include_dirs": [ "." ]
@@ -1495,7 +1555,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/wifi_provisioning/libwifi_provisioning.a",
-            "sources": [ "/home/phill/esp/esp-idf/components/wifi_provisioning/src/wifi_config.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/wifi_scan.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/wifi_ctrl.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/manager.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/handlers.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/scheme_console.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/proto-c/wifi_config.pb-c.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/proto-c/wifi_scan.pb-c.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/proto-c/wifi_ctrl.pb-c.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/proto-c/wifi_constants.pb-c.c" ],
+            "sources": [ "/home/phill/esp/esp-idf/components/wifi_provisioning/src/wifi_config.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/wifi_scan.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/wifi_ctrl.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/manager.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/handlers.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/scheme_console.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/proto-c/wifi_config.pb-c.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/proto-c/wifi_scan.pb-c.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/proto-c/wifi_ctrl.pb-c.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/proto-c/wifi_constants.pb-c.c", "/home/phill/esp/esp-idf/components/wifi_provisioning/src/scheme_softap.c" ],
             "include_dirs": [ "include" ]
         },
         "wpa_supplicant": {
@@ -1503,15 +1563,15 @@
             "target": "___idf_wpa_supplicant",
             "prefix": "idf",
             "dir": "/home/phill/esp/esp-idf/components/wpa_supplicant",
-            "type": "CONFIG_ONLY",
+            "type": "LIBRARY",
             "lib": "__idf_wpa_supplicant",
             "reqs": [],
             "priv_reqs": [ "mbedtls", "esp_timer", "esp_wifi" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "",
-            "sources": [],
-            "include_dirs": [ "esp_supplicant/include" ]
+            "file": "/home/phill/wyEspAgentPay/example/build/esp-idf/wpa_supplicant/libwpa_supplicant.a",
+            "sources": [ "/home/phill/esp/esp-idf/components/wpa_supplicant/port/os_xtensa.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/port/eloop.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/ap/ap_config.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/ap/ieee802_1x.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/ap/wpa_auth.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/ap/wpa_auth_ie.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/ap/pmksa_cache_auth.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/ap/sta_info.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/ap/ieee802_11.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/ap/comeback_token.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/common/sae.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/common/dragonfly.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/common/wpa_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/utils/bitfield.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/aes-siv.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/sha256-kdf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/ccmp.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/aes-gcm.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/crypto_ops.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/dh_group5.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/dh_groups.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/ms_funcs.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/sha1-tlsprf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/sha256-tlsprf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/sha384-tlsprf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/sha256-prf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/sha1-prf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/sha384-prf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/md4-internal.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/sha1-tprf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_common/eap_wsc_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/common/ieee802_11_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/chap.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_mschapv2.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_peap.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_peap_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_tls.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_tls_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_ttls.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/mschapv2.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_fast.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_fast_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/eap_peer/eap_fast_pac.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/rsn_supp/pmksa_cache.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/rsn_supp/wpa.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/rsn_supp/wpa_ie.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/utils/base64.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/utils/common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/utils/ext_password.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/utils/uuid.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/utils/wpabuf.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/utils/wpa_debug.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/utils/json.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/wps/wps.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/wps/wps_attr_build.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/wps/wps_attr_parse.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/wps/wps_attr_process.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/wps/wps_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/wps/wps_dev_attr.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/wps/wps_enrollee.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/common/sae_pk.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_eap_client.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wpa2_api_port.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wpa_main.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wpas_glue.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_common.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wps.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wpa3.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_owe.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_hostap.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/tls_mbedtls.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/fastpbkdf2.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-bignum.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-rsa.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-ec.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/rc4.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/des-internal.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/aes-wrap.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/aes-unwrap.c", "/home/phill/esp/esp-idf/components/wpa_supplicant/src/crypto/aes-ccm.c" ],
+            "include_dirs": [ "include", "port/include", "esp_supplicant/include" ]
         },
         "wy_agentpay": {
             "alias": "idf::wy_agentpay",
@@ -2326,7 +2386,7 @@
             "priv_reqs": [ "driver", "esptool_py", "esp_pm", "esp_timer", "nvs_flash", "wpa_supplicant", "hal", "lwip", "esp_coex" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "wifi_apps/include", "wifi_apps/nan_app/include" ]
+            "include_dirs": [ "include", "wifi_apps/include", "wifi_apps/nan_app/include", "include/local" ]
         },
         "espcoredump": {
             "alias": "idf::espcoredump",
@@ -2782,7 +2842,7 @@
             "priv_reqs": [ "mbedtls", "esp_timer", "esp_wifi" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "esp_supplicant/include" ]
+            "include_dirs": [ "include", "port/include", "esp_supplicant/include" ]
         },
         "xtensa": {
             "alias": "idf::xtensa",
@@ -2803,9 +2863,9 @@
             "dir": "/home/phill/wyEspAgentPay/example/main",
             "lib": "__idf_main",
             "reqs": [ "nvs_flash", "esp_wifi", "esp_event", "esp_netif", "wy_agentpay" ],
-            "priv_reqs": [],
+            "priv_reqs": [ "espressif__esp_hosted", "espressif__esp_wifi_remote" ],
             "managed_reqs": [],
-            "managed_priv_reqs": [],
+            "managed_priv_reqs": [ "espressif__esp_hosted", "espressif__esp_wifi_remote" ],
             "include_dirs": [ "." ]
         },
         "wy_agentpay": {
@@ -2843,6 +2903,54 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "include_dirs": [ "include" ]
+        },
+        "espressif__eppp_link": {
+            "alias": "idf::espressif__eppp_link",
+            "target": "___idf_espressif__eppp_link",
+            "prefix": "idf",
+            "dir": "/home/phill/wyEspAgentPay/example/managed_components/espressif__eppp_link",
+            "lib": "__idf_espressif__eppp_link",
+            "reqs": [],
+            "priv_reqs": [ "esp_netif", "esp_timer", "esp_eth", "driver", "espressif__esp_serial_slave_link" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [ "espressif__esp_serial_slave_link" ],
+            "include_dirs": [ "include" ]
+        },
+        "espressif__esp_hosted": {
+            "alias": "idf::espressif__esp_hosted",
+            "target": "___idf_espressif__esp_hosted",
+            "prefix": "idf",
+            "dir": "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_hosted",
+            "lib": "__idf_espressif__esp_hosted",
+            "reqs": [ "esp_driver_sdmmc", "esp_driver_spi", "esp_driver_uart", "esp_driver_gpio", "esp_event" ],
+            "priv_reqs": [ "soc", "esp_netif", "esp_timer", "driver", "esp_wifi", "bt", "esp_http_client", "console", "wpa_supplicant" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": []
+        },
+        "espressif__esp_serial_slave_link": {
+            "alias": "idf::espressif__esp_serial_slave_link",
+            "target": "___idf_espressif__esp_serial_slave_link",
+            "prefix": "idf",
+            "dir": "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_serial_slave_link",
+            "lib": "__idf_espressif__esp_serial_slave_link",
+            "reqs": [ "sdmmc", "esp_driver_sdspi", "esp_driver_sdmmc" ],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "include" ]
+        },
+        "espressif__esp_wifi_remote": {
+            "alias": "idf::espressif__esp_wifi_remote",
+            "target": "___idf_espressif__esp_wifi_remote",
+            "prefix": "idf",
+            "dir": "/home/phill/wyEspAgentPay/example/managed_components/espressif__esp_wifi_remote",
+            "lib": "__idf_espressif__esp_wifi_remote",
+            "reqs": [ "esp_event", "esp_netif" ],
+            "priv_reqs": [ "esp_wifi", "esp-tls", "vfs", "espressif__eppp_link", "espressif__esp_hosted" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [ "espressif__eppp_link", "espressif__esp_hosted" ],
+            "include_dirs": [ "include", "idf_v5.3/include" ]
         }
     },
     "debug_prefix_map_gdbinit": ""

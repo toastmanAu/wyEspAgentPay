@@ -45,6 +45,8 @@ esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/src/esp_err_to_name.c.obj: \
  /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types_generic.h \
  /home/phill/esp/esp-idf/components/esp_event/include/esp_event_base.h \
  /home/phill/esp/esp-idf/components/esp_hw_support/include/esp_interface.h \
+ /home/phill/esp/esp-idf/components/esp_wifi/include/local/esp_wifi_types_native.h \
+ /home/phill/esp/esp-idf/components/esp_wifi/include/esp_wifi_types_generic.h \
  /home/phill/esp/esp-idf/components/esp_hw_support/include/esp_ds_err.h \
  /home/phill/esp/esp-idf/components/efuse/include/esp_efuse.h \
  /home/phill/esp/esp-idf/components/log/include/esp_log.h \

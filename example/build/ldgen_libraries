@@ -49,6 +49,7 @@
 /home/phill/wyEspAgentPay/example/build/esp-idf/esp_driver_parlio/libesp_driver_parlio.a
 /home/phill/wyEspAgentPay/example/build/esp-idf/driver/libdriver.a
 /home/phill/wyEspAgentPay/example/build/esp-idf/nvs_flash/libnvs_flash.a
+/home/phill/wyEspAgentPay/example/build/esp-idf/wpa_supplicant/libwpa_supplicant.a
 /home/phill/wyEspAgentPay/example/build/esp-idf/esp_wifi/libesp_wifi.a
 /home/phill/wyEspAgentPay/example/build/esp-idf/unity/libunity.a
 /home/phill/wyEspAgentPay/example/build/esp-idf/cmock/libcmock.a
@@ -85,4 +86,7 @@
 /home/phill/wyEspAgentPay/example/build/esp-idf/wy_fiber_rpc/libwy_fiber_rpc.a
 /home/phill/wyEspAgentPay/example/build/esp-idf/wy_x402/libwy_x402.a
 /home/phill/wyEspAgentPay/example/build/esp-idf/wy_agentpay/libwy_agentpay.a
+/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__esp_serial_slave_link/libespressif__esp_serial_slave_link.a
+/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__eppp_link/libespressif__eppp_link.a
+/home/phill/wyEspAgentPay/example/build/esp-idf/espressif__esp_wifi_remote/libespressif__esp_wifi_remote.a
 /home/phill/wyEspAgentPay/example/build/esp-idf/main/libmain.a

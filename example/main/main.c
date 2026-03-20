@@ -1,110 +1,120 @@
 /**
- * example/main/main.c — wyEspAgentPay demo
- * =========================================
- * Demonstrates both payer and provider flows.
- *
- * Payer: connects to WiFi, calls a 402-protected URL, pays automatically.
- * Provider: not shown here — see wy_agentpay_server_* API in wy_agentpay.h.
- *
- * CONFIG (set via menuconfig or sdkconfig.defaults):
- *   CONFIG_EXAMPLE_WIFI_SSID
- *   CONFIG_EXAMPLE_WIFI_PASS
- *   CONFIG_EXAMPLE_FIBER_RPC_URL    e.g. "http://192.168.1.1:8227"
- *   CONFIG_EXAMPLE_TARGET_URL       e.g. "http://myservice.local/api/data"
- *
- * NO SECRETS ARE HARDCODED. All config is provided at build time via Kconfig.
+ * wyEspAgentPay ESP32-P4 Example
+ * ===============================
+ * Tests the Fiber invoice decoder without WiFi.
+ * 
+ * For WiFi: ESP32-P4 uses C6 coprocessor via SDIO.
+ * Flash AT firmware to C6, then use esp_at or esp_hosted driver.
  */
 
+#include <stdio.h>
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "esp_wifi.h"
-#include "esp_event.h"
+#include "esp_system.h"
 #include "esp_log.h"
 #include "nvs_flash.h"
-#include "esp_netif.h"
-#include "wy_agentpay.h"
 
-static const char *TAG = "agentpay_demo";
+#include "wy_fiber_invoice.h"
 
-/* ── WiFi helpers (minimal) ────────────────────────────────────── */
-static void wifi_event_handler(void *arg, esp_event_base_t base,
-                                int32_t id, void *data)
+static const char *TAG = "wyAgentPay_P4";
+
+/**
+ * Test: Decode a Fiber invoice (offline, no network)
+ */
+static void test_invoice_decode(void)
 {
-    if (base == WIFI_EVENT && id == WIFI_EVENT_STA_START) {
-        esp_wifi_connect();
-    } else if (base == IP_EVENT && id == IP_EVENT_STA_GOT_IP) {
-        ip_event_got_ip_t *e = (ip_event_got_ip_t *)data;
-        ESP_LOGI(TAG, "WiFi connected — IP: " IPSTR, IP2STR(&e->ip_info.ip));
-    }
-}
-
-static void wifi_init(void)
-{
-    esp_netif_init();
-    esp_event_loop_create_default();
-    esp_netif_create_default_wifi_sta();
-
-    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-    esp_wifi_init(&cfg);
-
-    esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID,  wifi_event_handler, NULL);
-    esp_event_handler_register(IP_EVENT,   IP_EVENT_STA_GOT_IP, wifi_event_handler, NULL);
-
-    wifi_config_t wcfg = {
-        .sta = {
-            .ssid     = CONFIG_EXAMPLE_WIFI_SSID,
-            .password = CONFIG_EXAMPLE_WIFI_PASS,
-        },
-    };
-    esp_wifi_set_mode(WIFI_MODE_STA);
-    esp_wifi_set_config(WIFI_IF_STA, &wcfg);
-    esp_wifi_start();
-
-    /* Wait for connection */
-    vTaskDelay(pdMS_TO_TICKS(5000));
-}
-
-/* ── Demo task ─────────────────────────────────────────────────── */
-static void agentpay_demo_task(void *pvParam)
-{
-    /* 1. Init AgentPay — verifies fnn connectivity */
-    wy_agentpay_config_t cfg = {
-        .fiber_rpc_url      = CONFIG_EXAMPLE_FIBER_RPC_URL,
-        .payment_timeout_ms = 30000,
-        .node_description   = "wyEspAgentPay demo",
-    };
-
-    esp_err_t err = wy_agentpay_init(&cfg);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "AgentPay init failed: 0x%x — check fnn is running", err);
-        vTaskDelete(NULL);
-        return;
-    }
-
-    /* 2. Make a paid API call — handles 402 automatically */
-    char response[2048] = {0};
-    int  http_status    = 0;
-
-    ESP_LOGI(TAG, "Calling: %s", CONFIG_EXAMPLE_TARGET_URL);
-    err = wy_agentpay_call(CONFIG_EXAMPLE_TARGET_URL,
-                            "GET", NULL,
-                            response, sizeof(response),
-                            &http_status);
-
+    ESP_LOGI(TAG, "=== Fiber Invoice Decoder Test ===");
+    
+    // Example testnet invoice (fibt1...) - replace with real one for testing
+    // This is a placeholder - actual invoices are much longer
+    const char *test_invoice = 
+        "fibt1qqqsyqcyq5rqwzqfqqqsyqcyq5rqwzqfqqqsyqcyq5rqwzqfqypqhp58yjmdan79s6qqdhdzgynm4zwqd5d7xmw5fk98klysy043l2ahrqsnp4q0n326hr8v9zprg8gsvezcch06gfaqqhde2aj730yg0durunfhv66859qfhxgqypm";
+    
+    wy_fiber_invoice_t decoded;
+    esp_err_t err = wy_fiber_invoice_decode(test_invoice, &decoded);
+    
     if (err == ESP_OK) {
-        ESP_LOGI(TAG, "Success (HTTP %d): %.200s", http_status, response);
+        ESP_LOGI(TAG, "✓ Decode SUCCESS");
+        ESP_LOGI(TAG, "  Currency: %s", 
+                 decoded.currency == WY_FIBER_TESTNET ? "testnet" : 
+                 decoded.currency == WY_FIBER_MAINNET ? "mainnet" : "devnet");
+        ESP_LOGI(TAG, "  Amount: %llu shannons", (unsigned long long)decoded.amount_shannons);
+        ESP_LOGI(TAG, "  Payment hash: %s", decoded.payment_hash_hex);
+        ESP_LOGI(TAG, "  Description: %s", decoded.description);
+        ESP_LOGI(TAG, "  Timestamp: %llu", (unsigned long long)decoded.timestamp);
+        ESP_LOGI(TAG, "  Expiry: %llu seconds", (unsigned long long)decoded.expiry_seconds);
     } else {
-        ESP_LOGE(TAG, "Call failed: 0x%x", err);
+        ESP_LOGE(TAG, "✗ Decode FAILED: 0x%x", err);
+        if (err == WY_INV_ERR_PREFIX) ESP_LOGE(TAG, "  Unknown currency prefix");
+        if (err == WY_INV_ERR_BECH32) ESP_LOGE(TAG, "  Bech32 decode error");
+        if (err == WY_INV_ERR_DECOMPRESS) ESP_LOGE(TAG, "  Arithmetic decompress failed");
+        if (err == WY_INV_ERR_PARSE) ESP_LOGE(TAG, "  Molecule parse error");
     }
-
-    vTaskDelete(NULL);
 }
 
-/* ── app_main ──────────────────────────────────────────────────── */
+/**
+ * Test: Verify preimage (offline proof verification)
+ */
+static void test_preimage_verify(void)
+{
+    ESP_LOGI(TAG, "=== Preimage Verification Test ===");
+    
+    // Example: payment hash and preimage (both 32 bytes hex)
+    // In real use: hash comes from invoice, preimage from payment proof header
+    const char *test_preimage = "0000000000000000000000000000000000000000000000000000000000000000";
+    
+    // Create a mock invoice with known hash
+    wy_fiber_invoice_t invoice = {0};
+    // SHA256("0000...") for testing - in real use this comes from decoded invoice
+    
+    esp_err_t err = wy_fiber_verify_preimage(&invoice, test_preimage);
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "✓ Preimage valid");
+    } else {
+        ESP_LOGW(TAG, "✗ Preimage invalid (expected - mock data)");
+    }
+}
+
 void app_main(void)
 {
-    nvs_flash_init();
-    wifi_init();
-    xTaskCreate(agentpay_demo_task, "agentpay", 8192, NULL, 5, NULL);
+    ESP_LOGI(TAG, "╔══════════════════════════════════════════════════╗");
+    ESP_LOGI(TAG, "║  wyEspAgentPay — ESP32-P4 Test                   ║");
+    ESP_LOGI(TAG, "╚══════════════════════════════════════════════════╝");
+    
+    // Init NVS
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+    
+    ESP_LOGI(TAG, "Board: ESP32-P4 (400MHz RISC-V)");
+    ESP_LOGI(TAG, "WiFi: C6 coprocessor (SDIO) — not configured yet");
+    ESP_LOGI(TAG, "Libraries: wy_fiber_rpc, wy_agentpay, wy_x402");
+    ESP_LOGI(TAG, "");
+    
+    // Test 1: Invoice decoder
+    test_invoice_decode();
+    ESP_LOGI(TAG, "");
+    
+    vTaskDelay(pdMS_TO_TICKS(2000));
+    
+    // Test 2: Preimage verification
+    test_preimage_verify();
+    ESP_LOGI(TAG, "");
+    
+    ESP_LOGI(TAG, "=== All tests complete ===");
+    ESP_LOGI(TAG, "");
+    ESP_LOGI(TAG, "Next steps:");
+    ESP_LOGI(TAG, "1. Flash AT firmware to C6 coprocessor");
+    ESP_LOGI(TAG, "2. Configure SDIO communication (P4 ↔ C6)");
+    ESP_LOGI(TAG, "3. Enable wyAgentPay network features");
+    ESP_LOGI(TAG, "");
+    ESP_LOGI(TAG, "See: https://github.com/espressif/esp-at");
+    
+    while (1) {
+        vTaskDelay(pdMS_TO_TICKS(10000));
+    }
 }
